@@ -1,0 +1,12 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Neue Montreal";
+}
+
+*::selection {
+    background-color: $accent-color-100;
+    color: $light-color-100;
+}
