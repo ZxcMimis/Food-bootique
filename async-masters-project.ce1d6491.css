@@ -1,2 +1,13 @@
+html {
+  scroll-behavior: smooth;
+}
 
+body {
+  font-family: Neue Montreal;
+}
+
+::selection {
+  color: #fafafa;
+  background-color: #6d8434;
+}
 /*# sourceMappingURL=async-masters-project.ce1d6491.css.map */
