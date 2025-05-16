@@ -2,9 +2,14 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-    font-family: "Neue Montreal";
-}
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('fonts/NeueMontreal-Regular.otf') format('opentype');
+  }
+
+  body {
+    font-family: 'Neue Montreal', sans-serif;
+  }
 
 *::selection {
     background-color: $accent-color-100;
