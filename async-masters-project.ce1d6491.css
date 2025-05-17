@@ -34,14 +34,89 @@ body {
 }
 
 .container {
+  outline: 1px solid red;
   width: 100%;
-  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 100px;
+  padding: 0 20px;
+}
+
+@media screen and (width >= 480px) {
+  .container {
+    width: 480px;
+  }
+}
+
+@media screen and (width >= 768px) {
+  .container {
+    width: 768px;
+    padding: 0 32px;
+  }
+}
+
+@media screen and (width >= 1304px) {
+  .container {
+    width: 1304px;
+  }
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: Neue Montreal;
+  src: url("NeueMontreal-Light.9363708f.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Neue Montreal;
+  src: url("NeueMontreal-LightItalic.57c42781.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Neue Montreal;
+  src: url("NeueMontreal-Regular.c90ad29e.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Neue Montreal;
+  src: url("NeueMontreal-Italic.17f5727e.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Neue Montreal;
+  src: url("NeueMontreal-Medium.61e78149.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Neue Montreal;
+  src: url("NeueMontreal-MediumItalic.2b08540f.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Neue Montreal;
+  src: url("NeueMontreal-Bold.da95f961.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Neue Montreal;
+  src: url("NeueMontreal-BoldItalic.3adb10c0.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
 }
 
 body {
@@ -85,17 +160,35 @@ body {
   display: flex;
 }
 
+@media screen and (width >= 768px) {
+  .filters__body {
+    flex-direction: row;
+    gap: 8px;
+  }
+}
+
 .filters__form {
   width: 100%;
   position: relative;
 }
 
+@media screen and (width >= 768px) {
+  .filters__form {
+    width: 269px;
+  }
+}
+
 .filters__input {
+  color: #010101;
   background-color: #0000;
   border: 1px solid #0101014d;
   border-radius: 30px;
   width: 100%;
   padding: 14px 20px;
+  font-family: Neue Montreal;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.29;
 }
 
 .filters__input::placeholder {
@@ -104,6 +197,13 @@ body {
   font-size: 14px;
   font-weight: 400;
   line-height: 1.29;
+}
+
+@media screen and (width >= 768px) {
+  .filters__input, .filters__input::placeholder {
+    font-size: 18px;
+    line-height: 1.33;
+  }
 }
 
 .filters__sub {
@@ -124,6 +224,12 @@ body {
   position: relative;
 }
 
+@media screen and (width >= 768px) {
+  .filters__categories {
+    width: 189px;
+  }
+}
+
 .filters__btn {
   color: #010101;
   background-color: #0000;
@@ -137,6 +243,13 @@ body {
   font-weight: 400;
   line-height: 1.29;
   display: flex;
+}
+
+@media screen and (width >= 768px) {
+  .filters__btn {
+    font-size: 18px;
+    line-height: 1.33;
+  }
 }
 
 .filters__icon {
@@ -154,7 +267,7 @@ body {
   padding: 14px 20px;
   display: flex;
   position: absolute;
-  bottom: -314px;
+  bottom: -380px;
   left: 0;
   box-shadow: 0 20px 69px #00000012, 0 4px 11.212px #0000000a;
 }
@@ -166,11 +279,19 @@ body {
   line-height: 1.29;
 }
 
+@media screen and (width >= 768px) {
+  .filters__item {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+
 .filters__item--checked {
   color: #010101;
 }
 
 .filters__alphabet {
+  width: 200px;
   position: relative;
 }
 
@@ -180,13 +301,12 @@ body {
 }
 
 .filters__alphabet .filters__list {
-  bottom: -210px;
+  bottom: -252px;
 }
 
 .popular__title {
   color: #010101;
   margin-bottom: 20px;
-  font-family: Neue Montreal;
   font-size: 24px;
   font-weight: 500;
   line-height: 1.17;
@@ -217,7 +337,6 @@ body {
 .popular__subtitle {
   color: #010101;
   margin-bottom: 12px;
-  font-family: Neue Montreal;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.11;
@@ -232,7 +351,6 @@ body {
 
 .popular__point {
   color: #0101014d;
-  font-family: Neue Montreal;
   font-size: 12px;
   font-weight: 400;
   line-height: 1.17;
