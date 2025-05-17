@@ -33,16 +33,231 @@ body {
   margin: 0;
 }
 
+.container {
+  outline: 3px dashed #8b0000;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media screen and (width >= 480px) {
+  .container {
+    max-width: 480px;
+  }
+}
+
+@media screen and (width >= 768px) {
+  .container {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+}
+
+@media screen and (width >= 1304px) {
+  .container {
+    max-width: 1304px;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
 
-body {
+@font-face {
   font-family: Neue Montreal;
+  src: url("NeueMontreal-Light.9363708f.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Neue Montreal;
+  src: url("NeueMontreal-LightItalic.57c42781.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Neue Montreal;
+  src: url("NeueMontreal-Regular.c90ad29e.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Neue Montreal;
+  src: url("NeueMontreal-Italic.17f5727e.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Neue Montreal;
+  src: url("NeueMontreal-Medium.61e78149.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Neue Montreal;
+  src: url("NeueMontreal-MediumItalic.2b08540f.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Neue Montreal;
+  src: url("NeueMontreal-Bold.da95f961.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Neue Montreal;
+  src: url("NeueMontreal-BoldItalic.3adb10c0.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+body {
+  background-color: #e8e8e2;
+  font-family: Neue Montreal;
+  font-weight: 500;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: 0;
+  pointer-events: none;
 }
 
 ::selection {
   color: #fafafa;
   background-color: #6d8434;
+}
+
+.filters {
+  padding-bottom: 40px;
+}
+
+@media screen and (width >= 1304px) {
+  .filters {
+    padding-bottom: 60px;
+  }
+}
+
+.filters__title {
+  color: #0101014d;
+  margin-bottom: 8px;
+  font-family: Neue Montreal;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.29;
+}
+
+.filters__body {
+  flex-direction: column;
+  gap: 12px;
+  display: flex;
+}
+
+.filters__form {
+  width: 100%;
+  position: relative;
+}
+
+.filters__input {
+  background-color: #0000;
+  border: 1px solid #0101014d;
+  border-radius: 30px;
+  width: 100%;
+  padding: 14px 20px;
+}
+
+.filters__input::placeholder {
+  color: #010101;
+  font-family: Neue Montreal;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.29;
+}
+
+.filters__sub {
+  background-color: #0000;
+  padding: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translate(0, -50%);
+}
+
+.filters__search {
+  fill: #010101;
+}
+
+.filters__categories {
+  position: relative;
+}
+
+.filters__btn {
+  color: #010101;
+  background-color: #0000;
+  border: 1px solid #0101014d;
+  border-radius: 30px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 14px 20px;
+  font-family: Neue Montreal;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.29;
+  display: flex;
+}
+
+.filters__icon {
+  fill: none;
+  stroke: #010101;
+}
+
+.filters__list {
+  z-index: 1;
+  background: #fafafa;
+  border-radius: 15px;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 20px;
+  display: flex;
+  position: absolute;
+  bottom: -314px;
+  left: 0;
+  box-shadow: 0 20px 69px #00000012, 0 4px 11.212px #0000000a;
+}
+
+.filters__item {
+  color: #01010180;
+  font-family: Neue Montreal;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.29;
+}
+
+.filters__item--checked {
+  color: #010101;
+}
+
+.filters__alphabet {
+  position: relative;
+}
+
+.filters__alphabet .filters__btn {
+  background-color: #fafafa;
+  border: none;
+}
+
+.filters__alphabet .filters__list {
+  bottom: -210px;
 }
 /*# sourceMappingURL=async-masters-project.ce1d6491.css.map */

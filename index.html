@@ -1,48 +1,136 @@
-<!DOCTYPE html><html lang=en><meta name=viewport content="width=device-width, initial-scale=1.0"><title>FoodBoutique</title><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=async-masters-project.35ea50a7.css><body>
+<!DOCTYPE html><html lang=en><meta name=viewport content="width=device-width, initial-scale=1.0"><title>FoodBoutique</title><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=async-masters-project.da882ec6.css><body>
     
     
     <section class=filters>
   <div class=container>
-      <h2 class=filters__title>Filters:</h2>
-      <input class=filters__input id=filters-input>
-      <div class=filters__categories>
-        <button class=filters__btn type=button>
-          Categories
-          <svg width=20 height=20 class=filters__icon><use href=icons.c5b0f01c.svg#arrow-down /></svg>
-        </button>
-        <ul class=filters__list>
-          <li class="filters__item filters__item--checked">Beverages</li>
-          <li class=filters__item>Breads / Bakery</li>
-          <li class=filters__item>Dairy</li>
-          <li class=filters__item>Deli</li>
-          <li class=filters__item>Eggs</li>
-          <li class=filters__item>Fresh Produce</li>
-          <li class=filters__item>Meat &amp; Seafood</li>
-          <li class=filters__item>Pantry Items</li>
-          <li class=filters__item>Prepared Foods</li>
-          <li class=filters__item>Snacks</li>
-          <li class=filters__item>Show all</li>
-        </ul>
-      </div>
-      <div class=filters__alphabet>
-        <button class=filters__btn type=button>
-          A to Z
-          <svg width=20 height=20 class=filters__icon><use href=icons.c5b0f01c.svg#arrow-down /></svg>
-        </button>
-        <ul class=filters__list>
-          <li class="filters__item filters__item--checked">A to Z</li>
-          <li class=filters__item>Z to A</li>
-          <li class=filters__item>Cheap</li>
-          <li class=filters__item>Expensive</li>
-          <li class=filters__item>Popular</li>
-          <li class=filters__item>Not popular</li>
-          <li class=filters__item>Show all</li>
-        </ul>
-      </div>
+    <h2 class=filters__title>Filters:</h2>
+    <div class=filters__body>
+        <form class=filters__form>
+          <label class=filters__label>
+            <input placeholder="Search for anything" class=filters__input id=filters-input>
+          </label>
+          <button class=filters__sub>
+            <svg width=20 height=20 class=filters__search><use href=icons.c5b0f01c.svg#search /></svg>
+          </button>
+        </form>
+        <div class=filters__categories>
+          <button class=filters__btn type=button>
+            Categories
+            <svg width=20 height=20 class=filters__icon><use href=icons.c5b0f01c.svg#arrow-down /></svg>
+          </button>
+          <ul class="filters__list is-hidden">
+            <li class="filters__item filters__item--checked">Beverages</li>
+            <li class=filters__item>Breads / Bakery</li>
+            <li class=filters__item>Dairy</li>
+            <li class=filters__item>Deli</li>
+            <li class=filters__item>Eggs</li>
+            <li class=filters__item>Fresh Produce</li>
+            <li class=filters__item>Meat &amp; Seafood</li>
+            <li class=filters__item>Pantry Items</li>
+            <li class=filters__item>Prepared Foods</li>
+            <li class=filters__item>Snacks</li>
+            <li class=filters__item>Show all</li>
+          </ul>
+        </div>
+        <div class=filters__alphabet>
+          <button class=filters__btn type=button>
+            A to Z
+            <svg width=20 height=20 class=filters__icon><use href=icons.c5b0f01c.svg#arrow-down /></svg>
+          </button>
+          <ul class="filters__list is-hidden">
+            <li class="filters__item filters__item--checked">A to Z</li>
+            <li class=filters__item>Z to A</li>
+            <li class=filters__item>Cheap</li>
+            <li class=filters__item>Expensive</li>
+            <li class=filters__item>Popular</li>
+            <li class=filters__item>Not popular</li>
+            <li class=filters__item>Show all</li>
+          </ul>
+        </div>
+    </div>
   </div>
 </section>
 
-    
+    <section class=products>
+    <div class=container>
+        <ul class=products__list>
+            <li class=products__item>
+                <img src=# alt=avocado class=products__img>
+                <h2 class=products__title>Avocado</h2>
+                <p class=products__category>Category:<span>Fresh Produce</span></p>
+                <p class=products__size>Size: <span>Each</span> </p>
+                <p class=prodcuts__popularity>Popularity: <span>0</span></p>
+                <p class=products__price>$1.99</p>
+
+            </li>
+            <li class=products__item>
+                <img src=# alt=tomato class=products__img>
+                <h2 class=products__title>Tomato</h2>
+                <p class=products__category>Category: <span>Fresh Produce</span></p>
+                <p class=products__size>Size: <span>200 g</span></p>
+                <p class=prodcuts__popularity>Popularity: <span>0</span></p>
+                <p class=products__price>$3.99</p>
+            </li>
+            <li class=products__item>
+                <img src=# alt=banana class=products__img>
+                <h2 class=products__title></h2>
+                <p class=products__category>Category: <span>Fresh Produce</span></p>
+                <p class=products__size>Size: <span>1 piece</span></p>
+                <p class=prodcuts__popularity>Popularity: <span>0</span></p>
+                <p class=products__price>$0.69</p>
+            </li>
+            <li class=products__item>
+                <img src=# alt=beetroot class=products__img>
+                <h2 class=products__title>beetroot</h2>
+                <p class=products__category>Category: <span>Fresh Produce</span></p>
+                <p class=products__size>Size: <span>1 lb</span></p>
+                <p class=prodcuts__popularity>Popularity: <span>0</span></p>
+                <p class=products__price>$3.99</p>
+            </li>
+            <li class=products__item>
+                <img src=# alt=Blueberries class=products__img>
+                <h2 class=products__title>Blueberries</h2>
+                <p class=products__category>Category: <span>Fresh Produce</span></p>
+                <p class=products__size>Size: <span>6 oz</span></p>
+                <p class=prodcuts__popularity>Popularity: <span>0</span></p>
+                <p class=products__price>$3.99</p>
+            </li>
+            <li class=products__item>
+                <img src=# alt="Butternut Squash" class=products__img>
+                <h2 class=products__title>Butternut Squash</h2>
+                <p class=products__category>Category: <span>Fresh Produce</span></p>
+                <p class=products__size>Size: <span>per ib</span></p>
+                <p class=prodcuts__popularity>Popularity: <span>0</span></p>
+                <p class=products__price>$1.49</p>
+            </li>
+            <li class=products__item>
+                <img src=# alt=Cabbage class=products__img>
+                <h2 class=products__title>Cabbage</h2>
+                <p class=products__category>Category: <span>Fresh Produce</span></p>
+                <p class=products__size>Size: <span>per head</span></p>
+                <p class=prodcuts__popularity>Popularity: <span>0</span></p>
+                <p class=products__price>$1.99</p>
+            </li>
+            <li class=products__item>
+                <img src=# alt=Carrots class=products__img>
+                <h2 class=products__title>Carrots</h2>
+                <p class=products__category>Category: <span>Fresh Produce</span></p>
+                <p class=products__size>Size: <span>1 lb</span></p>
+                <p class=prodcuts__popularity>Popularity: <span>0</span></p>
+                <p class=products__price>$0.99</p>
+            </li>
+
+            <li class=products__item>
+                <img src=# alt=Challots class=products__img>
+                <h2 class=products__title>Challots</h2>
+                <p class=products__category>Category: <span>Fresh Produce</span></p>
+                <p class=products__size>Size: <span>0.5lb</span></p>
+                <p class=prodcuts__popularity>Popularity: <span>0</span></p>
+                <p class=products__price>$1.99</p>
+            </li>
+        </ul>
+    </div>
+</section>
     <section class=popular>
   <div class=container>
     <h2 class=popular__title>Popular products</h2>
@@ -80,7 +168,30 @@
 </section>
 
     
-    
+    <section class=footer>
+    <ul class=footer__list>
+        <li class=footer__item>
+            <h1 class=footer__title> Food Boutique
+                
+            </h1>
+            
+        </li>
+        <li class=footer__item>
+            <h2 class=footer__title>Discover the Variety of Flavors and Quality</h2>
+            <p class=footer__info>An online store where you will find fresh, natural and delicious products for a
+                healthy life and unforgettable gastronomic adventures.</p>
+        </li>
+        <li class=footer__item>
+            <h3 class=footer__subtitle>Subscribe and learn about new products!</h3>
+            <input class=footer__input placeholder=Email id=input>
+            <button class=footer__bth>Send</button>
+        </li>
+    </ul>
+    <div class=box>
+        <p class=footer__subtext1>Food Boutique. All rights reserved.</p>
+        <p class=footer__subtext2>Privacy Policy/Terms of Service</p>
+    </div>
+</section>
     <div class=backdrop>
   <div class=product>
     <button class=product__close>
