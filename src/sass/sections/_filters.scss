@@ -1,0 +1,124 @@
+.filters {
+    padding-bottom: 40px;
+
+    @media screen and (min-width:1304px) {
+        padding-bottom: 60px;
+    }
+
+    &__title {
+        color: $dark-text-30;
+        font-family: "Neue Montreal";
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.29;
+        margin-bottom: 8px;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    &__form {
+        position: relative;
+        width: 100%;
+    }
+
+    &__label {}
+
+    &__input {
+        width: 100%;
+        border-radius: 30px;
+        border: 1px solid $dark-text-30;
+        background-color: transparent;
+        padding: 14px 20px;
+
+        &::placeholder {
+            color: $dark-text-100;
+            font-family: "Neue Montreal";
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.29;
+        }
+    }
+
+    &__sub {
+        background-color: transparent;
+        line-height: 0;
+        padding: 0;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translate(0, -50%);
+    }
+
+    &__search {
+        fill: $dark-text-100;
+    }
+
+    &__categories {
+        position: relative;
+    }
+
+    &__btn {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 14px 20px;
+        color: $dark-text-100;
+        font-family: "Neue Montreal";
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.29;
+        border-radius: 30px;
+        border: 1px solid rgba(1, 1, 1, 0.30);
+        background-color: transparent;
+        align-items: center;
+    }
+
+    &__icon {
+        fill: none;
+        stroke: $dark-text-100;
+    }
+
+    &__list {
+        z-index: 1;
+        position: absolute;
+        bottom: -314px;
+        left: 0;
+        display: flex;
+        width: 100%;
+        padding: 14px 20px;
+        flex-direction: column;
+        gap: 8px;
+        border-radius: 15px;
+        background: $light-color-100;
+        box-shadow: 0px 20px 69px 0px rgba(0, 0, 0, 0.07), 0px 4px 11.212px 0px rgba(0, 0, 0, 0.04);
+    }
+
+    &__item {
+        color: $dark-text-50;
+        font-family: "Neue Montreal";
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.29;
+    }
+
+    &__item--checked {
+        color: $dark-text-100;
+    }
+
+    &__alphabet {
+        position: relative;
+    }
+
+    &__alphabet &__btn {
+        background-color: $light-color-100;
+        border: none;
+    }
+
+    &__alphabet &__list {
+        bottom: -210px;
+    }
+}
