@@ -1,0 +1,229 @@
+.cart {
+    padding: 72px 0 80px;
+
+    &__begin {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        margin-bottom: 14px;
+    }
+
+    &__bg {
+        background-color: $accent-color-100;
+        padding: 10px;
+        border-radius: 50%;
+        line-height: 0;
+    }
+
+    &__icon {
+        fill: $light-color-100;
+    }
+
+    &__title {
+        color: $dark-text-100;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.17;
+        text-transform: uppercase;
+    }
+
+    &__span {}
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 80px;
+    }
+
+    &__left {
+        width: 100%;
+    }
+
+    &__del {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        color: $dark-text-100;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.29;
+        background-color: transparent;
+        margin: 0 0 40px auto;
+        padding: 0;
+    }
+
+    &__dagger {
+        fill: $dark-text-100;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    &__item {
+        position: relative;
+        display: flex;
+        gap: 20px;
+        padding-top: 30px;
+        border-top: 1px $dark-text-10 solid;
+
+        &:first-child {
+            padding-top: 0;
+            border-top: none;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        top: 22px;
+        right: 7px;
+        background-color: transparent;
+        padding: 0;
+        line-height: 0;
+    }
+
+    &__item:first-child &__close {
+        top: -10px;
+    }
+
+    &__wrapper {
+        border-radius: 10px;
+        background: $light-color-100;
+        width: 100px;
+        height: 100px;
+    }
+
+    &__img {}
+
+    &__text {}
+
+    &__header {
+        color: $dark-text-100;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.11;
+        margin-bottom: 10px;
+    }
+
+    &__infos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+    }
+
+    &__info {
+        gap: 9px;
+        color: $dark-text-30;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.17;
+    }
+
+    &__value {
+        color: $dark-text-100;
+    }
+
+    &__dollars {
+        color: $dark-text-100;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.11;
+        margin-top: 36px;
+    }
+
+    &__cost {}
+
+    &__form {}
+
+    &__subtitle {
+        color: $dark-text-100;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.17;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+    }
+
+    &__prise {
+        padding: 14px 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        border-radius: 8px;
+        background: $accent-color-5;
+    }
+
+    &__total {
+        color: $dark-text-100;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.11;
+    }
+
+    &__sum {
+        color: $dark-text-20;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.17;
+    }
+
+    &__num {
+        color: $dark-text-100;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.17;
+    }
+
+    &__footer {
+        margin-top: 30px;
+        display: flex;
+        gap: 14px;
+        flex-direction: column;
+    }
+
+    &__label {
+        position: relative;
+    }
+
+    &__mail {
+        color: $dark-text-50;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.29;
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+
+    &__input {
+        &::placeholder {
+            color: $dark-text-100;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.29;
+        }
+
+        color: $dark-text-100;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.29;
+
+        border-radius: 30px;
+        border: 1px solid $dark-text-30;
+        padding: 12px 20px 12px 56px;
+    }
+
+    &__sub {
+        border-radius: 30px;
+        background: $accent-color-100;
+        padding: 12px 0;
+        color: $main-bg-100;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.29;
+    }
+}
