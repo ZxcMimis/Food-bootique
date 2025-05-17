@@ -1,0 +1,78 @@
+.popular {
+    &__title {
+        color: $dark-text-100;
+        font-family: "Neue Montreal";
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.17;
+        margin-bottom: 20px;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    &__item {
+        padding: 12px;
+        border-radius: 10px;
+        background: $light-color-100;
+        display: flex;
+        gap: 10px;
+        position: relative;
+    }
+
+    &__wrapper {
+        width: 74px;
+        height: 74px;
+        border-radius: 10px;
+        background-color: $main-bg-100;
+    }
+
+    &__img {}
+
+    &__text {}
+
+    &__subtitle {
+        color: $dark-text-100;
+        font-family: "Neue Montreal";
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.11;
+        margin-bottom: 12px;
+    }
+
+    &__points {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        width: 152px;
+    }
+
+    &__point {
+        color: $dark-text-30;
+        font-family: "Neue Montreal";
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.17;
+    }
+
+    &__span {
+        color: $dark-text-100;
+    }
+
+    &__cart {
+        line-height: 0;
+        background-color: $main-bg-100;
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        padding: 4px;
+        border-radius: 50%;
+    }
+
+    &__icon {
+        fill: $accent-color-100;
+    }
+}
