@@ -9,36 +9,82 @@
       <h1 class="cart__title">Cart (<span class="cart__span">3</span>)</h1>
     </div>
     <div class="cart__body">
-      <button class="cart__del">
-        Delete all
-        <svg class="cart__dagger" width="24" height="24">
-          <use href="./svg/icons.svg#close"></use>
-        </svg>
-      </button>
-      <ul class="cart__list">
-        <li class="cart__item">
-          <button class="cart__close">
-            <svg class="cart__dagger" width="20" height="20">
-              <use href="./svg/icons.svg#close"></use>
-            </svg>
-          </button>
-          <div class="cart__wrapper">
-            <img src="#" alt="" class="cart__img" />
-          </div>
-          <div class="cart__text">
-            <h3 class="cart__header">Avocado</h3>
-            <ul class="cart__infos">
-              <li class="cart__info">
-                Category:<span class="cart__value">Fresh Produce</span>
-              </li>
-              <li class="cart__info">
-                Size:<span class="cart__value">Each</span>
-              </li>
-            </ul>
-            <p class="cart__dollars">$<span class="cart__cost">1.99</span></p>
-          </div>
-        </li>
-      </ul>
+      <div class="cart__left">
+        <button class="cart__del">
+          Delete all
+          <svg class="cart__dagger" width="24" height="24">
+            <use href="./svg/icons.svg#close"></use>
+          </svg>
+        </button>
+        <ul class="cart__list">
+          <li class="cart__item">
+            <button class="cart__close">
+              <svg class="cart__dagger" width="20" height="20">
+                <use href="./svg/icons.svg#close"></use>
+              </svg>
+            </button>
+            <div class="cart__wrapper">
+              <img src="#" alt="" class="cart__img" />
+            </div>
+            <div class="cart__text">
+              <h3 class="cart__header">Avocado</h3>
+              <ul class="cart__infos">
+                <li class="cart__info">
+                  Category:<span class="cart__value">Fresh Produce</span>
+                </li>
+                <li class="cart__info">
+                  Size:<span class="cart__value">Each</span>
+                </li>
+              </ul>
+              <p class="cart__dollars">$<span class="cart__cost">1.99</span></p>
+            </div>
+          </li>
+          <li class="cart__item">
+            <button class="cart__close">
+              <svg class="cart__dagger" width="20" height="20">
+                <use href="./svg/icons.svg#close"></use>
+              </svg>
+            </button>
+            <div class="cart__wrapper">
+              <img src="#" alt="" class="cart__img" />
+            </div>
+            <div class="cart__text">
+              <h3 class="cart__header">Avocado</h3>
+              <ul class="cart__infos">
+                <li class="cart__info">
+                  Category:<span class="cart__value">Fresh Produce</span>
+                </li>
+                <li class="cart__info">
+                  Size:<span class="cart__value">Each</span>
+                </li>
+              </ul>
+              <p class="cart__dollars">$<span class="cart__cost">1.99</span></p>
+            </div>
+          </li>
+          <li class="cart__item">
+            <button class="cart__close">
+              <svg class="cart__dagger" width="20" height="20">
+                <use href="./svg/icons.svg#close"></use>
+              </svg>
+            </button>
+            <div class="cart__wrapper">
+              <img src="#" alt="" class="cart__img" />
+            </div>
+            <div class="cart__text">
+              <h3 class="cart__header">Avocado</h3>
+              <ul class="cart__infos">
+                <li class="cart__info">
+                  Category:<span class="cart__value">Fresh Produce</span>
+                </li>
+                <li class="cart__info">
+                  Size:<span class="cart__value">Each</span>
+                </li>
+              </ul>
+              <p class="cart__dollars">$<span class="cart__cost">1.99</span></p>
+            </div>
+          </li>
+        </ul>
+      </div>
       <form class="cart__form">
         <h2 class="cart__subtitle">Your Order</h2>
         <div class="cart__prise">
@@ -49,8 +95,12 @@
         </div>
         <div class="cart__footer">
           <label class="cart__label">
-            Mail:
-            <input type="text" placeholder="Enter your email" class="cart__input" />
+            <p class="cart__mail">Mail:</p>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="cart__input"
+            />
           </label>
           <button class="cart__sub">Checkout</button>
         </div>
