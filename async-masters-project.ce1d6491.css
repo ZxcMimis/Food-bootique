@@ -63,6 +63,12 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: #e8e8e2;
+  font-family: Neue Montreal;
+  font-weight: 500;
+}
+
 @font-face {
   font-family: Neue Montreal;
   src: url("NeueMontreal-Light.9363708f.otf") format("opentype");
@@ -117,12 +123,6 @@ html {
   src: url("NeueMontreal-BoldItalic.3adb10c0.otf") format("opentype");
   font-weight: 700;
   font-style: italic;
-}
-
-body {
-  background-color: #e8e8e2;
-  font-family: Neue Montreal;
-  font-weight: 500;
 }
 
 .is-hidden {
@@ -259,5 +259,78 @@ body {
 
 .filters__alphabet .filters__list {
   bottom: -210px;
+}
+
+.popular__title {
+  color: #010101;
+  margin-bottom: 20px;
+  font-family: Neue Montreal;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.17;
+}
+
+.popular__list {
+  flex-direction: column;
+  gap: 14px;
+  display: flex;
+}
+
+.popular__item {
+  background: #fafafa;
+  border-radius: 10px;
+  gap: 10px;
+  padding: 12px;
+  display: flex;
+  position: relative;
+}
+
+.popular__wrapper {
+  background-color: #e8e8e2;
+  border-radius: 10px;
+  width: 74px;
+  height: 74px;
+}
+
+.popular__subtitle {
+  color: #010101;
+  margin-bottom: 12px;
+  font-family: Neue Montreal;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.11;
+}
+
+.popular__points {
+  flex-wrap: wrap;
+  gap: 9px;
+  width: 152px;
+  display: flex;
+}
+
+.popular__point {
+  color: #0101014d;
+  font-family: Neue Montreal;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.17;
+}
+
+.popular__span {
+  color: #010101;
+}
+
+.popular__cart {
+  background-color: #e8e8e2;
+  border-radius: 50%;
+  padding: 4px;
+  line-height: 0;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.popular__icon {
+  fill: #6d8434;
 }
 /*# sourceMappingURL=async-masters-project.ce1d6491.css.map */
