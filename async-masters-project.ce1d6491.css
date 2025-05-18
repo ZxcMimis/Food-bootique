@@ -429,7 +429,7 @@ body {
 .products__item {
   background: #fafafa;
   border-radius: 20px;
-  flex-basis: calc(20% - 4px);
+  flex-basis: calc(25% - 5px);
   gap: 20px;
   width: 350px;
   height: 330px;
@@ -617,9 +617,14 @@ body {
 }
 
 .footer__container {
-  width: 1440px;
+  justify-content: center;
+  gap: 100px;
   height: 386px;
   display: flex;
+}
+
+.footer__media, .footer__text, .footer__form {
+  margin-top: 40px;
 }
 
 .footer__logo {
@@ -640,6 +645,7 @@ body {
 
 .footer__list {
   gap: 12px;
+  margin-top: 24px;
   display: flex;
 }
 
@@ -659,6 +665,7 @@ body {
   color: #e8e8e2;
   letter-spacing: -.8px;
   width: 410px;
+  margin-bottom: 20px;
   font-family: Neue Montreal;
   font-size: 40px;
   font-weight: 500;
@@ -676,6 +683,7 @@ body {
 
 .footer__subtitle {
   color: #e8e8e2;
+  margin-bottom: 20px;
   font-family: Neue Montreal;
   font-size: 18px;
   font-weight: 400;
@@ -683,11 +691,18 @@ body {
 }
 
 .footer__input {
+  background-color: #0000;
   border: 1px solid #e8e8e2;
   border-radius: 30px;
   align-items: center;
   gap: 10px;
-  padding: 12px 280px 12px 18px;
+  margin-bottom: 20px;
+  padding: 12px 140px 12px 18px;
+  display: flex;
+}
+
+.footer__box_list {
+  justify-content: space-between;
   display: flex;
 }
 
