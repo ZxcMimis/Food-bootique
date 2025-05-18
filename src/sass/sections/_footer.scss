@@ -7,8 +7,21 @@
 
     &__container {
         display: flex;
-        width: 1440px;
         height: 386px;
+        justify-content: center;
+        gap: 100px;
+    }
+
+    &__media {
+        margin-top: 40px;
+    }
+
+    &__text {
+        margin-top: 40px;  
+    }
+
+    &__form {
+        margin-top: 40px;
     }
 
     &__logo {
@@ -25,12 +38,16 @@
         height: 32px;
         flex-shrink: 0;
         fill: #E8E8E2;
+        
     }
 
     &__list{
         display: flex;
         gap: 12px;
+        margin-top: 24px;
     }
+
+
 
     &__link {
         display: flex;
@@ -53,6 +70,7 @@
         line-height: 44px;
         letter-spacing: -0.8px;
         width: 410px;
+        margin-bottom: 20px;
     }
 
     &__info {
@@ -71,16 +89,26 @@
         font-size: 18px;
         font-weight: 400;
         line-height: 24px;
+        margin-bottom: 20px;
     }
 
     &__input {
         display: flex;
-        padding: 12px 280px 12px 18px;
+        padding: 12px 140px 12px 18px;
         align-items: center;
         gap: 10px;
         border-radius: 30px;
+        background-color: transparent;
         border: 1px solid #E8E8E2;
+        margin-bottom: 20px;
     }
+
+    &__box_list{
+        display: flex;
+        justify-content: space-between;
+    }
+
+
 
     &__bth {
         display: flex;
