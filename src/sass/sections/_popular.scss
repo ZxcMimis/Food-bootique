@@ -5,12 +5,28 @@
         font-weight: 500;
         line-height: 1.17;
         margin-bottom: 20px;
+
+        @media screen and (min-width: 768px) {
+            font-size: 28px;
+            line-height: 1.14;
+        }
     }
 
     &__list {
         display: flex;
         flex-direction: column;
         gap: 14px;
+
+        @media screen and (min-width: 768px) {
+            flex-direction: row;
+            gap: 13px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        @media screen and (min-width: 1304px) {
+            width: 275px;
+        }
     }
 
     &__item {
@@ -20,6 +36,10 @@
         display: flex;
         gap: 10px;
         position: relative;
+
+        @media screen and (min-width: 768px) {
+            width: 275px;
+        }
     }
 
     &__wrapper {
@@ -39,6 +59,12 @@
         font-weight: 500;
         line-height: 1.11;
         margin-bottom: 12px;
+
+        @media screen and (min-width: 768px) {
+            font-size: 20px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
     }
 
     &__points {
