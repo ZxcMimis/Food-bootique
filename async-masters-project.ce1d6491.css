@@ -312,10 +312,31 @@ body {
   line-height: 1.17;
 }
 
+@media screen and (width >= 768px) {
+  .popular__title {
+    font-size: 28px;
+    line-height: 1.14;
+  }
+}
+
 .popular__list {
   flex-direction: column;
   gap: 14px;
   display: flex;
+}
+
+@media screen and (width >= 768px) {
+  .popular__list {
+    flex-flow: wrap;
+    gap: 13px;
+    width: 100%;
+  }
+}
+
+@media screen and (width >= 1304px) {
+  .popular__list {
+    width: 275px;
+  }
 }
 
 .popular__item {
@@ -325,6 +346,12 @@ body {
   padding: 12px;
   display: flex;
   position: relative;
+}
+
+@media screen and (width >= 768px) {
+  .popular__item {
+    width: 275px;
+  }
 }
 
 .popular__wrapper {
@@ -340,6 +367,14 @@ body {
   font-size: 18px;
   font-weight: 500;
   line-height: 1.11;
+}
+
+@media screen and (width >= 768px) {
+  .popular__subtitle {
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
 }
 
 .popular__points {
