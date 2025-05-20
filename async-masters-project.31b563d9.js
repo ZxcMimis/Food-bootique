@@ -675,7 +675,7 @@ var _paginationJs = require("./js/sections/pagination.js");
 var _subscribeJs = require("./js/sections/subscribe.js");
 var _orderJs = require("./js/sections/order.js");
 
-},{"./js/sections/cart.js":"b1abw","./js/sections/products.js":"7kVSa","./js/sections/popular.js":"aJ9bM","./js/sections/discount.js":"2Dntu","./js/sections/pagination.js":"drJWK","./js/sections/subscribe.js":"4utt9","./js/sections/order.js":"57Le5"}],"b1abw":[function(require,module,exports,__globalThis) {
+},{"./js/sections/cart.js":"b1abw","./js/sections/products.js":"7kVSa","./js/sections/discount.js":"2Dntu","./js/sections/pagination.js":"drJWK","./js/sections/subscribe.js":"4utt9","./js/sections/order.js":"57Le5","./js/sections/popular.js":"aJ9bM"}],"b1abw":[function(require,module,exports,__globalThis) {
 var _getPopularProducts = require("../fetchs/getPopularProducts");
 (0, _getPopularProducts.getPopularProducts)().then((products)=>{
     document.querySelector("#popular__list").innerHTML = products.map(({ _id, name, img, category, size, is10PercentOff, popularity })=>`<li id='${_id}' class="popular__item">
@@ -748,8 +748,6 @@ exports.export = function(dest, destName, get) {
 
 },{}],"7kVSa":[function(require,module,exports,__globalThis) {
 
-},{}],"aJ9bM":[function(require,module,exports,__globalThis) {
-
 },{}],"2Dntu":[function(require,module,exports,__globalThis) {
 
 },{}],"drJWK":[function(require,module,exports,__globalThis) {
@@ -758,6 +756,35 @@ exports.export = function(dest, destName, get) {
 
 },{}],"57Le5":[function(require,module,exports,__globalThis) {
 
-},{}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequire6801", {})
+},{}],"aJ9bM":[function(require,module,exports,__globalThis) {
+var _getPopularProducts = require("../fetchs/getPopularProducts");
+(0, _getPopularProducts.getPopularProducts)().then((products)=>{
+    document.querySelector("#popular__list").innerHTML = products.map(({ _id, name, img, category, size, is10PercentOff, popularity })=>`<li id='${_id}' data-product='true' class="popular__item">
+        <div class="popular__wrapper">
+          <img src="${img}" alt="${name}" class="popular__img" />
+        </div>
+        <div class="popular__text">
+          <h3 class="popular__subtitle">${name}</h3>
+          <ul class="popular__points">
+            <li class="popular__point">
+              Category: <span class="popular__span">${category}</span>
+            </li>
+            <li class="popular__point">
+              Size: <span class="popular__span">${size}</span>
+            </li>
+            <li class="popular__point">
+              Popularity: <span class="popular__span">${popularity}</span>
+            </li>
+          </ul>
+        </div>
+        <button data-productadd='true' class="popular__cart">
+          <svg class="popular__icon" width="12" height="12">
+            <use href="./svg/icons.svg#cart"></use>
+          </svg>
+        </button>
+      </li>`).join("");
+});
+
+},{"../fetchs/getPopularProducts":"9oSnk"}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequire6801", {})
 
 //# sourceMappingURL=async-masters-project.31b563d9.js.map

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang=en><meta name=viewport content="width=device-width, initial-scale=1.0"><title>FoodBoutique</title><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=async-masters-project.b4a05cee.css><body>
+<!DOCTYPE html><html lang=en><meta name=viewport content="width=device-width, initial-scale=1.0"><title>FoodBoutique</title><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=async-masters-project.3c997a48.css><body>
     <header class=header>
   <div class="container header__box">
     <a href=#>
@@ -227,8 +227,47 @@
 
             </li>
         </ul>
+
+
+                    <div class=products__pagination_container>
+
+        <div class=products__pagination_container>
+
+
+            <div class=products__pagination_box>
+                <svg class=products__pagination_svg><use href=icons.c5b0f01c.svg#double-left /></svg>
+            </div>
+            <div class=products__pagination_box>
+                <svg class=products__pagination_svg><use href=icons.c5b0f01c.svg#left /></svg>
+            </div>
+
+            <ul class=products__pagination_list>
+                <li class=products__pagination_item>
+                    <p class=products__pagination_text>1</p>
+                </li>
+                <li class="products__pagination_item products__pagination_item_green">
+                    <p class="products__pagination_text products__pagination_text_white">2</p>
+                </li>
+                <li class=products__pagination_item>
+                    <p class=products__pagination_text>3</p>
+                </li>
+                <li class=products__pagination_item>
+                    <p class=products__pagination_text>4</p>
+                </li>
+                <li class=products__pagination_item>
+                    <p class=products__pagination_text>...</p>
+                </li>
+            </ul>
+
+            <div class=products__pagination_box>
+                <svg class=products__pagination_svg><use href=icons.c5b0f01c.svg#right /></svg>
+            </div>
+            <div class=products__pagination_box>
+                <svg class=products__pagination_svg><use href=icons.c5b0f01c.svg#double-right /></svg>
+            </div>
+        </div>
     </div>
-</section>
+</div></section>
     <section class=popular>
   <div class=container>
     <h2 class=popular__title>Popular products</h2>
@@ -286,36 +325,35 @@
         </div>
     </div>
 </section>
-    <div class=backdrop>
+    <div id=product-backdrop class="backdrop is-hidden">
   <div class=product>
-    <button class=product__close>
+    <button id=product-close class=product__close>
       <svg width=22 height=22 class=product__dagger><use href=icons.c5b0f01c.svg#close /></svg>
     </button>
     <div class=product__body>
       <div class=product__wrapper>
-        <img src=# alt class=product__img>
+        <img id=product-img src=# alt class=product__img>
       </div>
       <div class=product__text>
-        <h3 class=product__subtitle>Ackee</h3>
+        <h3 class=product__subtitle id=product-name></h3>
         <ul class=product__points>
           <li class=product__point>
-              Category: <span class=product__span>Fresh Produce</span>
+            Category:
+            <span class=product__span id=product-category></span>
           </li>
           <li class=product__point>
-              Size: <span class=product__span>16 oz</span>
+            Size: <span class=product__span id=product-size></span>
           </li>
           <li class=product__point>
-              Productity: <span class=product__span>3</span>
+            Popularity:
+            <span class=product__span id=product-popularity></span>
           </li>
         </ul>
-        <p class=product__desc>
-          A round, orange vegetable with a thick shell and seeds inside. It is
-          often used in cooking and baking for its sweet and earthy flavor.
-        </p>
+        <p id=product-desc class=product__desc></p>
       </div>
     </div>
     <div class=product__footer>
-      <p class=product__prise>$<span>2.99</span></p>
+      <p class=product__prise>$<span id=product-price></span></p>
       <button class=product__cart>
         Add to
         <svg width=18 height=18 class=product__icon><use href=icons.c5b0f01c.svg#cart /></svg>
@@ -326,5 +364,5 @@
 
     
     
-    <script type=module src=async-masters-project.0bf7b301.js></script>
+    <script type=module src=async-masters-project.e76a795f.js></script>
   
