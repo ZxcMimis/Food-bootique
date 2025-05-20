@@ -667,30 +667,96 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"a0t4e":[function(require,module,exports,__globalThis) {
-var _filterJs = require("./js/filter.js");
-var _productsJs = require("./js/products.js");
-var _popularJs = require("./js/popular.js");
-var _discountJs = require("./js/discount.js");
-var _paginationJs = require("./js/pagination.js");
-var _subscribeJs = require("./js/subscribe.js");
-var _cartJs = require("./js/cart.js");
-var _orderJs = require("./js/order.js");
+var _cartJs = require("./js/sections/cart.js");
+var _productsJs = require("./js/sections/products.js");
+var _popularJs = require("./js/sections/popular.js");
+var _discountJs = require("./js/sections/discount.js");
+var _paginationJs = require("./js/sections/pagination.js");
+var _subscribeJs = require("./js/sections/subscribe.js");
+var _orderJs = require("./js/sections/order.js");
 
-},{"./js/filter.js":"6ibuJ","./js/products.js":"1zOUc","./js/popular.js":"altvW","./js/discount.js":"fevNn","./js/pagination.js":"80yTG","./js/subscribe.js":"aR0nM","./js/cart.js":"j7uuE","./js/order.js":"9zQar"}],"6ibuJ":[function(require,module,exports,__globalThis) {
+},{"./js/sections/cart.js":"b1abw","./js/sections/products.js":"7kVSa","./js/sections/popular.js":"aJ9bM","./js/sections/discount.js":"2Dntu","./js/sections/pagination.js":"drJWK","./js/sections/subscribe.js":"4utt9","./js/sections/order.js":"57Le5"}],"b1abw":[function(require,module,exports,__globalThis) {
+var _getPopularProducts = require("../fetchs/getPopularProducts");
+(0, _getPopularProducts.getPopularProducts)().then((products)=>{
+    document.querySelector("#popular__list").innerHTML = products.map(({ _id, name, img, category, size, is10PercentOff, popularity })=>`<li id='${_id}' class="popular__item">
+        <div class="popular__wrapper">
+          <img src="${img}" alt="${name}" class="popular__img" />
+        </div>
+        <div class="popular__text">
+          <h3 class="popular__subtitle">${name}</h3>
+          <ul class="popular__points">
+            <li class="popular__point">
+              Category: <span class="popular__span">${category}</span>
+            </li>
+            <li class="popular__point">
+              Size: <span class="popular__span">${size}</span>
+            </li>
+            <li class="popular__point">
+              Popularity: <span class="popular__span">${popularity}</span>
+            </li>
+          </ul>
+        </div>
+        <button class="popular__cart">
+          <svg class="popular__icon" width="12" height="12">
+            <use href="./svg/icons.svg#cart"></use>
+          </svg>
+        </button>
+      </li>`).join("");
+});
 
-},{}],"1zOUc":[function(require,module,exports,__globalThis) {
+},{"../fetchs/getPopularProducts":"9oSnk"}],"9oSnk":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getPopularProducts", ()=>getPopularProducts);
+const getPopularProducts = async ()=>{
+    try {
+        return await fetch("https://food-boutique.b.goit.study/api/products/popular").then((response)=>response.json());
+    } catch (e) {
+        return e;
+    }
+};
 
-},{}],"altvW":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jnFvT":[function(require,module,exports,__globalThis) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
 
-},{}],"fevNn":[function(require,module,exports,__globalThis) {
+},{}],"7kVSa":[function(require,module,exports,__globalThis) {
 
-},{}],"80yTG":[function(require,module,exports,__globalThis) {
+},{}],"aJ9bM":[function(require,module,exports,__globalThis) {
 
-},{}],"aR0nM":[function(require,module,exports,__globalThis) {
+},{}],"2Dntu":[function(require,module,exports,__globalThis) {
 
-},{}],"j7uuE":[function(require,module,exports,__globalThis) {
+},{}],"drJWK":[function(require,module,exports,__globalThis) {
 
-},{}],"9zQar":[function(require,module,exports,__globalThis) {
+},{}],"4utt9":[function(require,module,exports,__globalThis) {
+
+},{}],"57Le5":[function(require,module,exports,__globalThis) {
 
 },{}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequire6801", {})
 
