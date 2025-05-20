@@ -1,12 +1,15 @@
 .products {
     flex: auto;
+
     padding-bottom: 31px;
+
 
     &__list {
         display: flex;
         gap: 40px;
         flex-wrap: wrap;
         flex-basis: calc((100% - 20px) / 3);
+        padding-bottom: 40px;
     }
 
     &__item {
@@ -140,11 +143,14 @@
         line-height: 24px;
     }
 
-        &__pagination_container {
+
+
+
+    &__pagination_container {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        padding-top: 40px;
+
     }
 
     &__pagination_list {

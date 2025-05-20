@@ -1,8 +1,8 @@
-import "./js/filter.js"
-import "./js/products.js"
-import "./js/popular.js"
-import "./js/discount.js"
-import "./js/pagination.js"
-import "./js/subscribe.js";
-import "./js/cart.js";
-import "./js/order.js";
+import "./js/sections/cart.js"
+import "./js/sections/products.js"
+import "./js/sections/popular.js"
+import "./js/sections/discount.js"
+import "./js/sections/pagination.js"
+import "./js/sections/subscribe.js";
+import "./js/sections/cart.js";
+import "./js/sections/order.js";

@@ -1,11 +1,27 @@
 .cart {
     padding: 72px 0 80px;
 
+    @media screen and (min-width: 768px) {
+        padding: 100px 0;
+    }
+
+    @media screen and (min-width: 1304px) {
+        padding: 80px 0 100px;
+    }
+
     &__begin {
         display: flex;
         gap: 14px;
         align-items: center;
         margin-bottom: 14px;
+
+        @media screen and (min-width: 768px) {
+            margin-bottom: 24px;
+        }
+
+        @media screen and (min-width: 1304px) {
+            gap: 14px;
+        }
     }
 
     &__bg {
@@ -13,6 +29,10 @@
         padding: 10px;
         border-radius: 50%;
         line-height: 0;
+
+        @media screen and (min-width: 768px) {
+            padding: 12px;
+        }
     }
 
     &__icon {
@@ -25,6 +45,11 @@
         font-weight: 500;
         line-height: 1.17;
         text-transform: uppercase;
+
+        @media screen and (min-width: 768px) {
+            font-size: 32px;
+            line-height: 1;
+        }
     }
 
     &__span {}
@@ -34,10 +59,19 @@
         flex-direction: column;
         width: 100%;
         gap: 80px;
+
+        @media screen and (min-width: 1304px) {
+            flex-direction: row;
+            gap: 100px;
+        }
     }
 
     &__left {
         width: 100%;
+
+        @media screen and (min-width: 1304px) {
+            width: 549px;
+        }
     }
 
     &__del {
@@ -51,6 +85,11 @@
         background-color: transparent;
         margin: 0 0 40px auto;
         padding: 0;
+
+        @media screen and (min-width: 768px) {
+            font-size: 16px;
+            line-height: 1.25;
+        }
     }
 
     &__dagger {
@@ -61,6 +100,13 @@
         display: flex;
         flex-direction: column;
         gap: 30px;
+        height: 420px;
+        overflow-y: auto;
+
+        @media screen and (min-width: 768px) {
+            gap: 40px;
+            height: 520px;
+        }
     }
 
     &__item {
@@ -70,6 +116,10 @@
         padding-top: 30px;
         border-top: 1px $dark-text-10 solid;
 
+        @media screen and (min-width: 768px) {
+            padding-top: 40px;
+        }
+
         &:first-child {
             padding-top: 0;
             border-top: none;
@@ -78,15 +128,19 @@
 
     &__close {
         position: absolute;
-        top: 22px;
+        top: 30px;
         right: 7px;
         background-color: transparent;
         padding: 0;
         line-height: 0;
+
+        @media screen and (min-width: 768px) {
+            top: 40px;
+        }
     }
 
     &__item:first-child &__close {
-        top: -10px;
+        top: 0;
     }
 
     &__wrapper {
@@ -94,6 +148,11 @@
         background: $light-color-100;
         width: 100px;
         height: 100px;
+
+        @media screen and (min-width: 768px) {
+            width: 120px;
+            height: 120px;
+        }
     }
 
     &__img {}
@@ -106,12 +165,23 @@
         font-weight: 500;
         line-height: 1.11;
         margin-bottom: 10px;
+
+        @media screen and (min-width: 768px) {
+            font-size: 20px;
+            line-height: 1.2;
+        }
     }
 
     &__infos {
         display: flex;
         flex-wrap: wrap;
         gap: 9px;
+
+        @media screen and (min-width: 768px) {
+            gap: 16px;
+        }
+
+        @media screen and (min-width: 1304px) {}
     }
 
     &__info {
@@ -120,6 +190,11 @@
         font-size: 12px;
         font-weight: 400;
         line-height: 1.17;
+
+        @media screen and (min-width: 768px) {
+            font-size: 14px;
+            line-height: 1.29;
+        }
     }
 
     &__value {
@@ -132,11 +207,25 @@
         font-weight: 500;
         line-height: 1.11;
         margin-top: 36px;
+
+        @media screen and (min-width: 768px) {
+            margin-top: 44px;
+            font-size: 20px;
+            line-height: 1.2;
+        }
     }
 
     &__cost {}
 
-    &__form {}
+    &__form {
+        @media screen and (min-width: 768px) {
+            width: 590px;
+        }
+
+        @media screen and (min-width: 1304px) {
+            padding-top: 129px;
+        }
+    }
 
     &__subtitle {
         color: $dark-text-100;
@@ -145,6 +234,11 @@
         line-height: 1.17;
         text-transform: uppercase;
         margin-bottom: 40px;
+
+        @media screen and (min-width: 768px) {
+            font-size: 32px;
+            line-height: 1;
+        }
     }
 
     &__prise {
@@ -154,6 +248,12 @@
         align-items: end;
         border-radius: 8px;
         background: $accent-color-5;
+
+        @media screen and (min-width: 768px) {
+            padding: 14px 28px;
+        }
+
+        @media screen and (min-width: 1304px) {}
     }
 
     &__total {
@@ -161,6 +261,11 @@
         font-size: 18px;
         font-weight: 500;
         line-height: 1.11;
+
+        @media screen and (min-width: 768px) {
+            font-size: 20px;
+            line-height: 1.2;
+        }
     }
 
     &__sum {
@@ -175,6 +280,11 @@
         font-size: 24px;
         font-weight: 500;
         line-height: 1.17;
+
+        @media screen and (min-width: 768px) {
+            font-size: 32px;
+            line-height: 1;
+        }
     }
 
     &__footer {
@@ -182,10 +292,23 @@
         display: flex;
         gap: 14px;
         flex-direction: column;
+
+        @media screen and (min-width: 768px) {
+            flex-direction: row;
+            width: 100%;
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        @media screen and (min-width: 1304px) {}
     }
 
     &__label {
         position: relative;
+
+        @media screen and (min-width: 768px) {
+            width: 359px;
+        }
     }
 
     &__mail {
@@ -197,6 +320,11 @@
         left: 20px;
         top: 50%;
         transform: translate(0, -50%);
+
+        @media screen and (min-width: 768px) {
+            font-size: 18px;
+            line-height: 1.33;
+        }
     }
 
     &__input {
@@ -205,7 +333,15 @@
             font-size: 14px;
             font-weight: 400;
             line-height: 1.29;
+
+            @media screen and (min-width: 768px) {
+                font-size: 18px;
+                line-height: 1.33;
+            }
         }
+
+        width: 100%;
+        background-color: transparent;
 
         color: $dark-text-100;
         font-size: 14px;
@@ -215,6 +351,12 @@
         border-radius: 30px;
         border: 1px solid $dark-text-30;
         padding: 12px 20px 12px 56px;
+
+        @media screen and (min-width: 768px) {
+            padding: 15px 20px 15px 63px;
+            font-size: 18px;
+            line-height: 1.33;
+        }
     }
 
     &__sub {
@@ -225,5 +367,13 @@
         font-size: 14px;
         font-weight: 500;
         line-height: 1.29;
+
+        @media screen and (min-width: 768px) {
+            width: 215px;
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        @media screen and (min-width: 1304px) {}
     }
 }
