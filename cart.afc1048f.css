@@ -496,6 +496,12 @@ body {
   }
 }
 
+@media screen and (width >= 1304px) {
+  .cart__form {
+    padding-top: 129px;
+  }
+}
+
 .cart__subtitle {
   color: #010101;
   text-transform: uppercase;
