@@ -1,3 +1,3 @@
-import "./js/cart.js";
-import "./js/order.js";
-import "./js/subscribe.js";
+import "./js/sections/cart.js";
+import "./js/sections/order.js";
+import "./js/sections/subscribe.js";
