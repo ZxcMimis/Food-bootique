@@ -1,35 +1,34 @@
-<div class="backdrop">
+<div id="product-backdrop" class="is-hidden backdrop">
   <div class="product">
-    <button class="product__close">
+    <button id="product-close" class="product__close">
       <svg class="product__dagger" width="22" height="22">
         <use href="./svg/icons.svg#close"></use>
       </svg>
     </button>
     <div class="product__body">
       <div class="product__wrapper">
-        <img src="#" alt="" class="product__img" />
+        <img id="product-img" src="#" alt="" class="product__img" />
       </div>
       <div class="product__text">
-        <h3 class="product__subtitle">Ackee</h3>
+        <h3 class="product__subtitle" id="product-name"></h3>
         <ul class="product__points">
           <li class="product__point">
-              Category: <span class="product__span">Fresh Produce</span>
+            Category:
+            <span class="product__span" id="product-category"></span>
           </li>
           <li class="product__point">
-              Size: <span class="product__span">16 oz</span>
+            Size: <span class="product__span" id="product-size"></span>
           </li>
           <li class="product__point">
-              Productity: <span class="product__span">3</span>
+            Popularity:
+            <span class="product__span" id="product-popularity"></span>
           </li>
         </ul>
-        <p class="product__desc">
-          A round, orange vegetable with a thick shell and seeds inside. It is
-          often used in cooking and baking for its sweet and earthy flavor.
-        </p>
+        <p id="product-desc" class="product__desc"></p>
       </div>
     </div>
     <div class="product__footer">
-      <p class="product__prise">$<span>2.99</span></p>
+      <p class="product__prise">$<span id="product-price"></span></p>
       <button class="product__cart">
         Add to
         <svg class="product__icon" width="18" height="18">
