@@ -14,15 +14,17 @@
       </svg>
     </a>
     <div class="header__wrap">
-        <button type="button" class="header__home-btn">Home</button>
-        <button type="button" class="header__cart-btn">
-          <a href="#">
-            <svg class="header__cart-icon">
-              <use href="/icons.2d679f6b.svg#cart"></use>
-            </svg>
-          </a>
-        </button>
-        <p class="header__cart-info">Cart (<span class="header__cart-quantity">3</span>)</p>
+      <button type="button" class="header__home-btn">Home</button>
+      <button type="button" class="header__cart-btn">
+        <a href="#">
+          <svg class="header__cart-icon">
+            <use href="/icons.2d679f6b.svg#cart"></use>
+          </svg>
+        </a>
+      </button>
+      <p class="header__cart-info">
+        Cart (<span class="header__cart-quantity">3</span>)
+      </p>
     </div>
   </div>
 </header>
@@ -35,25 +37,25 @@
           <use href="/icons.2d679f6b.svg#cart"></use>
         </svg>
       </div>
-      <h1 class="cart__title">Cart (<span class="cart__span">3</span>)</h1>
+      <h1 class="cart__title">Cart (<span id="cart-length" class="cart__span">3</span>)</h1>
     </div>
-    <div class="cart__body">
+    <div id="cart-body" class="cart__body">
       <div class="cart__left">
-        <button class="cart__del">
+        <button id="cart-del" class="cart__del">
           Delete all
           <svg class="cart__dagger" width="24" height="24">
             <use href="/icons.2d679f6b.svg#close"></use>
           </svg>
         </button>
-        <ul class="cart__list">
-          <li class="cart__item">
+        <ul id="cart-list" class="cart__list">
+          <!-- <li class="cart__item">
             <button class="cart__close">
               <svg class="cart__dagger" width="20" height="20">
-                <use href="/icons.2d679f6b.svg#close"></use>
+                <use href="./svg/icons.svg#close"></use>
               </svg>
             </button>
             <div class="cart__wrapper">
-              <img src="#" alt="" class="cart__img">
+              <img src="#" alt="" class="cart__img" />
             </div>
             <div class="cart__text">
               <h3 class="cart__header">Avocado</h3>
@@ -67,51 +69,7 @@
               </ul>
               <p class="cart__dollars">$<span class="cart__cost">1.99</span></p>
             </div>
-          </li>
-          <li class="cart__item">
-            <button class="cart__close">
-              <svg class="cart__dagger" width="20" height="20">
-                <use href="/icons.2d679f6b.svg#close"></use>
-              </svg>
-            </button>
-            <div class="cart__wrapper">
-              <img src="#" alt="" class="cart__img">
-            </div>
-            <div class="cart__text">
-              <h3 class="cart__header">Avocado</h3>
-              <ul class="cart__infos">
-                <li class="cart__info">
-                  Category: <span class="cart__value">Fresh Produce</span>
-                </li>
-                <li class="cart__info">
-                  Size: <span class="cart__value">Each</span>
-                </li>
-              </ul>
-              <p class="cart__dollars">$<span class="cart__cost">1.99</span></p>
-            </div>
-          </li>
-          <li class="cart__item">
-            <button class="cart__close">
-              <svg class="cart__dagger" width="20" height="20">
-                <use href="/icons.2d679f6b.svg#close"></use>
-              </svg>
-            </button>
-            <div class="cart__wrapper">
-              <img src="#" alt="" class="cart__img">
-            </div>
-            <div class="cart__text">
-              <h3 class="cart__header">Avocado</h3>
-              <ul class="cart__infos">
-                <li class="cart__info">
-                  Category: <span class="cart__value">Fresh Produce</span>
-                </li>
-                <li class="cart__info">
-                  Size: <span class="cart__value">Each</span>
-                </li>
-              </ul>
-              <p class="cart__dollars">$<span class="cart__cost">1.99</span></p>
-            </div>
-          </li>
+          </li> -->
         </ul>
       </div>
       <form class="cart__form">
@@ -119,17 +77,32 @@
         <div class="cart__prise">
           <h3 class="cart__total">Total</h3>
           <p class="cart__sum">
-            Sum:  <span class="cart__num">$<span>12,94</span></span>
+            Sum: <span class="cart__num">$<span id="cart-price"></span></span>
           </p>
         </div>
         <div class="cart__footer">
           <label class="cart__label">
-            <p class="cart__mail">Mail: </p>
+            <p class="cart__mail">Mail:</p>
             <input type="email" placeholder="Enter your email" class="cart__input">
           </label>
           <button class="cart__sub">Checkout</button>
         </div>
       </form>
+    </div>
+    <div id="cart-nobody" class="cart__nobody display-none">
+      <picture>
+        <source srcset="/basket@1x.86094b6d.webp, /basket@2x.9ec4aa3f.webp" media="(min-width: 1304px)">
+        <source srcset="/basket@1x.fa00bff7.webp, /basket@1x.fa00bff7.webp" media="(min-width: 768px)">
+        <source srcset="/basket@1x.550f0dad.webp, /basket@2x.feea811a.webp" media="(max-width: 767px)">
+        <img class="cart__noimg" width="132" height="114" src="/basket@1x.550f0dad.webp" alt="Basket">
+      </picture>
+      <h3 class="cart__notitle">
+        Your basket is <span class="cart__nospan">empty...</span>
+      </h3>
+      <p class="cart__nodesc">
+        Go to the main page to select your favorite products and add them to the
+        cart.
+      </p>
     </div>
   </div>
 </section>
@@ -165,22 +138,25 @@
                 </ul>
 
             </div>
-            <div class="footer__text">
-                <h3 class="footer__title">Discover the Variety of Flavors and Quality</h3>
-                <p class="footer__info">An online store where you will find fresh, natural and delicious products for a
-                    healthy life and unforgettable gastronomic adventures.</p>
+            <div class="footer__container_adaptive">
+                <div class="footer__text">
+                    <h3 class="footer__title">Discover the Variety of Flavors and Quality</h3>
+                    <p class="footer__info">An online store where you will find fresh, natural and delicious products
+                        for a
+                        healthy life and unforgettable gastronomic adventures.</p>
+                </div>
+                <form class="footer__form">
+                    <h3 class="footer__subtitle">Subscribe and learn about new products!</h3>
+                    <label>
+                        <input class="footer__input" type="text" placeholder="Email" id="input">
+                    </label>
+                    <button type="submit" class="footer__bth">Send</button>
+                </form>
             </div>
-            <form class="footer__form">
-                <h3 class="footer__subtitle">Subscribe and learn about new products!</h3>
-                <label>
-                    <input class="footer__input" type="text" placeholder="Email" id="input">
-                </label>
-                <button type="submit" class="footer__bth">Send</button>
-            </form>
         </div>
         <div class="footer__box">
             <ul class="footer__box_list">
-                <li class="footer__box_item">
+                <li class="footer__box_item ">
                     <p class="footer__subtext">Food Boutique. All rights reserved.</p>
                 </li>
                 <li class="footer__box_item">
@@ -193,6 +169,43 @@
     </div>
 </section>
     
+    <div id="product-backdrop" class="is-hidden backdrop">
+  <div data-productmodal="" class="product">
+    <button id="product-close" class="product__close">
+      <svg class="product__dagger" width="22" height="22">
+        <use href="/icons.2d679f6b.svg#close"></use>
+      </svg>
+    </button>
+    <div class="product__body">
+      <div class="product__wrapper">
+        <img id="product-img" src="#" alt="" class="product__img">
+      </div>
+      <div class="product__text">
+        <h3 class="product__subtitle" id="product-name"></h3>
+        <ul class="product__points">
+          <li class="product__point">
+            Category:
+            <span class="product__span" id="product-category"></span>
+          </li>
+          <li class="product__point">
+            Size: <span class="product__span" id="product-size"></span>
+          </li>
+          <li class="product__point">
+            Popularity:
+            <span class="product__span" id="product-popularity"></span>
+          </li>
+        </ul>
+        <p id="product-desc" class="product__desc"></p>
+      </div>
+    </div>
+    <div class="product__footer">
+      <p class="product__prise">$<span id="product-price"></span></p>
+      <button data-productaddmodal="true" id="product-add" class="product__cart"></button>
+    </div>
+  </div>
+</div>
+
     <script type="module" src="/cart.16893d70.js"></script>
   
+
 </body></html>

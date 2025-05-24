@@ -667,16 +667,231 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"j6KBi":[function(require,module,exports,__globalThis) {
-var _cartJs = require("./js/cart.js");
-var _orderJs = require("./js/order.js");
-var _subscribeJs = require("./js/subscribe.js");
+var _cartJs = require("./js/sections/cart.js");
+var _orderJs = require("./js/sections/order.js");
+var _subscribeJs = require("./js/sections/subscribe.js");
+var _productJs = require("./js/sections/product.js");
 
-},{"./js/cart.js":"j7uuE","./js/order.js":"9zQar","./js/subscribe.js":"aR0nM"}],"j7uuE":[function(require,module,exports,__globalThis) {
+},{"./js/sections/cart.js":"b1abw","./js/sections/order.js":"57Le5","./js/sections/subscribe.js":"4utt9","./js/sections/product.js":"3SG3N"}],"b1abw":[function(require,module,exports,__globalThis) {
+var _getProduct = require("../fetchs/getProduct");
+if (!Object.keys(localStorage).includes("cart")) localStorage.setItem("cart", JSON.stringify([]));
+const makesMarkup = ()=>{
+    document.querySelector("#cart-length").textContent = JSON.parse(localStorage.getItem("cart")).length;
+    document.getElementById("cart-list").innerHTML = "";
+    if (JSON.parse(localStorage.getItem("cart")).length === 0) {
+        document.getElementById("cart-body").classList.add("display-none");
+        document.getElementById("cart-nobody").classList.remove("display-none");
+        return;
+    } else {
+        document.getElementById("cart-body").classList.remove("display-none");
+        document.getElementById("cart-nobody").classList.add("display-none");
+    }
+    JSON.parse(localStorage.getItem("cart")).forEach(async (product)=>{
+        await (0, _getProduct.getProduct)(product.id).then(({ _id, img, name, category, size, price })=>{
+            document.getElementById("cart-list").insertAdjacentHTML("beforeend", `<li id="${_id}" data-product="true" class="cart__item">
+            <button data-productclose="true" class="cart__close">
+              <svg class="cart__dagger" width="20" height="20">
+                <use href="./svg/icons.svg#close"></use>
+              </svg>
+            </button>
+            <div class="cart__wrapper">
+              <img src="${img}" alt="${name}" class="cart__img" />
+            </div>
+            <div class="cart__text">
+              <h3 class="cart__header">${name}</h3>
+              <ul class="cart__infos">
+                <li class="cart__info">
+                  Category: <span class="cart__value">${category}</span>
+                </li>
+                <li class="cart__info">
+                  Size: <span class="cart__value">${size}</span>
+                </li>
+              </ul>
+              <div class="cart__down">
+                <p class="cart__dollars">$<span class="cart__cost">${price}</span></p>
+                <div data-cart='count' class="cart__count">
+                  <button data-action='minus' class="cart__action">
+                    <svg class="cart__operation" width="14" height="14">
+                      <use href="./svg/icons.svg#minus"></use>
+                    </svg>
+                  </button>
+                  <p data-action="count" class="cart__countnum">${JSON.parse(localStorage.getItem("cart")).find((item)=>item.id === _id).count}</p>
+                  <button data-action='plus' class="cart__action">
+                    <svg class="cart__operation" width="14" height="14">
+                      <use href="./svg/icons.svg#plus"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>  
+            </div>
+          </li>`);
+        });
+    });
+};
+const countPrice = ()=>{
+    document.querySelector("#cart-price").textContent = "0";
+    JSON.parse(localStorage.getItem("cart")).forEach(async (item)=>{
+        await (0, _getProduct.getProduct)(item.id).then(({ price })=>{
+            let sum = Number.parseFloat(document.querySelector("#cart-price").textContent);
+            sum += item.count * price;
+            document.querySelector("#cart-price").textContent = sum.toFixed(2);
+        });
+    }, 0);
+};
+makesMarkup();
+countPrice();
+document.querySelector("#cart-list").addEventListener("click", (e)=>{
+    if (e.target.dataset.productclose === "true" || e.target.closest(`[data-productclose="true"]`)) {
+        const array = JSON.parse(localStorage.getItem("cart"));
+        const index = array.indexOf(array.find((item)=>item.id === e.target.closest(`[data-product="true"]`).id));
+        array.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(array));
+        makesMarkup();
+        countPrice();
+    } else if (e.target.dataset.action === "plus" || e.target.closest(`[data-action="plus"]`)) {
+        const array = JSON.parse(localStorage.getItem("cart"));
+        let count = array.find((item)=>item.id === e.target.closest(`[data-product="true"]`).id).count;
+        count += 1;
+        e.target.closest(`[data-product="true"]`).querySelector(`[data-action="count"]`).textContent = count;
+        array.find((item)=>item.id === e.target.closest(`[data-product="true"]`).id).count = count;
+        localStorage.setItem("cart", JSON.stringify(array));
+        countPrice();
+    } else if (e.target.dataset.action === "minus" || e.target.closest(`[data-action="minus"]`)) {
+        const array = JSON.parse(localStorage.getItem("cart"));
+        let count = array.find((item)=>item.id === e.target.closest(`[data-product="true"]`).id).count;
+        if (count <= 1) return;
+        count -= 1;
+        e.target.closest(`[data-product="true"]`).querySelector(`[data-action="count"]`).textContent = count;
+        array.find((item)=>item.id === e.target.closest(`[data-product="true"]`).id).count = count;
+        localStorage.setItem("cart", JSON.stringify(array));
+        countPrice();
+    }
+});
+document.querySelector("#cart-del").addEventListener("click", ()=>{
+    localStorage.setItem("cart", JSON.stringify([]));
+    document.getElementById("cart-list").innerHTML = "";
+    makesMarkup();
+});
 
-},{}],"9zQar":[function(require,module,exports,__globalThis) {
+},{"../fetchs/getProduct":"2EjBq"}],"2EjBq":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getProduct", ()=>getProduct);
+const getProduct = async (id)=>{
+    try {
+        return await fetch(`https://food-boutique.b.goit.study/api/products/${id}`).then((response)=>response.json());
+    } catch (e) {
+        return e;
+    }
+};
 
-},{}],"aR0nM":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jnFvT":[function(require,module,exports,__globalThis) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
 
-},{}]},["dM0bI","j6KBi"], "j6KBi", "parcelRequire6801", {})
+},{}],"57Le5":[function(require,module,exports,__globalThis) {
+
+},{}],"4utt9":[function(require,module,exports,__globalThis) {
+
+},{}],"3SG3N":[function(require,module,exports,__globalThis) {
+var _getProduct = require("../fetchs/getProduct");
+if (!Object.keys(localStorage).includes("cart")) localStorage.setItem("cart", JSON.stringify([]));
+document.querySelector("body").addEventListener("click", async (e)=>{
+    if (e.target.dataset.productadd === "true" || e.target.closest("[data-productadd]") || e.target.dataset.productclose === "true" || e.target.closest(`[data-productclose="true"]`) || e.target.dataset.cart === "count" || e.target.closest(`[data-cart='count']`)) return;
+    if (e.target.dataset.product === "true" || e.target.closest("[data-product]")) {
+        document.querySelector("#product-backdrop").classList.remove("is-hidden");
+        document.querySelector("body").classList.add("no-scroll");
+        let id;
+        if (!(e.target.id === "")) id = e.target.id;
+        else id = e.target.closest("[data-product]").id;
+        await (0, _getProduct.getProduct)(id).then(({ _id, name, img, category, price, size, desc, is10PercentOff, popularity })=>{
+            document.querySelector(`[data-productmodal]`).id = _id;
+            document.querySelector("#product-img").src = img;
+            document.querySelector("#product-img").alt = name;
+            document.querySelector("#product-name").textContent = name;
+            document.querySelector("#product-category").textContent = category;
+            document.querySelector("#product-size").textContent = size;
+            document.querySelector("#product-popularity").textContent = popularity;
+            document.querySelector("#product-price").textContent = price;
+            document.querySelector("#product-desc").textContent = desc;
+            document.querySelector("#product-add").innerHTML = JSON.parse(localStorage.getItem("cart")).map((product)=>product.id).includes(_id) ? `Added \u{2713}` : `Add to
+          <svg class="product__icon" width="18" height="18">
+            <use href="./svg/icons.svg#cart"></use>
+          </svg>
+        `;
+        });
+    }
+});
+document.querySelector("#product-close").addEventListener("click", async ()=>{
+    document.querySelector("#product-backdrop").classList.add("is-hidden");
+    document.querySelector(`[data-productmodal]`).id = "";
+    document.querySelector("body").classList.remove("no-scroll");
+    document.querySelector("#product-img").src = "";
+    document.querySelector("#product-img").alt = "";
+    document.querySelector("#product-name").textContent = "";
+    document.querySelector("#product-category").textContent = "";
+    document.querySelector("#product-size").textContent = "";
+    document.querySelector("#product-popularity").textContent = "";
+    document.querySelector("#product-price").textContent = "";
+    document.querySelector("#product-desc").textContent = "";
+});
+document.querySelector("body").addEventListener("click", async (e)=>{
+    if (e.target.dataset.productadd === "true" || e.target.closest("[data-productadd]")) {
+        const target = e.target.dataset.productadd === "true" ? e.target : e.target.closest("[data-productadd]");
+        const array = [
+            ...JSON.parse(localStorage.getItem("cart"))
+        ];
+        if (array.map((item)=>item.id).includes(e.target.closest("[data-product]").id)) return;
+        array.push({
+            id: e.target.closest("[data-product]").id,
+            count: 1
+        });
+        target.textContent = "\u2713";
+        localStorage.setItem("cart", JSON.stringify(array));
+    }
+});
+document.querySelector(`[data-productmodal]`).addEventListener("click", async (e)=>{
+    if (e.target.dataset.productaddmodal === "true" || e.target.closest("[data-productaddmodal]")) {
+        const target = e.target.dataset.productaddmodal === "true" ? e.target : e.target.closest("[data-productaddmodal]");
+        const array = [
+            ...JSON.parse(localStorage.getItem("cart"))
+        ];
+        if (array.map((item)=>item.id).includes(e.target.closest("[data-productmodal]").id)) return;
+        array.push({
+            id: e.target.closest("[data-productmodal]").id,
+            count: 1
+        });
+        target.textContent = "Added \u2713";
+        localStorage.setItem("cart", JSON.stringify(array));
+    }
+});
+
+},{"../fetchs/getProduct":"2EjBq"}]},["dM0bI","j6KBi"], "j6KBi", "parcelRequire6801", {})
 
 //# sourceMappingURL=cart.16893d70.js.map

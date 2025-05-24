@@ -667,7 +667,6 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"a0t4e":[function(require,module,exports,__globalThis) {
-var _cartJs = require("./js/sections/cart.js");
 var _filtersJs = require("./js/sections/filters.js");
 var _productsJs = require("./js/sections/products.js");
 var _popularJs = require("./js/sections/popular.js");
@@ -675,12 +674,19 @@ var _discountJs = require("./js/sections/discount.js");
 var _paginationJs = require("./js/sections/pagination.js");
 var _productJs = require("./js/sections/product.js");
 var _subscribeJs = require("./js/sections/subscribe.js");
-var _orderJs = require("./js/sections/order.js");
 
-},{"./js/sections/cart.js":"b1abw","./js/sections/products.js":"7kVSa","./js/sections/discount.js":"2Dntu","./js/sections/pagination.js":"drJWK","./js/sections/subscribe.js":"4utt9","./js/sections/order.js":"57Le5","./js/sections/popular.js":"aJ9bM","./js/sections/product.js":"3SG3N","./js/sections/filters.js":"8U2Ig"}],"b1abw":[function(require,module,exports,__globalThis) {
+},{"./js/sections/products.js":"7kVSa","./js/sections/discount.js":"2Dntu","./js/sections/pagination.js":"drJWK","./js/sections/subscribe.js":"4utt9","./js/sections/popular.js":"aJ9bM","./js/sections/product.js":"3SG3N","./js/sections/filters.js":"8U2Ig"}],"7kVSa":[function(require,module,exports,__globalThis) {
+
+},{}],"2Dntu":[function(require,module,exports,__globalThis) {
+
+},{}],"drJWK":[function(require,module,exports,__globalThis) {
+
+},{}],"4utt9":[function(require,module,exports,__globalThis) {
+
+},{}],"aJ9bM":[function(require,module,exports,__globalThis) {
 var _getPopularProducts = require("../fetchs/getPopularProducts");
 (0, _getPopularProducts.getPopularProducts)().then((products)=>{
-    document.querySelector("#popular__list").innerHTML = products.map(({ _id, name, img, category, size, is10PercentOff, popularity })=>`<li id='${_id}' class="popular__item">
+    document.querySelector("#popular__list").innerHTML = products.map(({ _id, name, img, category, size, is10PercentOff, popularity })=>`<li id='${_id}' data-product='true' class="popular__item">
         <div class="popular__wrapper">
           <img src="${img}" alt="${name}" class="popular__img" />
         </div>
@@ -698,10 +704,10 @@ var _getPopularProducts = require("../fetchs/getPopularProducts");
             </li>
           </ul>
         </div>
-        <button class="popular__cart">
-          <svg class="popular__icon" width="12" height="12">
+        <button data-productadd='true' class="popular__cart">
+        ${JSON.parse(localStorage.getItem("cart")).map((item)=>item.id).includes(_id) ? "\u2713" : ` <svg class="popular__icon" width="12" height="12">
             <use href="./svg/icons.svg#cart"></use>
-          </svg>
+          </svg>`}
         </button>
       </li>`).join("");
 });
@@ -748,56 +754,19 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"7kVSa":[function(require,module,exports,__globalThis) {
-
-},{}],"2Dntu":[function(require,module,exports,__globalThis) {
-
-},{}],"drJWK":[function(require,module,exports,__globalThis) {
-
-},{}],"4utt9":[function(require,module,exports,__globalThis) {
-
-},{}],"57Le5":[function(require,module,exports,__globalThis) {
-
-},{}],"aJ9bM":[function(require,module,exports,__globalThis) {
-var _getPopularProducts = require("../fetchs/getPopularProducts");
-(0, _getPopularProducts.getPopularProducts)().then((products)=>{
-    document.querySelector("#popular__list").innerHTML = products.map(({ _id, name, img, category, size, is10PercentOff, popularity })=>`<li id='${_id}' data-product='true' class="popular__item">
-        <div class="popular__wrapper">
-          <img src="${img}" alt="${name}" class="popular__img" />
-        </div>
-        <div class="popular__text">
-          <h3 class="popular__subtitle">${name}</h3>
-          <ul class="popular__points">
-            <li class="popular__point">
-              Category: <span class="popular__span">${category}</span>
-            </li>
-            <li class="popular__point">
-              Size: <span class="popular__span">${size}</span>
-            </li>
-            <li class="popular__point">
-              Popularity: <span class="popular__span">${popularity}</span>
-            </li>
-          </ul>
-        </div>
-        <button data-productadd='true' class="popular__cart">
-          <svg class="popular__icon" width="12" height="12">
-            <use href="./svg/icons.svg#cart"></use>
-          </svg>
-        </button>
-      </li>`).join("");
-});
-
-},{"../fetchs/getPopularProducts":"9oSnk"}],"3SG3N":[function(require,module,exports,__globalThis) {
+},{}],"3SG3N":[function(require,module,exports,__globalThis) {
 var _getProduct = require("../fetchs/getProduct");
+if (!Object.keys(localStorage).includes("cart")) localStorage.setItem("cart", JSON.stringify([]));
 document.querySelector("body").addEventListener("click", async (e)=>{
-    if (e.target.dataset.productadd === "true" || e.target.closest("[data-productadd]")) return;
+    if (e.target.dataset.productadd === "true" || e.target.closest("[data-productadd]") || e.target.dataset.productclose === "true" || e.target.closest(`[data-productclose="true"]`) || e.target.dataset.cart === "count" || e.target.closest(`[data-cart='count']`)) return;
     if (e.target.dataset.product === "true" || e.target.closest("[data-product]")) {
         document.querySelector("#product-backdrop").classList.remove("is-hidden");
         document.querySelector("body").classList.add("no-scroll");
         let id;
         if (!(e.target.id === "")) id = e.target.id;
         else id = e.target.closest("[data-product]").id;
-        await (0, _getProduct.getProduct)(id).then(({ name, img, category, price, size, desc, is10PercentOff, popularity })=>{
+        await (0, _getProduct.getProduct)(id).then(({ _id, name, img, category, price, size, desc, is10PercentOff, popularity })=>{
+            document.querySelector(`[data-productmodal]`).id = _id;
             document.querySelector("#product-img").src = img;
             document.querySelector("#product-img").alt = name;
             document.querySelector("#product-name").textContent = name;
@@ -806,11 +775,17 @@ document.querySelector("body").addEventListener("click", async (e)=>{
             document.querySelector("#product-popularity").textContent = popularity;
             document.querySelector("#product-price").textContent = price;
             document.querySelector("#product-desc").textContent = desc;
+            document.querySelector("#product-add").innerHTML = JSON.parse(localStorage.getItem("cart")).map((product)=>product.id).includes(_id) ? `Added \u{2713}` : `Add to
+          <svg class="product__icon" width="18" height="18">
+            <use href="./svg/icons.svg#cart"></use>
+          </svg>
+        `;
         });
     }
 });
 document.querySelector("#product-close").addEventListener("click", async ()=>{
     document.querySelector("#product-backdrop").classList.add("is-hidden");
+    document.querySelector(`[data-productmodal]`).id = "";
     document.querySelector("body").classList.remove("no-scroll");
     document.querySelector("#product-img").src = "";
     document.querySelector("#product-img").alt = "";
@@ -820,6 +795,36 @@ document.querySelector("#product-close").addEventListener("click", async ()=>{
     document.querySelector("#product-popularity").textContent = "";
     document.querySelector("#product-price").textContent = "";
     document.querySelector("#product-desc").textContent = "";
+});
+document.querySelector("body").addEventListener("click", async (e)=>{
+    if (e.target.dataset.productadd === "true" || e.target.closest("[data-productadd]")) {
+        const target = e.target.dataset.productadd === "true" ? e.target : e.target.closest("[data-productadd]");
+        const array = [
+            ...JSON.parse(localStorage.getItem("cart"))
+        ];
+        if (array.map((item)=>item.id).includes(e.target.closest("[data-product]").id)) return;
+        array.push({
+            id: e.target.closest("[data-product]").id,
+            count: 1
+        });
+        target.textContent = "\u2713";
+        localStorage.setItem("cart", JSON.stringify(array));
+    }
+});
+document.querySelector(`[data-productmodal]`).addEventListener("click", async (e)=>{
+    if (e.target.dataset.productaddmodal === "true" || e.target.closest("[data-productaddmodal]")) {
+        const target = e.target.dataset.productaddmodal === "true" ? e.target : e.target.closest("[data-productaddmodal]");
+        const array = [
+            ...JSON.parse(localStorage.getItem("cart"))
+        ];
+        if (array.map((item)=>item.id).includes(e.target.closest("[data-productmodal]").id)) return;
+        array.push({
+            id: e.target.closest("[data-productmodal]").id,
+            count: 1
+        });
+        target.textContent = "Added \u2713";
+        localStorage.setItem("cart", JSON.stringify(array));
+    }
 });
 
 },{"../fetchs/getProduct":"2EjBq"}],"2EjBq":[function(require,module,exports,__globalThis) {
@@ -840,6 +845,17 @@ let keyword = "";
 let category = "";
 let sort = "";
 const makeMarkup = (keyword, category, id, sort)=>{
+    if (category.includes("&")) {
+        document.querySelector("#products-list").innerHTML = `<div class="products__nocards">
+  <h3 class="products__notitle">
+    I am sorry, but this <span class="products__noaccent">category</span> isn't working
+  </h3>
+  <p class="products__nodesc">
+    Choose other catogories or write the name of a product.
+  </p>
+</div>`;
+        return;
+    }
     (0, _getFilteredProducts.getFilteredProducts)(keyword, category, id, sort).then((data)=>{
         if (data.results.length === 0) {
             document.querySelector("#products-list").innerHTML = `<div class="products__nocards">
@@ -866,9 +882,9 @@ const makeMarkup = (keyword, category, id, sort)=>{
         <div class="products__svg_price">
             <p class="products__price">$${price}</p>
             <div  data-productadd="true"  class="products__svg_container">
-                <svg class="products__basket">
+                ${JSON.parse(localStorage.getItem("cart")).map((item)=>item.id).includes(_id) ? "\u2713" : ` <svg class="products__basket">
                     <use href="./svg/icons.svg#cart"></use>
-                </svg>
+                </svg>`}
             </div>
         </div>
     </li>

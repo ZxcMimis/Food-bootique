@@ -1,22 +1,37 @@
-<!DOCTYPE html><html lang=en><meta name=viewport content="width=device-width, initial-scale=1.0"><title>FoodBoutique</title><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=async-masters-project.57aaaec2.css><body>
+<!DOCTYPE html><html lang=en><meta name=viewport content="width=device-width, initial-scale=1.0"><title>FoodBoutique</title><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=async-masters-project.de0898e4.css><body>
     <header class=header>
   <div class="container header__box">
     <a href=#>
       <svg class=header__logo-icon><use href=icons.c5b0f01c.svg#header-logo /></svg>
     </a>
     <div class=header__wrap>
-        <button type=button class=header__home-btn>Home</button>
-        <button type=button class=header__cart-btn>
-          <a href=#>
-            <svg class=header__cart-icon><use href=icons.c5b0f01c.svg#cart /></svg>
-          </a>
-        </button>
-        <p class=header__cart-info>Cart (<span class=header__cart-quantity>3</span>)</p>
+      <button type=button class=header__home-btn>Home</button>
+      <button type=button class=header__cart-btn>
+        <a href=#>
+          <svg class=header__cart-icon><use href=icons.c5b0f01c.svg#cart /></svg>
+        </a>
+      </button>
+      <p class=header__cart-info>
+        Cart (<span class=header__cart-quantity>3</span>)
+      </p>
     </div>
   </div>
 </header>
 
-    
+    <section class=hero>
+  <div class="container hero__box">
+    <h3 class=hero__title>
+      Welcome to the <span class=hero__title-color>Food</span> Boutique!
+    </h3>
+    <p class=hero__text>
+      With Food Boutique, you're not just subscribing to food, you're signing up
+      for a fresher, fitter, and happier you.
+    </p>
+
+    <img class=hero__image src=hero@1x.6175a2ae.webp alt>
+  </div>
+</section>
+
     <section class=filters>
   <div class=container>
     <h2 class=filters__title>Filters:</h2>
@@ -250,10 +265,10 @@
                 <li class="products__pagination_item products__pagination_item_green">
                     <p class="products__pagination_text products__pagination_text_white">2</p>
                 </li>
-                <li class=products__pagination_item>
+                <li class="products__deleting products__pagination_item">
                     <p class=products__pagination_text>3</p>
                 </li>
-                <li class=products__pagination_item>
+                <li class="products__deleting products__pagination_item">
                     <p class=products__pagination_text>4</p>
                 </li>
                 <li class=products__pagination_item>
@@ -331,7 +346,7 @@
     </div>
 </section>
     <div id=product-backdrop class="backdrop is-hidden">
-  <div class=product>
+  <div data-productmodal class=product>
     <button id=product-close class=product__close>
       <svg width=22 height=22 class=product__dagger><use href=icons.c5b0f01c.svg#close /></svg>
     </button>
@@ -359,15 +374,46 @@
     </div>
     <div class=product__footer>
       <p class=product__prise>$<span id=product-price></span></p>
-      <button class=product__cart>
-        Add to
-        <svg width=18 height=18 class=product__icon><use href=icons.c5b0f01c.svg#cart /></svg>
-      </button>
+      <button data-productaddmodal=true id=product-add class=product__cart></button>
     </div>
   </div>
 </div>
  
-     
-    
-    <script type=module src=async-masters-project.c2d0e39d.js></script>
+    <section class=thanks>
+    <div class="backdrop is-hidden">
+        <div class=modal-window id=modalWindow>
+            <button class=modal-close>
+                <svg class=svg-close><use href=icons.c5b0f01c.svg#close /></svg>
+            </button>
+            <div class=modal-box>
+                <h2 class=modal-title>Thanks for subscribing for <span class=green-title>new</span> products</h2>
+                <p class=modal-subtitle>We promise you organic and high-quality products that will meet your
+                    expectations. Please stay with us and we promise you many pleasant surprises.</p>
+            </div>
+            <img class=modal-img src=modal-@1x.f3f390e3.webp alt=#>
+        </div>
+    </div>
+</section> 
+    <section class=email>
+    <div class="email__backdrop email__is-hidden">
+        <div class=email__modal-window id=modalWindow>
+            <button class=email__modal-close>
+                <svg class=email__svg-close><use href=icons.c5b0f01c.svg#close /></svg>
+            </button>
+                <div class=email__box-modal>
+                    <h2 class=email__title-modal>
+                        This <span class=email__title-green>email address</span>  has already been entered
+                    </h2>
+                    <p class=email__subtitle-modal>
+                        You have already subscribed to our new products. Watch for offers at the mailing address.
+                    </p>
+                </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <script type=module src=async-masters-project.4303b821.js></script>
   
