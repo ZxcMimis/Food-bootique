@@ -668,14 +668,16 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"a0t4e":[function(require,module,exports,__globalThis) {
 var _cartJs = require("./js/sections/cart.js");
+var _filtersJs = require("./js/sections/filters.js");
 var _productsJs = require("./js/sections/products.js");
 var _popularJs = require("./js/sections/popular.js");
 var _discountJs = require("./js/sections/discount.js");
 var _paginationJs = require("./js/sections/pagination.js");
+var _productJs = require("./js/sections/product.js");
 var _subscribeJs = require("./js/sections/subscribe.js");
 var _orderJs = require("./js/sections/order.js");
 
-},{"./js/sections/cart.js":"b1abw","./js/sections/products.js":"7kVSa","./js/sections/discount.js":"2Dntu","./js/sections/pagination.js":"drJWK","./js/sections/subscribe.js":"4utt9","./js/sections/order.js":"57Le5","./js/sections/popular.js":"aJ9bM"}],"b1abw":[function(require,module,exports,__globalThis) {
+},{"./js/sections/cart.js":"b1abw","./js/sections/products.js":"7kVSa","./js/sections/discount.js":"2Dntu","./js/sections/pagination.js":"drJWK","./js/sections/subscribe.js":"4utt9","./js/sections/order.js":"57Le5","./js/sections/popular.js":"aJ9bM","./js/sections/product.js":"3SG3N","./js/sections/filters.js":"8U2Ig"}],"b1abw":[function(require,module,exports,__globalThis) {
 var _getPopularProducts = require("../fetchs/getPopularProducts");
 (0, _getPopularProducts.getPopularProducts)().then((products)=>{
     document.querySelector("#popular__list").innerHTML = products.map(({ _id, name, img, category, size, is10PercentOff, popularity })=>`<li id='${_id}' class="popular__item">
@@ -785,6 +787,136 @@ var _getPopularProducts = require("../fetchs/getPopularProducts");
       </li>`).join("");
 });
 
-},{"../fetchs/getPopularProducts":"9oSnk"}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequire6801", {})
+},{"../fetchs/getPopularProducts":"9oSnk"}],"3SG3N":[function(require,module,exports,__globalThis) {
+var _getProduct = require("../fetchs/getProduct");
+document.querySelector("body").addEventListener("click", async (e)=>{
+    if (e.target.dataset.productadd === "true" || e.target.closest("[data-productadd]")) return;
+    if (e.target.dataset.product === "true" || e.target.closest("[data-product]")) {
+        document.querySelector("#product-backdrop").classList.remove("is-hidden");
+        document.querySelector("body").classList.add("no-scroll");
+        let id;
+        if (!(e.target.id === "")) id = e.target.id;
+        else id = e.target.closest("[data-product]").id;
+        await (0, _getProduct.getProduct)(id).then(({ name, img, category, price, size, desc, is10PercentOff, popularity })=>{
+            document.querySelector("#product-img").src = img;
+            document.querySelector("#product-img").alt = name;
+            document.querySelector("#product-name").textContent = name;
+            document.querySelector("#product-category").textContent = category;
+            document.querySelector("#product-size").textContent = size;
+            document.querySelector("#product-popularity").textContent = popularity;
+            document.querySelector("#product-price").textContent = price;
+            document.querySelector("#product-desc").textContent = desc;
+        });
+    }
+});
+document.querySelector("#product-close").addEventListener("click", async ()=>{
+    document.querySelector("#product-backdrop").classList.add("is-hidden");
+    document.querySelector("body").classList.remove("no-scroll");
+    document.querySelector("#product-img").src = "";
+    document.querySelector("#product-img").alt = "";
+    document.querySelector("#product-name").textContent = "";
+    document.querySelector("#product-category").textContent = "";
+    document.querySelector("#product-size").textContent = "";
+    document.querySelector("#product-popularity").textContent = "";
+    document.querySelector("#product-price").textContent = "";
+    document.querySelector("#product-desc").textContent = "";
+});
+
+},{"../fetchs/getProduct":"2EjBq"}],"2EjBq":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getProduct", ()=>getProduct);
+const getProduct = async (id)=>{
+    try {
+        return await fetch(`https://food-boutique.b.goit.study/api/products/${id}`).then((response)=>response.json());
+    } catch (e) {
+        return e;
+    }
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"8U2Ig":[function(require,module,exports,__globalThis) {
+var _getFilteredProducts = require("../fetchs/getFilteredProducts");
+let keyword = "";
+let category = "";
+let sort = "";
+const makeMarkup = (keyword, category, id, sort)=>{
+    (0, _getFilteredProducts.getFilteredProducts)(keyword, category, id, sort).then((data)=>{
+        if (data.results.length === 0) {
+            document.querySelector("#products-list").innerHTML = `<div class="products__nocards">
+  <h3 class="products__notitle">
+    Nothing was found for the selected
+    <span class="products__noaccent">filters...</span>
+  </h3>
+  <p class="products__nodesc">
+    Try adjusting your search parameters or browse our range by other criteria
+    to find the perfect product for you.
+  </p>
+</div>`;
+            return;
+        }
+        document.querySelector("#products-list").innerHTML = data.results.map(({ _id, name, img, category, size, price, is10PercentOff, popularity })=>`
+    <li id="${_id}" data-product="true" class="products__item">
+        <div class="products__container_img">
+            <img src="${img}" alt="Carrots" class="products__img">
+        </div>
+        <h2 class="products__title">${name}</h2>
+        <p class="products__category">Category: <span>${category}</span></p>
+        <p class="products__size">Size: <span>${size}</span></p>
+        <p class="products__popularity">Popularity: <span>${popularity}</span></p>
+        <div class="products__svg_price">
+            <p class="products__price">$${price}</p>
+            <div  data-productadd="true"  class="products__svg_container">
+                <svg class="products__basket">
+                    <use href="./svg/icons.svg#cart"></use>
+                </svg>
+            </div>
+        </div>
+    </li>
+    `).join("");
+    });
+};
+document.querySelector("#filters-form").addEventListener("submit", (e)=>{
+    e.preventDefault();
+    keyword = document.querySelector("#filters-input").value;
+    makeMarkup(keyword, category, 1, sort);
+});
+document.querySelector("#filters-categories").addEventListener("click", (e)=>{
+    e.currentTarget.nextElementSibling.classList.toggle("is-hidden");
+});
+document.querySelector("#filters-categories-list").addEventListener("click", (e)=>{
+    e.currentTarget.querySelector(".filters__item--checked").classList.remove("filters__item--checked");
+    e.target.classList.add("filters__item--checked");
+    e.currentTarget.classList.add("is-hidden");
+    document.querySelector("#filters-categories-text").textContent = e.target.textContent;
+    if (e.target.id === "all") category = "";
+    else category = e.target.id;
+    makeMarkup(keyword, category, 1, sort);
+});
+document.querySelector("#filters-alphabet").addEventListener("click", (e)=>{
+    e.currentTarget.nextElementSibling.classList.toggle("is-hidden");
+});
+document.querySelector("#filters-alphabet-list").addEventListener("click", (e)=>{
+    e.currentTarget.querySelector(".filters__item--checked").classList.remove("filters__item--checked");
+    e.target.classList.add("filters__item--checked");
+    e.currentTarget.classList.add("is-hidden");
+    document.querySelector("#filters-alphabet-text").textContent = e.target.textContent;
+    if (e.target.id === "allAlphabet") sort = "";
+    else sort = e.target.id;
+    makeMarkup(keyword, category, 1, sort);
+});
+
+},{"../fetchs/getFilteredProducts":"cf4nK"}],"cf4nK":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getFilteredProducts", ()=>getFilteredProducts);
+const getFilteredProducts = async (keyword, category, id, sort)=>{
+    try {
+        return await fetch(`https://food-boutique.b.goit.study/api/products?keyword=${keyword}${sort}&category=${category}&page=${id}&limit=9`).then((response)=>response.json());
+    } catch (e) {
+        return e;
+    }
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequire6801", {})
 
 //# sourceMappingURL=async-masters-project.31b563d9.js.map
