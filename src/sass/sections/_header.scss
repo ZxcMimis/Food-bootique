@@ -1,9 +1,17 @@
 .header__box {
- display: flex;
- justify-content: space-between;
- align-items: center;
- padding-top: 24px;
- padding-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (min-width: 480px) {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
 }
 
 .header__logo-icon {
@@ -19,8 +27,8 @@
 }
 
 .header__wrap {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .header__home-btn {
@@ -73,23 +81,23 @@
 }
 
 .header__cart-icon {
-    @media screen and (min-width: 480px) {
-        width: 14px;
-        height: 14px;
-      }
-    
-      @media screen and (min-width: 768px) {
-        width: 18px;
-        height: 18px;
-      }
+  @media screen and (min-width: 480px) {
+    width: 14px;
+    height: 14px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 .header__cart-info {
-    @media screen and (min-width: 480px) {
-        display: none;
-      }
-    
-      @media screen and (min-width: 768px) {
-        display: block;
-      }
+  @media screen and (min-width: 480px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
 }
