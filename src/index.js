@@ -1,4 +1,5 @@
 import "./js/sections/cart.js"
+import "./js/sections/filters.js";
 import "./js/sections/products.js"
 import "./js/sections/popular.js"
 import "./js/sections/discount.js"
