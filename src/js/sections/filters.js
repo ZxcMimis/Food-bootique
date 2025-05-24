@@ -57,9 +57,15 @@ const makeMarkup = (keyword, category, id, sort) => {
         <div class="products__svg_price">
             <p class="products__price">$${price}</p>
             <div  data-productadd="true"  class="products__svg_container">
-                <svg class="products__basket">
+                ${
+                  JSON.parse(localStorage.getItem("cart"))
+                    .map((item) => item.id)
+                    .includes(_id)
+                    ? "✓"
+                    : ` <svg class="products__basket">
                     <use href="./svg/icons.svg#cart"></use>
-                </svg>
+                </svg>`
+                }
             </div>
         </div>
     </li>

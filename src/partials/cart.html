@@ -6,18 +6,18 @@
           <use href="./svg/icons.svg#cart"></use>
         </svg>
       </div>
-      <h1 class="cart__title">Cart (<span class="cart__span">3</span>)</h1>
+      <h1 class="cart__title">Cart (<span id="cart-length" class="cart__span">3</span>)</h1>
     </div>
-    <div class="cart__body">
+    <div id="cart-body" class="cart__body">
       <div class="cart__left">
-        <button class="cart__del">
+        <button id="cart-del" class="cart__del">
           Delete all
           <svg class="cart__dagger" width="24" height="24">
             <use href="./svg/icons.svg#close"></use>
           </svg>
         </button>
-        <ul class="cart__list">
-          <li class="cart__item">
+        <ul id="cart-list" class="cart__list">
+          <!-- <li class="cart__item">
             <button class="cart__close">
               <svg class="cart__dagger" width="20" height="20">
                 <use href="./svg/icons.svg#close"></use>
@@ -38,51 +38,7 @@
               </ul>
               <p class="cart__dollars">$<span class="cart__cost">1.99</span></p>
             </div>
-          </li>
-          <li class="cart__item">
-            <button class="cart__close">
-              <svg class="cart__dagger" width="20" height="20">
-                <use href="./svg/icons.svg#close"></use>
-              </svg>
-            </button>
-            <div class="cart__wrapper">
-              <img src="#" alt="" class="cart__img" />
-            </div>
-            <div class="cart__text">
-              <h3 class="cart__header">Avocado</h3>
-              <ul class="cart__infos">
-                <li class="cart__info">
-                  Category: <span class="cart__value">Fresh Produce</span>
-                </li>
-                <li class="cart__info">
-                  Size: <span class="cart__value">Each</span>
-                </li>
-              </ul>
-              <p class="cart__dollars">$<span class="cart__cost">1.99</span></p>
-            </div>
-          </li>
-          <li class="cart__item">
-            <button class="cart__close">
-              <svg class="cart__dagger" width="20" height="20">
-                <use href="./svg/icons.svg#close"></use>
-              </svg>
-            </button>
-            <div class="cart__wrapper">
-              <img src="#" alt="" class="cart__img" />
-            </div>
-            <div class="cart__text">
-              <h3 class="cart__header">Avocado</h3>
-              <ul class="cart__infos">
-                <li class="cart__info">
-                  Category: <span class="cart__value">Fresh Produce</span>
-                </li>
-                <li class="cart__info">
-                  Size: <span class="cart__value">Each</span>
-                </li>
-              </ul>
-              <p class="cart__dollars">$<span class="cart__cost">1.99</span></p>
-            </div>
-          </li>
+          </li> -->
         </ul>
       </div>
       <form class="cart__form">
@@ -90,12 +46,12 @@
         <div class="cart__prise">
           <h3 class="cart__total">Total</h3>
           <p class="cart__sum">
-            Sum:  <span class="cart__num">$<span>12,94</span></span>
+            Sum: <span class="cart__num">$<span id="cart-price"></span></span>
           </p>
         </div>
         <div class="cart__footer">
           <label class="cart__label">
-            <p class="cart__mail">Mail: </p>
+            <p class="cart__mail">Mail:</p>
             <input
               type="email"
               placeholder="Enter your email"
@@ -105,6 +61,39 @@
           <button class="cart__sub">Checkout</button>
         </div>
       </form>
+    </div>
+    <div id="cart-nobody" class="cart__nobody display-none">
+      <picture>
+        <source
+          srcset="
+            ./img/destop/x1/basket@1x.webp,
+            ./img/destop/x2/basket@2x.webp
+          "
+          media="(min-width: 1304px)"
+        />
+        <source
+          srcset="./img/table/x1/basket@1x.webp, ./img/table/x1/basket@1x.webp"
+          media="(min-width: 768px)"
+        />
+        <source
+          srcset="./img/phone/x1/basket@1x.webp, ./img/phone/x2/basket@2x.webp"
+          media="(max-width: 767px)"
+        />
+        <img
+          class="cart__noimg"
+          width="132"
+          height="114"
+          src="./img/phone/x1/basket@1x.webp"
+          alt="Basket"
+        />
+      </picture>
+      <h3 class="cart__notitle">
+        Your basket is <span class="cart__nospan">empty...</span>
+      </h3>
+      <p class="cart__nodesc">
+        Go to the main page to select your favorite products and add them to the
+        cart.
+      </p>
     </div>
   </div>
 </section>

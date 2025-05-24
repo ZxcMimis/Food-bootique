@@ -13,11 +13,8 @@
         display: flex;
         gap: 14px;
         align-items: center;
-        margin-bottom: 14px;
 
-        @media screen and (min-width: 768px) {
-            margin-bottom: 24px;
-        }
+        @media screen and (min-width: 768px) {}
 
         @media screen and (min-width: 1304px) {
             gap: 14px;
@@ -59,10 +56,16 @@
         flex-direction: column;
         width: 100%;
         gap: 80px;
+        margin-top: 14px;
+
+        @media screen and (min-width: 768px) {
+            margin-top: 24px;
+        }
 
         @media screen and (min-width: 1304px) {
             flex-direction: row;
             gap: 100px;
+            align-items: center;
         }
     }
 
@@ -100,12 +103,12 @@
         display: flex;
         flex-direction: column;
         gap: 30px;
-        height: 420px;
+        max-height: 420px;
         overflow-y: auto;
 
         @media screen and (min-width: 768px) {
             gap: 40px;
-            height: 520px;
+            max-height: 520px;
         }
     }
 
@@ -127,6 +130,7 @@
     }
 
     &__close {
+        outline: red dashed 1px;
         position: absolute;
         top: 30px;
         right: 7px;
@@ -146,18 +150,32 @@
     &__wrapper {
         border-radius: 10px;
         background: $light-color-100;
-        width: 100px;
-        height: 100px;
+        min-width: 100px;
+        min-height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         @media screen and (min-width: 768px) {
-            width: 120px;
-            height: 120px;
+            min-width: 120px;
+            min-height: 120px;
         }
     }
 
-    &__img {}
+    &__img {
+        width: 64px;
+        height: 64px;
 
-    &__text {}
+        @media screen and (min-width: 768px) {
+            width: 72px;
+            height: 72px;
+        }
+    }
+
+    &__text {
+        width: 100%;
+        padding-right: 11px;
+    }
 
     &__header {
         color: $dark-text-100;
@@ -206,10 +224,8 @@
         font-size: 18px;
         font-weight: 500;
         line-height: 1.11;
-        margin-top: 36px;
 
         @media screen and (min-width: 768px) {
-            margin-top: 44px;
             font-size: 20px;
             line-height: 1.2;
         }
@@ -220,10 +236,6 @@
     &__form {
         @media screen and (min-width: 768px) {
             width: 590px;
-        }
-
-        @media screen and (min-width: 1304px) {
-            padding-top: 129px;
         }
     }
 
@@ -373,7 +385,101 @@
             font-size: 20px;
             line-height: 1.2;
         }
+    }
 
-        @media screen and (min-width: 1304px) {}
+    &__down {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 36px;
+
+        @media screen and (min-width: 768px) {
+            margin-top: 44px;
+        }
+    }
+
+    &__count {
+        display: flex;
+        padding: 4px 12px;
+        gap: 6px;
+        border-radius: 100px;
+        border: 1px solid $dark-text-10;
+        cursor: default;
+
+        @media screen and (min-width: 768px) {
+            padding: 5px 16.5px;
+            gap: 10px;
+        }
+    }
+
+    &__action {
+        padding: 0;
+        line-height: 0;
+        background-color: transparent;
+    }
+
+    &__operation {
+        stroke: $dark-text-100;
+    }
+
+    &__countnum {
+        font-size: 16px;
+        line-height: 1.13;
+        color: $dark-text-100;
+
+        @media screen and (min-width: 768px) {
+            font-size: 20px;
+            line-height: 1.2;
+        }
+    }
+
+    &__nobody {
+        margin-top: 100px;
+
+        @media screen and (min-width: 768px) {
+            margin-top: 130px;
+        }
+
+    }
+
+    &__noimg {
+        margin: 0 auto 28px;
+
+        @media screen and (min-width: 768px) {
+            margin: 0 auto 40px;
+        }
+
+    }
+
+    &__notitle {
+        color: $dark-text-100;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.11;
+        text-align: center;
+        margin-bottom: 14px;
+
+        @media screen and (min-width: 768px) {
+            font-size: 20px;
+            line-height: 1.2;
+        }
+    }
+
+    &__nospan {
+        color: $accent-color-100;
+    }
+
+    &__nodesc {
+        color: $dark-text-70;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.29;
+        width: 279px;
+
+        @media screen and (min-width: 768px) {
+            width: 387px;
+            font-size: 18px;
+            line-height: 1.33;
+        }
     }
 }

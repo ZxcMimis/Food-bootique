@@ -1,5 +1,5 @@
-*{
-  transition: all 0.2s cubic-bezier(.21, .24, .58, .98);  
+* {
+  transition: all 0.2s cubic-bezier(.21, .24, .58, .98);
 }
 
 html {
@@ -101,4 +101,8 @@ body {
 
 [data-product] {
   cursor: pointer;
+}
+
+.display-none {
+  display: none !important;
 }
