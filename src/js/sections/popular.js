@@ -23,9 +23,15 @@ getPopularProducts().then((products) => {
           </ul>
         </div>
         <button data-productadd='true' class="popular__cart">
-          <svg class="popular__icon" width="12" height="12">
+        ${
+          JSON.parse(localStorage.getItem("cart"))
+            .map((item) => item.id)
+            .includes(_id)
+            ? "✓"
+            : ` <svg class="popular__icon" width="12" height="12">
             <use href="./svg/icons.svg#cart"></use>
-          </svg>
+          </svg>`
+        }
         </button>
       </li>`
     )
