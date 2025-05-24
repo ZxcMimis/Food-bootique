@@ -20,7 +20,16 @@ document.querySelector("body").addEventListener("click", async (e) => {
       id = e.target.closest("[data-product]").id;
     }
     await getProduct(id).then(
-      ({ name, img, category, price, size, is10PercentOff, popularity }) => {
+      ({
+        name,
+        img,
+        category,
+        price,
+        size,
+        desc,
+        is10PercentOff,
+        popularity,
+      }) => {
         document.querySelector("#product-img").src = img;
         document.querySelector("#product-img").alt = name;
         document.querySelector("#product-name").textContent = name;
@@ -28,6 +37,7 @@ document.querySelector("body").addEventListener("click", async (e) => {
         document.querySelector("#product-size").textContent = size;
         document.querySelector("#product-popularity").textContent = popularity;
         document.querySelector("#product-price").textContent = price;
+        document.querySelector("#product-desc").textContent = desc;
       }
     );
   }
@@ -43,4 +53,5 @@ document.querySelector("#product-close").addEventListener("click", async () => {
   document.querySelector("#product-size").textContent = "";
   document.querySelector("#product-popularity").textContent = "";
   document.querySelector("#product-price").textContent = "";
+  document.querySelector("#product-desc").textContent = "";
 });

@@ -116,23 +116,39 @@
     &__list {
         z-index: 1;
         position: absolute;
-        bottom: -380px;
+        bottom: -314px;
         left: 0;
         display: flex;
         width: 100%;
-        padding: 14px 20px;
         flex-direction: column;
-        gap: 8px;
         border-radius: 15px;
         background: $light-color-100;
         box-shadow: 0px 20px 69px 0px rgba(0, 0, 0, 0.07), 0px 4px 11.212px 0px rgba(0, 0, 0, 0.04);
+
+        @media screen and (min-width:768px) {
+            bottom: -380px;
+        }
     }
 
     &__item {
+        padding: 4px 20px;
+        cursor: pointer;
         color: $dark-text-50;
         font-size: 14px;
         font-weight: 400;
         line-height: 1.29;
+
+        &:first-child {
+            padding-top: 14px;
+        }
+
+        &:last-child {
+            padding-bottom: 14px;
+        }
+
+        &:hover {
+            color: $accent-color-100;
+        }
 
         @media screen and (min-width:768px) {
             font-size: 18px;
@@ -146,7 +162,11 @@
 
     &__alphabet {
         position: relative;
-        width: 200px;
+
+        @media screen and (min-width:768px) {
+            width: 200px;
+        }
+
     }
 
     &__alphabet &__btn {
@@ -155,6 +175,39 @@
     }
 
     &__alphabet &__list {
-        bottom: -252px;
+        bottom: -210px;
+
+        @media screen and (min-width:768px) {
+            bottom: -252px;
+        }
+
+    }
+}
+
+.products {
+    &__nocards {
+        width: 371px;
+        margin: 0 auto;
+    }
+
+    &__notitle {
+        color: $dark-text-100;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1.2;
+        margin-bottom: 14px;
+    }
+
+    &__noaccent {
+        color: $accent-color-100;
+    }
+
+    &__nodesc {
+        color: $dark-text-70;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.33;
     }
 }

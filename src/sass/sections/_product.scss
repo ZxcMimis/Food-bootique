@@ -62,6 +62,7 @@
         align-items: center;
 
         @media screen and (min-width: 768px) {
+            width: 240px;
             min-width: 240px;
         }
     }
@@ -112,6 +113,8 @@
         font-weight: 400;
         line-height: 1.29;
         margin-top: 20px;
+        max-height: 117px;
+        overflow-y: auto;
 
         @media screen and (min-width: 768px) {
             font-size: 16px;
