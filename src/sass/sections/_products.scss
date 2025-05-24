@@ -216,20 +216,33 @@
 
 
 
-// @media screen and (max-width: 768px) {
-//     .products {
+@media screen and (max-width: 768px) {
+    .products {
 
-//         max-width: 100%;
+        max-width: 100%;
 
 
-//         &__list {
-//             gap: 32px;
-//             display: flex;
+        &__list {
+            gap: 32px;
+            display: flex;
+            justify-content: center;
+        }
 
-//         }
+        &__last_item {
+            display: none;
+        }
 
-//         &__last_item {
-//             display: none;
-//         }
-//     }
-// }
+
+
+
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .products {
+
+        &__deleting {
+            display: none !important;
+        }
+    }
+}
