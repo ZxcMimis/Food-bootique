@@ -5,6 +5,19 @@ let category = "";
 let sort = "";
 
 const makeMarkup = (keyword, category, id, sort) => {
+  if (category.includes("&")) {
+    document.querySelector(
+      "#products-list"
+    ).innerHTML = `<div class="products__nocards">
+  <h3 class="products__notitle">
+    I am sorry, but this <span class="products__noaccent">category</span> isn't working
+  </h3>
+  <p class="products__nodesc">
+    Choose other catogories or write the name of a product.
+  </p>
+</div>`;
+    return;
+  }
   getFilteredProducts(keyword, category, id, sort).then((data) => {
     if (data.results.length === 0) {
       document.querySelector(
