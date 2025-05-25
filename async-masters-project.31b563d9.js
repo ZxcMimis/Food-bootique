@@ -824,6 +824,8 @@ document.querySelector(`[data-productmodal]`).addEventListener("click", async (e
         });
         target.textContent = "Added \u2713";
         localStorage.setItem("cart", JSON.stringify(array));
+        console.log();
+        document.getElementById(`${e.target.closest("[data-productmodal]").id}`).querySelector(`[data-productadd='true']`).textContent = "\u2713";
     }
 });
 

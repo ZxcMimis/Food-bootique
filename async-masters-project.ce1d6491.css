@@ -1317,4 +1317,201 @@ body {
 .product__icon {
   fill: #e8e8e2;
 }
+
+.modal-window {
+  text-align: center;
+  opacity: 0;
+  background: #e8e8e2;
+  border-radius: 20px;
+  width: 490px;
+  height: 400px;
+  margin: auto;
+  padding: 0 40px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+.backdrop {
+  opacity: 0;
+}
+
+.backdrop:not(.is-hidden) .modal-window {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.backdrop {
+  opacity: 1;
+  background-color: #00000080;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.svg-close {
+  fill: #010101;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+}
+
+.modal-close {
+  background-color: #e8e8e2;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.modal-title {
+  color: #010101;
+  text-align: center;
+  margin-top: auto;
+  font-family: Neue Montreal;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.green-title {
+  color: #6d8434;
+  width: 245px;
+  font-family: Neue Montreal;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.modal-subtitle {
+  color: #010101b3;
+  text-align: center;
+  width: 328px;
+  font-family: Neue Montreal;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.modal-box {
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 330px;
+  height: 150px;
+  display: inline-flex;
+  position: absolute;
+  top: 90px;
+  bottom: 100px;
+  left: 80px;
+}
+
+.modal-img {
+  border-radius: 18.966px;
+  flex-shrink: 0;
+  width: 490px;
+  height: 159px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.email__modal-window {
+  text-align: center;
+  opacity: 0;
+  background: #e8e8e2;
+  border-radius: 20px;
+  width: 469px;
+  height: 308px;
+  margin: auto;
+  padding: 0 40px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+.email__backdrop {
+  opacity: 0;
+}
+
+.email__backdrop:not(.is-hidden) .email__modal-window {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.email__backdrop {
+  opacity: 1;
+  background-color: #00000080;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.email__backdrop .email__is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.email__svg-close {
+  fill: #010101;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+}
+
+.email__modal-close {
+  background-color: #e8e8e2;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.email__box-modal {
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 330px;
+  height: 150px;
+  display: inline-flex;
+  position: absolute;
+  top: 100px;
+  bottom: 100px;
+  left: 70px;
+}
+
+.email__title-modal {
+  color: #010101;
+  text-align: center;
+  width: 245px;
+  font-family: Neue Montreal;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.email__title-green {
+  color: #6d8434;
+  font-family: Neue Montreal;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.email__subtitle-modal {
+  color: #010101b3;
+  text-align: center;
+  width: 349px;
+  font-family: Neue Montreal;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
 /*# sourceMappingURL=async-masters-project.ce1d6491.css.map */
