@@ -129,5 +129,8 @@ document
       });
       target.textContent = "Added ✓";
       localStorage.setItem("cart", JSON.stringify(array));
+      document
+        .getElementById(`${e.target.closest("[data-productmodal]").id}`)
+        .querySelector(`[data-productadd='true']`).textContent = "✓";
     }
   });
