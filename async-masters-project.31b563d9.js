@@ -699,9 +699,7 @@ const makeMarkup = (page, category, keyword, sort)=>{
         <div class="products__svg_price">
             <p class="products__price">$${price}</p>
             <div  data-productadd="true"  class="products__svg_container">
-                ${JSON.parse(localStorage.getItem("cart")).map((item)=>item.id).includes(_id) ? "\u2713" : ` <svg class="products__basket">
-                    <use href="./svg/icons.svg#cart"></use>
-                </svg>`}
+                ${JSON.parse(localStorage.getItem("cart")).map((item)=>item.id).includes(_id) ? "\u2713" : ""}
             </div>
         </div>
     </li>`).join("");
@@ -866,9 +864,7 @@ const makeMarkup = (keyword, category, id, sort)=>{
         <div class="products__svg_price">
             <p class="products__price">$${price}</p>
             <div  data-productadd="true"  class="products__svg_container">
-                ${JSON.parse(localStorage.getItem("cart")).map((item)=>item.id).includes(_id) ? "\u2713" : ` <svg class="products__basket">
-                    <use href="./svg/icons.svg#cart"></use>
-                </svg>`}
+                ${JSON.parse(localStorage.getItem("cart")).map((item)=>item.id).includes(_id) ? "\u2713" : ""}
             </div>
         </div>
     </li>
@@ -973,9 +969,7 @@ var _getPopularProducts = require("../fetchs/getPopularProducts");
           </ul>
         </div>
         <button data-productadd='true' class="popular__cart">
-        ${JSON.parse(localStorage.getItem("cart")).map((item)=>item.id).includes(_id) ? "\u2713" : ` <svg class="popular__icon" width="12" height="12">
-            <use href="./svg/icons.svg#cart"></use>
-          </svg>`}
+        ${JSON.parse(localStorage.getItem("cart")).map((item)=>item.id).includes(_id) ? "\u2713" : ""}
         </button>
       </li>`).join("");
 });
@@ -1013,11 +1007,7 @@ document.querySelector("body").addEventListener("click", async (e)=>{
             document.querySelector("#product-popularity").textContent = popularity;
             document.querySelector("#product-price").textContent = price;
             document.querySelector("#product-desc").textContent = desc;
-            document.querySelector("#product-add").innerHTML = JSON.parse(localStorage.getItem("cart")).map((product)=>product.id).includes(_id) ? `Added \u{2713}` : `Add to
-          <svg class="product__icon" width="18" height="18">
-            <use href="./svg/icons.svg#cart"></use>
-          </svg>
-        `;
+            document.querySelector("#product-add").innerHTML = JSON.parse(localStorage.getItem("cart")).map((product)=>product.id).includes(_id) ? `Added \u{2713}` : `Add to`;
         });
     }
 });

@@ -717,9 +717,6 @@ const makesMarkup = ()=>{
                   </button>
                   <p data-action="count" class="cart__countnum">${JSON.parse(localStorage.getItem("cart")).find((item)=>item.id === _id).count}</p>
                   <button data-action='plus' class="cart__action">
-                    <svg class="cart__operation" width="14" height="14">
-                      <use href="./svg/icons.svg#plus"></use>
-                    </svg>
                   </button>
                 </div>
               </div>  
@@ -900,11 +897,7 @@ document.querySelector("body").addEventListener("click", async (e)=>{
             document.querySelector("#product-popularity").textContent = popularity;
             document.querySelector("#product-price").textContent = price;
             document.querySelector("#product-desc").textContent = desc;
-            document.querySelector("#product-add").innerHTML = JSON.parse(localStorage.getItem("cart")).map((product)=>product.id).includes(_id) ? `Added \u{2713}` : `Add to
-          <svg class="product__icon" width="18" height="18">
-            <use href="./svg/icons.svg#cart"></use>
-          </svg>
-        `;
+            document.querySelector("#product-add").innerHTML = JSON.parse(localStorage.getItem("cart")).map((product)=>product.id).includes(_id) ? `Added \u{2713}` : `Add to`;
         });
     }
 });
