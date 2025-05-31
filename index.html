@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang=en><meta name=viewport content="width=device-width, initial-scale=1.0"><title>FoodBoutique</title><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=async-masters-project.4400ef6a.css><body>
+<!DOCTYPE html><html lang=en><meta name=viewport content="width=device-width, initial-scale=1.0"><title>FoodBoutique</title><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=async-masters-project.9ac36f4d.css><body>
     <header class=header>
   <div class="container header__box">
     <a href=index.html>
@@ -81,8 +81,10 @@
     </div>
   </div>
 </section>
- 
-    <section class=products>
+
+    <div class=main__body>
+      <div class=main__left>
+        <section class=products>
     <div class=container>
     <ul id=products-list class=products__list>
             <li class=products__item> 
@@ -244,7 +246,7 @@
         </ul>
     </div>
 </section>
-    <section id=pagination-section class=pagination>
+        <section id=pagination-section class=pagination>
   <div class=container>
     <div class=pagination__wrap>
       <button id=double-prev class=pagination__box>
@@ -268,14 +270,16 @@
   </div>
 </section>
 
-    <section class=popular>
+      </div>
+      <div class=main__right>
+        <section class=popular>
   <div class=container>
     <h2 class=popular__title>Popular products</h2>
     <ul class=popular__list id=popular__list></ul>
   </div>
 </section>
 
-    <section class=discount>
+        <section class=discount>
   <div class="container discount__box">
     <h2 class=discount__title>Discount products</h2>
     <ul class=discount__list>
@@ -294,6 +298,8 @@
   </div>
 </section>
 
+      </div>
+    </div>
     <section class=footer>
     <div class=container>
         <div class=footer__container>
@@ -379,7 +385,7 @@
     </div>
   </div>
 </div>
- 
+
     
     <div data-thanks=backdrop id=thanks class="backdrop is-hidden">
         <div class=modals-window id=modalsWindow>
@@ -394,7 +400,7 @@
             <img class=modal-img src=modal-@1x.f3f390e3.webp alt=#>
         </div>
     </div>
- 
+
     
     <div data-email=backdrop class="backdrop is-hidden">
         <div class=modal-window id=modalWindow>
@@ -417,3 +423,4 @@
 
     <script type=module src=async-masters-project.7aad2cae.js></script>
   
+

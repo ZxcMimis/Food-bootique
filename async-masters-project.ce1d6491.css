@@ -42,20 +42,20 @@ body {
 
 @media screen and (width >= 480px) {
   .container {
-    width: 480px;
+    max-width: 480px;
   }
 }
 
 @media screen and (width >= 768px) {
   .container {
-    width: 768px;
+    max-width: 768px;
     padding: 0 32px;
   }
 }
 
 @media screen and (width >= 1304px) {
   .container {
-    width: 1304px;
+    max-width: 1304px;
   }
 }
 
@@ -159,6 +159,70 @@ body {
 
 .display-none {
   display: none !important;
+}
+
+.main__body {
+  flex-direction: column;
+  gap: 80px;
+  padding-bottom: 80px;
+  display: flex;
+}
+
+@media screen and (width >= 768px) {
+  .main__body {
+    gap: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+@media screen and (width >= 1304px) {
+  .main__body {
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+    padding-bottom: 61px;
+  }
+}
+
+.main__left {
+  flex-direction: column;
+  gap: 40px;
+  display: flex;
+}
+
+@media screen and (width >= 768px) {
+  .main__left {
+    gap: 50px;
+  }
+}
+
+@media screen and (width >= 1304px) {
+  .main__left {
+    width: 925px;
+  }
+}
+
+.main__right {
+  flex-direction: column;
+  gap: 80px;
+  display: flex;
+}
+
+@media screen and (width >= 768px) {
+  .main__right {
+    gap: 64px;
+  }
+}
+
+@media screen and (width >= 1304px) {
+  .main__right {
+    gap: 40px;
+    width: 275px;
+  }
+
+  .popular .container, .pagination .container, .discount .container, .products .container {
+    padding: 0;
+  }
 }
 
 .header__box {
@@ -376,6 +440,7 @@ body {
 }
 
 .filters {
+  padding-top: 74px;
   padding-bottom: 40px;
 }
 
@@ -600,7 +665,6 @@ body {
 
 .products {
   flex: auto;
-  padding-bottom: 40px;
 }
 
 @media screen and (width >= 768px) {
@@ -609,10 +673,16 @@ body {
   }
 }
 
+@media screen and (width >= 1304px) {
+  .products {
+    padding: 0;
+  }
+}
+
 .products__list {
   flex-wrap: wrap;
   flex-basis: calc(33.3333% - 6.66667px);
-  gap: 40px;
+  gap: 40px 20px;
   display: flex;
 }
 
@@ -755,10 +825,6 @@ body {
   .products__deleting {
     display: none !important;
   }
-}
-
-.pagination {
-  padding-bottom: 80px;
 }
 
 @media screen and (width >= 768px) {
@@ -909,6 +975,7 @@ body {
   border-radius: 10px;
   width: 74px;
   height: 74px;
+  padding: 9px;
 }
 
 .popular__subtitle {
