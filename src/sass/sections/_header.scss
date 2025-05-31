@@ -3,10 +3,8 @@
   justify-content: space-between;
   align-items: center;
 
-  @media screen and (min-width: 480px) {
-    padding-top: 18px;
-    padding-bottom: 18px;
-  }
+  padding-top: 18px;
+  padding-bottom: 18px;
 
   @media screen and (min-width: 768px) {
     padding-top: 24px;
@@ -15,10 +13,8 @@
 }
 
 .header__logo-icon {
-  @media screen and (min-width: 480px) {
-    width: 154px;
-    height: 28px;
-  }
+  width: 154px;
+  height: 28px;
 
   @media screen and (min-width: 768px) {
     width: 195px;
@@ -29,6 +25,10 @@
 .header__wrap {
   display: flex;
   align-items: center;
+
+  @media screen and (min-width: 768px) {
+    padding-right: 30px;
+  }
 }
 
 .header__home-btn {
@@ -40,12 +40,10 @@
   background: $accent-color-100;
   color: $main-bg-100;
 
-  @media screen and (min-width: 480px) {
-    padding: 10px 20px;
-    font-size: 14px;
-    font-weight: 500;
-    margin-right: 6px;
-  }
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 6px;
 
   @media screen and (min-width: 768px) {
     padding: 12px 28px;
@@ -70,9 +68,8 @@
   background: $accent-color-100;
   fill: $main-bg-100;
 
-  @media screen and (min-width: 480px) {
-    padding: 12px;
-  }
+  padding: 12px;
+  color: $dark-text-100;
 
   @media screen and (min-width: 768px) {
     padding: 10px;
@@ -81,10 +78,8 @@
 }
 
 .header__cart-icon {
-  @media screen and (min-width: 480px) {
-    width: 14px;
-    height: 14px;
-  }
+  width: 14px;
+  height: 14px;
 
   @media screen and (min-width: 768px) {
     width: 18px;
@@ -93,11 +88,13 @@
 }
 
 .header__cart-info {
-  @media screen and (min-width: 480px) {
-    display: none;
-  }
+  display: none;
 
   @media screen and (min-width: 768px) {
     display: block;
+    position: absolute;
+    right: 115px;
+    font-size: 18px;
+    font-weight: 500;
   }
 }
