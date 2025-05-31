@@ -55,9 +55,6 @@ const makesMarkup = () => {
                     ).count
                   }</p>
                   <button data-action='plus' class="cart__action">
-                    <svg class="cart__operation" width="14" height="14">
-                      <use href="./svg/icons.svg#plus"></use>
-                    </svg>
                   </button>
                 </div>
               </div>  

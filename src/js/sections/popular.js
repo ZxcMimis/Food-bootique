@@ -28,9 +28,7 @@ getPopularProducts().then((products) => {
             .map((item) => item.id)
             .includes(_id)
             ? "✓"
-            : ` <svg class="popular__icon" width="12" height="12">
-            <use href="./svg/icons.svg#cart"></use>
-          </svg>`
+            : ""
         }
         </button>
       </li>`
