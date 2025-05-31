@@ -680,8 +680,276 @@ var _subscribeJs = require("./js/sections/subscribe.js");
 },{}],"2Dntu":[function(require,module,exports,__globalThis) {
 
 },{}],"drJWK":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "makePagination", ()=>makePagination);
+var _getFilteredProducts = require("../fetchs/getFilteredProducts");
+var _filters = require("./filters");
+let userPage = 1;
+const makeMarkup = (page, category, keyword, sort)=>{
+    (0, _getFilteredProducts.getFilteredProducts)(keyword, category, page, sort).then((products)=>{
+        document.querySelector("#products-list").innerHTML = products.results.map(({ _id, name, img, category, size, price, is10PercentOff, popularity })=>`<li id="${_id}" data-product="true" class="products__item">
+        <div class="products__container_img">
+            <img src="${img}" alt="Carrots" class="products__img">
+        </div>
+        <h2 class="products__title">${name}</h2>
+        <p class="products__category">Category: <span>${category}</span></p>
+        <p class="products__size">Size: <span>${size}</span></p>
+        <p class="products__popularity">Popularity: <span>${popularity}</span></p>
+        <div class="products__svg_price">
+            <p class="products__price">$${price}</p>
+            <div  data-productadd="true"  class="products__svg_container">
+                ${JSON.parse(localStorage.getItem("cart")).map((item)=>item.id).includes(_id) ? "\u2713" : ` <svg class="products__basket">
+                    <use href="./svg/icons.svg#cart"></use>
+                </svg>`}
+            </div>
+        </div>
+    </li>`).join("");
+    });
+};
+const makePagination = (page, category, keyword, sort)=>{
+    (0, _getFilteredProducts.getFilteredProducts)(keyword, category, page, sort).then(({ totalPages })=>{
+        let markup = "";
+        for(let i = page; i <= totalPages && i <= page + 3; i += 1)markup += `<li id='${i}' class="pagination__item ${page === i ? "pagination__accent" : ""}">
+        <button class="pagination__btn">${i}
+        </button>
+      </li>`;
+        if (totalPages > 4) markup += `<li class="pagination__item">
+        <p class="pagination__text">...</p>
+      </li>`;
+        document.querySelector("#pagination-list").innerHTML = markup;
+        if (page - 2 < 1) document.querySelector("#double-prev").classList.add("pagination__disable");
+        else document.querySelector("#double-prev").classList.remove("pagination__disable");
+        if (page - 1 < 1) document.querySelector("#prev").classList.add("pagination__disable");
+        else document.querySelector("#prev").classList.remove("pagination__disable");
+        if (page + 2 > totalPages) document.querySelector("#double-next").classList.add("pagination__disable");
+        else document.querySelector("#double-next").classList.remove("pagination__disable");
+        if (page + 1 > totalPages) document.querySelector("#next").classList.add("pagination__disable");
+        else document.querySelector("#next").classList.remove("pagination__disable");
+    });
+};
+makePagination(userPage, (0, _filters.category), (0, _filters.keyword), (0, _filters.sort));
+document.querySelector("#pagination-list").addEventListener("click", (e)=>{
+    if (e.target.classList.contains("pagination__btn")) {
+        if (Number.parseInt(e.target.parentElement.id) === userPage) return;
+        userPage = Number.parseInt(e.target.parentElement.id);
+        makePagination(userPage, (0, _filters.category), (0, _filters.keyword), (0, _filters.sort));
+        makeMarkup(userPage, (0, _filters.category), (0, _filters.keyword), (0, _filters.sort));
+    }
+});
+document.querySelector("#next").addEventListener("click", (e)=>{
+    if (e.currentTarget.classList.contains("pagination__disable")) return;
+    userPage += 1;
+    makePagination(userPage, (0, _filters.category), (0, _filters.keyword), (0, _filters.sort));
+    makeMarkup(userPage, (0, _filters.category), (0, _filters.keyword), (0, _filters.sort));
+});
+document.querySelector("#double-next").addEventListener("click", (e)=>{
+    if (e.currentTarget.classList.contains("pagination__disable")) return;
+    userPage += 2;
+    makePagination(userPage, (0, _filters.category), (0, _filters.keyword), (0, _filters.sort));
+    makeMarkup(userPage, (0, _filters.category), (0, _filters.keyword), (0, _filters.sort));
+});
+document.querySelector("#prev").addEventListener("click", (e)=>{
+    if (e.currentTarget.classList.contains("pagination__disable")) return;
+    userPage -= 1;
+    makePagination(userPage, (0, _filters.category), (0, _filters.keyword), (0, _filters.sort));
+    makeMarkup(userPage, (0, _filters.category), (0, _filters.keyword), (0, _filters.sort));
+});
+document.querySelector("#double-prev").addEventListener("click", (e)=>{
+    if (e.currentTarget.classList.contains("pagination__disable")) return;
+    userPage -= 2;
+    makePagination(userPage, (0, _filters.category), (0, _filters.keyword), (0, _filters.sort));
+    makeMarkup(userPage, (0, _filters.category), (0, _filters.keyword), (0, _filters.sort));
+});
+document.querySelector("#filters-form").addEventListener("submit", (e)=>{
+    userPage = 1;
+    makePagination(userPage, (0, _filters.category), (0, _filters.keyword), (0, _filters.sort));
+});
+document.querySelector("#filters-categories-list").addEventListener("click", (e)=>{
+    userPage = 1;
+    makePagination(userPage, (0, _filters.category), (0, _filters.keyword), (0, _filters.sort));
+});
+document.querySelector("#filters-alphabet-list").addEventListener("click", (e)=>{
+    userPage = 1;
+    makePagination(userPage, (0, _filters.category), (0, _filters.keyword), (0, _filters.sort));
+});
 
-},{}],"4utt9":[function(require,module,exports,__globalThis) {
+},{"../fetchs/getFilteredProducts":"cf4nK","./filters":"8U2Ig","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"cf4nK":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getFilteredProducts", ()=>getFilteredProducts);
+const getFilteredProducts = async (keyword, category, id, sort)=>{
+    try {
+        return await fetch(`https://food-boutique.b.goit.study/api/products?keyword=${keyword}${sort}&category=${category}&page=${id}&limit=9`).then((response)=>response.json());
+    } catch (e) {
+        return e;
+    }
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jnFvT":[function(require,module,exports,__globalThis) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"8U2Ig":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "keyword", ()=>keyword);
+parcelHelpers.export(exports, "category", ()=>category);
+parcelHelpers.export(exports, "sort", ()=>sort);
+var _getFilteredProducts = require("../fetchs/getFilteredProducts");
+let keyword = "";
+let category = "";
+let sort = "";
+const makeMarkup = (keyword, category, id, sort)=>{
+    if (category.includes("&")) {
+        document.querySelector("#products-list").innerHTML = `<div class="products__nocards">
+  <h3 class="products__notitle">
+    I am sorry, but this <span class="products__noaccent">category</span> isn't working
+  </h3>
+  <p class="products__nodesc">
+    Choose other catogories or write the name of a product.
+  </p>
+</div>`;
+        document.querySelector("#pagination-section").classList.add("display-none");
+        return;
+    }
+    (0, _getFilteredProducts.getFilteredProducts)(keyword, category, id, sort).then((data)=>{
+        if (data.results.length === 0) {
+            document.querySelector("#products-list").innerHTML = `<div class="products__nocards">
+  <h3 class="products__notitle">
+    Nothing was found for the selected
+    <span class="products__noaccent">filters...</span>
+  </h3>
+  <p class="products__nodesc">
+    Try adjusting your search parameters or browse our range by other criteria
+    to find the perfect product for you.
+  </p>
+</div>`;
+            document.querySelector("#pagination-section").classList.add("display-none");
+            return;
+        }
+        document.querySelector("#products-list").innerHTML = data.results.map(({ _id, name, img, category, size, price, is10PercentOff, popularity })=>`
+    <li id="${_id}" data-product="true" class="products__item">
+        <div class="products__container_img">
+            <img src="${img}" alt="Carrots" class="products__img">
+        </div>
+        <h2 class="products__title">${name}</h2>
+        <p class="products__category">Category: <span>${category}</span></p>
+        <p class="products__size">Size: <span>${size}</span></p>
+        <p class="products__popularity">Popularity: <span>${popularity}</span></p>
+        <div class="products__svg_price">
+            <p class="products__price">$${price}</p>
+            <div  data-productadd="true"  class="products__svg_container">
+                ${JSON.parse(localStorage.getItem("cart")).map((item)=>item.id).includes(_id) ? "\u2713" : ` <svg class="products__basket">
+                    <use href="./svg/icons.svg#cart"></use>
+                </svg>`}
+            </div>
+        </div>
+    </li>
+    `).join("");
+        document.querySelector("#pagination-section").classList.remove("display-none");
+    });
+};
+document.querySelector("#filters-form").addEventListener("submit", (e)=>{
+    e.preventDefault();
+    keyword = document.querySelector("#filters-input").value;
+    makeMarkup(keyword, category, 1, sort);
+});
+document.querySelector("#filters-categories").addEventListener("click", (e)=>{
+    e.currentTarget.nextElementSibling.classList.toggle("is-hidden");
+});
+document.querySelector("#filters-categories-list").addEventListener("click", (e)=>{
+    e.currentTarget.querySelector(".filters__item--checked").classList.remove("filters__item--checked");
+    e.target.classList.add("filters__item--checked");
+    e.currentTarget.classList.add("is-hidden");
+    document.querySelector("#filters-categories-text").textContent = e.target.textContent;
+    if (e.target.id === "all") category = "";
+    else category = e.target.id;
+    makeMarkup(keyword, category, 1, sort);
+});
+document.querySelector("#filters-alphabet").addEventListener("click", (e)=>{
+    e.currentTarget.nextElementSibling.classList.toggle("is-hidden");
+});
+document.querySelector("#filters-alphabet-list").addEventListener("click", (e)=>{
+    e.currentTarget.querySelector(".filters__item--checked").classList.remove("filters__item--checked");
+    e.target.classList.add("filters__item--checked");
+    e.currentTarget.classList.add("is-hidden");
+    document.querySelector("#filters-alphabet-text").textContent = e.target.textContent;
+    if (e.target.id === "allAlphabet") sort = "";
+    else sort = e.target.id;
+    makeMarkup(keyword, category, 1, sort);
+});
+
+},{"../fetchs/getFilteredProducts":"cf4nK","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"4utt9":[function(require,module,exports,__globalThis) {
+const page = document.querySelector('body');
+const subscribeBackdrop = document.querySelector(`[data-thanks="backdrop"]`);
+const subscribeCloseBtn = document.querySelector(`[data-thanks="close"]`);
+const errorBackdrop = document.querySelector(`[data-email="backdrop"]`);
+const errorCloseBtn = document.querySelector(`[data-email="close"]`);
+const form = document.querySelector('#subscribe-form');
+const emails = [];
+form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const isIncludingEmail = addEmail(e.currentTarget.querySelector('input').value);
+    if (isIncludingEmail) {
+        e.currentTarget.querySelector('input').value = '';
+        page.classList.toggle('no-scroll');
+        errorBackdrop.classList.toggle('is-hidden');
+    } else {
+        e.currentTarget.querySelector('input').value = '';
+        page.classList.toggle('no-scroll');
+        subscribeBackdrop.classList.toggle('is-hidden');
+    }
+});
+errorCloseBtn.addEventListener('click', errorToggleModal);
+errorBackdrop.addEventListener('click', errorToggleModal);
+subscribeCloseBtn.addEventListener('click', subscribeToggleModal);
+subscribeBackdrop.addEventListener('click', subscribeToggleModal);
+function subscribeToggleModal(e) {
+    e.preventDefault();
+    if (e.currentTarget === subscribeBackdrop && e.currentTarget !== e.target) return;
+    page.classList.toggle('no-scroll');
+    subscribeBackdrop.classList.toggle('is-hidden');
+}
+function errorToggleModal(e) {
+    e.preventDefault();
+    if (e.currentTarget === errorBackdrop && e.currentTarget !== e.target) return;
+    page.classList.toggle('no-scroll');
+    errorBackdrop.classList.toggle('is-hidden');
+}
+function addEmail(email) {
+    if (emails.includes(email)) return true;
+    else {
+        emails.push(email);
+        return false;
+    }
+}
 
 },{}],"aJ9bM":[function(require,module,exports,__globalThis) {
 var _getPopularProducts = require("../fetchs/getPopularProducts");
@@ -724,37 +992,7 @@ const getPopularProducts = async ()=>{
     }
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jnFvT":[function(require,module,exports,__globalThis) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, '__esModule', {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"3SG3N":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"3SG3N":[function(require,module,exports,__globalThis) {
 var _getProduct = require("../fetchs/getProduct");
 if (!Object.keys(localStorage).includes("cart")) localStorage.setItem("cart", JSON.stringify([]));
 document.querySelector("body").addEventListener("click", async (e)=>{
@@ -835,100 +1073,6 @@ parcelHelpers.export(exports, "getProduct", ()=>getProduct);
 const getProduct = async (id)=>{
     try {
         return await fetch(`https://food-boutique.b.goit.study/api/products/${id}`).then((response)=>response.json());
-    } catch (e) {
-        return e;
-    }
-};
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"8U2Ig":[function(require,module,exports,__globalThis) {
-var _getFilteredProducts = require("../fetchs/getFilteredProducts");
-let keyword = "";
-let category = "";
-let sort = "";
-const makeMarkup = (keyword, category, id, sort)=>{
-    if (category.includes("&")) {
-        document.querySelector("#products-list").innerHTML = `<div class="products__nocards">
-  <h3 class="products__notitle">
-    I am sorry, but this <span class="products__noaccent">category</span> isn't working
-  </h3>
-  <p class="products__nodesc">
-    Choose other catogories or write the name of a product.
-  </p>
-</div>`;
-        return;
-    }
-    (0, _getFilteredProducts.getFilteredProducts)(keyword, category, id, sort).then((data)=>{
-        if (data.results.length === 0) {
-            document.querySelector("#products-list").innerHTML = `<div class="products__nocards">
-  <h3 class="products__notitle">
-    Nothing was found for the selected
-    <span class="products__noaccent">filters...</span>
-  </h3>
-  <p class="products__nodesc">
-    Try adjusting your search parameters or browse our range by other criteria
-    to find the perfect product for you.
-  </p>
-</div>`;
-            return;
-        }
-        document.querySelector("#products-list").innerHTML = data.results.map(({ _id, name, img, category, size, price, is10PercentOff, popularity })=>`
-    <li id="${_id}" data-product="true" class="products__item">
-        <div class="products__container_img">
-            <img src="${img}" alt="Carrots" class="products__img">
-        </div>
-        <h2 class="products__title">${name}</h2>
-        <p class="products__category">Category: <span>${category}</span></p>
-        <p class="products__size">Size: <span>${size}</span></p>
-        <p class="products__popularity">Popularity: <span>${popularity}</span></p>
-        <div class="products__svg_price">
-            <p class="products__price">$${price}</p>
-            <div  data-productadd="true"  class="products__svg_container">
-                ${JSON.parse(localStorage.getItem("cart")).map((item)=>item.id).includes(_id) ? "\u2713" : ` <svg class="products__basket">
-                    <use href="./svg/icons.svg#cart"></use>
-                </svg>`}
-            </div>
-        </div>
-    </li>
-    `).join("");
-    });
-};
-document.querySelector("#filters-form").addEventListener("submit", (e)=>{
-    e.preventDefault();
-    keyword = document.querySelector("#filters-input").value;
-    makeMarkup(keyword, category, 1, sort);
-});
-document.querySelector("#filters-categories").addEventListener("click", (e)=>{
-    e.currentTarget.nextElementSibling.classList.toggle("is-hidden");
-});
-document.querySelector("#filters-categories-list").addEventListener("click", (e)=>{
-    e.currentTarget.querySelector(".filters__item--checked").classList.remove("filters__item--checked");
-    e.target.classList.add("filters__item--checked");
-    e.currentTarget.classList.add("is-hidden");
-    document.querySelector("#filters-categories-text").textContent = e.target.textContent;
-    if (e.target.id === "all") category = "";
-    else category = e.target.id;
-    makeMarkup(keyword, category, 1, sort);
-});
-document.querySelector("#filters-alphabet").addEventListener("click", (e)=>{
-    e.currentTarget.nextElementSibling.classList.toggle("is-hidden");
-});
-document.querySelector("#filters-alphabet-list").addEventListener("click", (e)=>{
-    e.currentTarget.querySelector(".filters__item--checked").classList.remove("filters__item--checked");
-    e.target.classList.add("filters__item--checked");
-    e.currentTarget.classList.add("is-hidden");
-    document.querySelector("#filters-alphabet-text").textContent = e.target.textContent;
-    if (e.target.id === "allAlphabet") sort = "";
-    else sort = e.target.id;
-    makeMarkup(keyword, category, 1, sort);
-});
-
-},{"../fetchs/getFilteredProducts":"cf4nK"}],"cf4nK":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "getFilteredProducts", ()=>getFilteredProducts);
-const getFilteredProducts = async (keyword, category, id, sort)=>{
-    try {
-        return await fetch(`https://food-boutique.b.goit.study/api/products?keyword=${keyword}${sort}&category=${category}&page=${id}&limit=9`).then((response)=>response.json());
     } catch (e) {
         return e;
     }

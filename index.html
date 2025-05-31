@@ -1,264 +1,223 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoodBoutique</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css" integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="/async-masters-project.ce1d6491.css">
-  </head>
-  <body>
-    <a href="/cart.html">Cart</a>
-    <header class="header">
-  <div class="header__box container">
-    <a href="#">
-      <svg class="header__logo-icon">
-        <use href="/icons.2d679f6b.svg#header-logo"></use>
-      </svg>
+<!DOCTYPE html><html lang=en><meta name=viewport content="width=device-width, initial-scale=1.0"><title>FoodBoutique</title><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=async-masters-project.d1193452.css><body>
+    <header class=header>
+  <div class="container header__box">
+    <a href=index.html>
+      <svg class=header__logo-icon><use href=icons.c5b0f01c.svg#header-logo /></svg>
     </a>
-    <div class="header__wrap">
-      <button type="button" class="header__home-btn">Home</button>
-      <button type="button" class="header__cart-btn">
-        <a href="#">
-          <svg class="header__cart-icon">
-            <use href="/icons.2d679f6b.svg#cart"></use>
-          </svg>
-        </a>
-      </button>
-      <p class="header__cart-info">
-        Cart (<span class="header__cart-quantity">3</span>)
-      </p>
+    <div class=header__wrap>
+      <a href=index.html class=header__home-btn>Home</a>
+      <a href=cart.html class=header__cart-btn>
+        <svg class=header__cart-icon><use href=icons.c5b0f01c.svg#cart /></svg>
+        
+      </a>
     </div>
   </div>
 </header>
 
-    <section class="hero">
-  <div class="hero__box container">
-    <h3 class="hero__title">
-      Welcome to the <span class="hero__title-color">Food</span> Boutique!
+    <section class=hero>
+  <div class="container hero__box">
+    <h3 class=hero__title>
+      Welcome to the <span class=hero__title-color>Food</span> Boutique!
     </h3>
-    <p class="hero__text">
+    <p class=hero__text>
       With Food Boutique, you're not just subscribing to food, you're signing up
       for a fresher, fitter, and happier you.
     </p>
-
-    <img class="hero__image" src="/hero@1x.fddf9ab4.webp" alt="">
+    <div class=hero__wrap>
+      <svg width=100 height=100 class=hero__icon><use href=icons.c5b0f01c.svg#organic /></svg>
+      
+    </div>
   </div>
 </section>
 
-    <section class="filters">
-  <div class="container">
-    <svg class="cart__icon" width="100" height="100">
-      <use href="/icons.2d679f6b.svg#organic"></use>
-    </svg>
-    <h2 class="filters__title">Filters:</h2>
-    <div class="filters__body">
-      <form id="filters-form" class="filters__form">
-        <label class="filters__label">
-          <input placeholder="Search for anything" type="text" class="filters__input" id="filters-input">
+    <section class=filters>
+  <div class=container>
+    <h2 class=filters__title>Filters:</h2>
+    <div class=filters__body>
+      <form id=filters-form class=filters__form>
+        <label class=filters__label>
+          <input placeholder="Search for anything" class=filters__input id=filters-input>
         </label>
-        <button class="filters__sub">
-          <svg class="filters__search" width="20" height="20">
-            <use href="/icons.2d679f6b.svg#search"></use>
-          </svg>
+        <button class=filters__sub>
+          <svg width=20 height=20 class=filters__search><use href=icons.c5b0f01c.svg#search /></svg>
         </button>
       </form>
-      <div class="filters__categories">
-        <button id="filters-categories" class="filters__btn" type="button">
-          <p id="filters-categories-text">Categories</p>
-          <svg class="filters__icon" width="20" height="20">
-            <use href="/icons.2d679f6b.svg#arrow-down"></use>
-          </svg>
+      <div class=filters__categories>
+        <button id=filters-categories class=filters__btn type=button>
+          <p id=filters-categories-text>Categories</p>
+          <svg width=20 height=20 class=filters__icon><use href=icons.c5b0f01c.svg#arrow-down /></svg>
         </button>
-        <ul class="filters__list is-hidden" id="filters-categories-list">
-          <li class="filters__item" id="Beverages">Beverages</li>
-          <li class="filters__item" id="Breads_&amp;_Bakery">Breads / Bakery</li>
-          <li class="filters__item" id="Dairy">Dairy</li>
-          <li class="filters__item" id="Deli">Deli</li>
-          <li class="filters__item" id="Eggs">Eggs</li>
-          <li class="filters__item" id="Fresh_Produce">Fresh Produce</li>
-          <li class="filters__item" id="Meat_&amp;_Seafood">Meat &amp; Seafood</li>
-          <li class="filters__item" id="Pantry_Items">Pantry Items</li>
-          <li class="filters__item" id="Prepared_Foods">Prepared Foods</li>
-          <li class="filters__item" id="Snacks">Snacks</li>
-          <li class="filters__item filters__item--checked" id="all">
+        <ul class="filters__list is-hidden" id=filters-categories-list>
+          <li class=filters__item id=Beverages>Beverages</li>
+          <li class=filters__item id=Breads_&_Bakery>Breads / Bakery</li>
+          <li class=filters__item id=Dairy>Dairy</li>
+          <li class=filters__item id=Deli>Deli</li>
+          <li class=filters__item id=Eggs>Eggs</li>
+          <li class=filters__item id=Fresh_Produce>Fresh Produce</li>
+          <li class=filters__item id=Meat_&_Seafood>Meat &amp; Seafood</li>
+          <li class=filters__item id=Pantry_Items>Pantry Items</li>
+          <li class=filters__item id=Prepared_Foods>Prepared Foods</li>
+          <li class=filters__item id=Snacks>Snacks</li>
+          <li class="filters__item filters__item--checked" id=all>
             Show all
           </li>
         </ul>
       </div>
-      <div class="filters__alphabet">
-        <button id="filters-alphabet" class="filters__btn" type="button">
-          <p id="filters-alphabet-text">Sort as</p>
-          <svg class="filters__icon" width="20" height="20">
-            <use href="/icons.2d679f6b.svg#arrow-down"></use>
-          </svg>
+      <div class=filters__alphabet>
+        <button id=filters-alphabet class=filters__btn type=button>
+          <p id=filters-alphabet-text>Sort as</p>
+          <svg width=20 height=20 class=filters__icon><use href=icons.c5b0f01c.svg#arrow-down /></svg>
         </button>
-        <ul id="filters-alphabet-list" class="filters__list is-hidden">
-          <li class="filters__item" id="&amp;byABC=true">A to Z</li>
-          <li class="filters__item" id="&amp;byABC=false">Z to A</li>
-          <li class="filters__item" id="&amp;byPrice=true">Cheap</li>
-          <li class="filters__item" id="&amp;byPrice=false">Expensive</li>
-          <li class="filters__item" id="&amp;byPopularity=false">Popular</li>
-          <li class="filters__item" id="&amp;byPopularity=true">Not popular</li>
-          <li class="filters__item filters__item--checked" id="allAlphabet">
-            Show all
-          </li>
+        <ul id=filters-alphabet-list class="filters__list is-hidden">
+          <li class=filters__item id="&amp;byABC=true">A to Z</li>
+          <li class=filters__item id="&amp;byABC=false">Z to A</li>
+          <li class=filters__item id="&amp;byPrice=true">Cheap</li>
+          <li class=filters__item id="&amp;byPrice=false">Expensive</li>
+          <li class=filters__item id="&amp;byPopularity=false">Popular</li>
+          <li class=filters__item id="&amp;byPopularity=true">Not popular</li>
+          <li class="filters__item filters__item--checked" id=allAlphabet>Show all</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
  
-    <section class="products">
-    <div class="container">
-        <ul id="products-list" class="products__list">
-            <li class="products__item">
-                <div class="products__container_img">
-                    <img src="/avocado@1x.331f1590.webp" alt="Carrots" class="products__img">
+    <section class=products>
+    <div class=container>
+        <ul id=products-list class=products__list>
+            <li class=products__item>
+                <div class=products__container_img>
+                    <img src=avocado@1x.bbe82d17.webp alt=Carrots class=products__img>
                 </div>
-                <h2 class="products__title">Avocado</h2>
-                <p class="products__category">Category:<span>Fresh Produce</span></p>
-                <p class="products__size">Size: <span>Each</span> </p>
-                <p class="products__popularity">Popularity: <span>0</span></p>
-                <div class="products__svg_price">
-                    <p class="products__price">$1.99</p>
-                    <div class="products__svg_container">
-                        <svg class="products__basket">
-                            <use href="/icons.2d679f6b.svg#cart"></use>
-                        </svg>
+                <h2 class=products__title>Avocado</h2>
+                <p class=products__category>Category:<span>Fresh Produce</span></p>
+                <p class=products__size>Size: <span>Each</span> </p>
+                <p class=products__popularity>Popularity: <span>0</span></p>
+                <div class=products__svg_price>
+                    <p class=products__price>$1.99</p>
+                    <div class=products__svg_container>
+                        <svg class=products__basket><use href=icons.c5b0f01c.svg#cart /></svg>
                     </div>
 
                 </div>
 
 
             </li>
-            <li class="products__item">
-                <div class="products__container_img">
-                    <img src="/avocado@1x.331f1590.webp" alt="Carrots" class="products__img">
+            <li class=products__item>
+                <div class=products__container_img>
+                    <img src=avocado@1x.bbe82d17.webp alt=Carrots class=products__img>
                 </div>
-                <h2 class="products__title">Tomato</h2>
-                <p class="products__category">Category: <span>Fresh Produce</span></p>
-                <p class="products__size">Size: <span>200 g</span></p>
-                <p class="products__popularity">Popularity: <span>0</span></p>
-                <div class="products__svg_price">
-                    <p class="products__price">$3.99</p>
-                    <div class="products__svg_container">
-                        <svg class="products__basket">
-                            <use href="/icons.2d679f6b.svg#cart"></use>
-                        </svg>
+                <h2 class=products__title>Tomato</h2>
+                <p class=products__category>Category: <span>Fresh Produce</span></p>
+                <p class=products__size>Size: <span>200 g</span></p>
+                <p class=products__popularity>Popularity: <span>0</span></p>
+                <div class=products__svg_price>
+                    <p class=products__price>$3.99</p>
+                    <div class=products__svg_container>
+                        <svg class=products__basket><use href=icons.c5b0f01c.svg#cart /></svg>
                     </div>
 
                 </div>
 
             </li>
-            <li class="products__item">
-                <div class="products__container_img">
-                    <img src="/avocado@1x.331f1590.webp" alt="Carrots" class="products__img">
+            <li class=products__item>
+                <div class=products__container_img>
+                    <img src=avocado@1x.bbe82d17.webp alt=Carrots class=products__img>
                 </div>
 
-                <h2 class="products__title">Banana</h2>
-                <p class="products__category">Category: <span>Fresh Produce</span></p>
-                <p class="products__size">Size: <span>1 piece</span></p>
-                <p class="products__popularity">Popularity: <span>0</span></p>
-                <div class="products__svg_price">
-                    <p class="products__price">$0.69</p>
-                    <div class="products__svg_container">
-                        <svg class="products__basket">
-                            <use href="/icons.2d679f6b.svg#cart"></use>
-                        </svg>
+                <h2 class=products__title>Banana</h2>
+                <p class=products__category>Category: <span>Fresh Produce</span></p>
+                <p class=products__size>Size: <span>1 piece</span></p>
+                <p class=products__popularity>Popularity: <span>0</span></p>
+                <div class=products__svg_price>
+                    <p class=products__price>$0.69</p>
+                    <div class=products__svg_container>
+                        <svg class=products__basket><use href=icons.c5b0f01c.svg#cart /></svg>
                     </div>
 
                 </div>
 
             </li>
-            <li class="products__item">
-                <div class="products__container_img">
-                    <img src="/avocado@1x.331f1590.webp" alt="Carrots" class="products__img">
+            <li class=products__item>
+                <div class=products__container_img>
+                    <img src=avocado@1x.bbe82d17.webp alt=Carrots class=products__img>
                 </div>
-                <h2 class="products__title">beetroot</h2>
-                <p class="products__category">Category: <span>Fresh Produce</span></p>
-                <p class="products__size">Size: <span>1 lb</span></p>
-                <p class="products__popularity">Popularity: <span>0</span></p>
-                <div class="products__svg_price">
-                    <p class="products__price">$3.99</p>
-                    <div class="products__svg_container">
-                        <svg class="products__basket">
-                            <use href="/icons.2d679f6b.svg#cart"></use>
-                        </svg>
+                <h2 class=products__title>beetroot</h2>
+                <p class=products__category>Category: <span>Fresh Produce</span></p>
+                <p class=products__size>Size: <span>1 lb</span></p>
+                <p class=products__popularity>Popularity: <span>0</span></p>
+                <div class=products__svg_price>
+                    <p class=products__price>$3.99</p>
+                    <div class=products__svg_container>
+                        <svg class=products__basket><use href=icons.c5b0f01c.svg#cart /></svg>
                     </div>
 
                 </div>
 
             </li>
-            <li class="products__item">
-                <div class="products__container_img">
-                    <img src="/avocado@1x.331f1590.webp" alt="Carrots" class="products__img">
+            <li class=products__item>
+                <div class=products__container_img>
+                    <img src=avocado@1x.bbe82d17.webp alt=Carrots class=products__img>
                 </div>
-                <h2 class="products__title">Blueberries</h2>
-                <p class="products__category">Category: <span>Fresh Produce</span></p>
-                <p class="products__size">Size: <span>6 oz</span></p>
-                <p class="products__popularity">Popularity: <span>0</span></p>
-                <div class="products__svg_price">
-                    <p class="products__price">$3.99</p>
-                    <div class="products__svg_container">
-                        <svg class="products__basket">
-                            <use href="/icons.2d679f6b.svg#cart"></use>
-                        </svg>
+                <h2 class=products__title>Blueberries</h2>
+                <p class=products__category>Category: <span>Fresh Produce</span></p>
+                <p class=products__size>Size: <span>6 oz</span></p>
+                <p class=products__popularity>Popularity: <span>0</span></p>
+                <div class=products__svg_price>
+                    <p class=products__price>$3.99</p>
+                    <div class=products__svg_container>
+                        <svg class=products__basket><use href=icons.c5b0f01c.svg#cart /></svg>
                     </div>
 
                 </div>
 
             </li>
-            <li class="products__item">
-                <div class="products__container_img">
-                    <img src="/avocado@1x.331f1590.webp" alt="Carrots" class="products__img">
+            <li class=products__item>
+                <div class=products__container_img>
+                    <img src=avocado@1x.bbe82d17.webp alt=Carrots class=products__img>
                 </div>
-                <h2 class="products__title">Butternut Squash</h2>
-                <p class="products__category">Category: <span>Fresh Produce</span></p>
-                <p class="products__size">Size: <span>per ib</span></p>
-                <p class="products__popularity">Popularity: <span>0</span></p>
-                <div class="products__svg_price">
-                    <p class="products__price">$1.49</p>
-                    <div class="products__svg_container">
-                        <svg class="products__basket">
-                            <use href="/icons.2d679f6b.svg#cart"></use>
-                        </svg>
+                <h2 class=products__title>Butternut Squash</h2>
+                <p class=products__category>Category: <span>Fresh Produce</span></p>
+                <p class=products__size>Size: <span>per ib</span></p>
+                <p class=products__popularity>Popularity: <span>0</span></p>
+                <div class=products__svg_price>
+                    <p class=products__price>$1.49</p>
+                    <div class=products__svg_container>
+                        <svg class=products__basket><use href=icons.c5b0f01c.svg#cart /></svg>
                     </div>
 
                 </div>
 
             </li>
-            <li class="products__item">
-                <div class="products__container_img">
-                    <img src="/avocado@1x.331f1590.webp" alt="Carrots" class="products__img">
+            <li class=products__item>
+                <div class=products__container_img>
+                    <img src=avocado@1x.bbe82d17.webp alt=Carrots class=products__img>
                 </div>
-                <h2 class="products__title">Cabbage</h2>
-                <p class="products__category">Category: <span>Fresh Produce</span></p>
-                <p class="products__size">Size: <span>per head</span></p>
-                <p class="products__popularity">Popularity: <span>0</span></p>
-                <div class="products__svg_price">
-                    <p class="products__price">$1.99</p>
-                    <div class="products__svg_container">
-                        <svg class="products__basket">
-                            <use href="/icons.2d679f6b.svg#cart"></use>
-                        </svg>
+                <h2 class=products__title>Cabbage</h2>
+                <p class=products__category>Category: <span>Fresh Produce</span></p>
+                <p class=products__size>Size: <span>per head</span></p>
+                <p class=products__popularity>Popularity: <span>0</span></p>
+                <div class=products__svg_price>
+                    <p class=products__price>$1.99</p>
+                    <div class=products__svg_container>
+                        <svg class=products__basket><use href=icons.c5b0f01c.svg#cart /></svg>
                     </div>
 
                 </div>
 
             </li>
-            <li class="products__item">
-                <div class="products__container_img">
-                    <img src="/avocado@1x.331f1590.webp" alt="Carrots" class="products__img">
+            <li class=products__item>
+                <div class=products__container_img>
+                    <img src=avocado@1x.bbe82d17.webp alt=Carrots class=products__img>
                 </div>
-                <h2 class="products__title">Carrots</h2>
-                <p class="products__category">Category: <span>Fresh Produce</span></p>
-                <p class="products__size">Size: <span>1 lb</span></p>
-                <p class="products__popularity">Popularity: <span>0</span></p>
-                <div class="products__svg_price">
-                    <p class="products__price">$0.99</p>
-                    <div class="products__svg_container">
-                        <svg class="products__basket">
-                            <use href="/icons.2d679f6b.svg#cart"></use>
-                        </svg>
+                <h2 class=products__title>Carrots</h2>
+                <p class=products__category>Category: <span>Fresh Produce</span></p>
+                <p class=products__size>Size: <span>1 lb</span></p>
+                <p class=products__popularity>Popularity: <span>0</span></p>
+                <div class=products__svg_price>
+                    <p class=products__price>$0.99</p>
+                    <div class=products__svg_container>
+                        <svg class=products__basket><use href=icons.c5b0f01c.svg#cart /></svg>
                     </div>
 
                 </div>
@@ -266,136 +225,120 @@
             </li>
 
             <li class="products__item products__last_item">
-                <div class="products__container_img">
-                    <img src="/avocado@1x.331f1590.webp" alt="Carrots" class="products__img">
+                <div class=products__container_img>
+                    <img src=avocado@1x.bbe82d17.webp alt=Carrots class=products__img>
                 </div>
-                <h2 class="products__title">Challots</h2>
-                <p class="products__category">Category: <span>Fresh Produce</span></p>
-                <p class="products__size">Size: <span>0.5lb</span></p>
-                <p class="products__popularity">Popularity: <span>0</span></p>
-                <div class="products__svg_price">
-                    <p class="products__price">$1.99</p>
-                    <div class="products__svg_container">
-                        <svg class="products__basket">
-                            <use href="/icons.2d679f6b.svg#cart"></use>
-                        </svg>
+                <h2 class=products__title>Challots</h2>
+                <p class=products__category>Category: <span>Fresh Produce</span></p>
+                <p class=products__size>Size: <span>0.5lb</span></p>
+                <p class=products__popularity>Popularity: <span>0</span></p>
+                <div class=products__svg_price>
+                    <p class=products__price>$1.99</p>
+                    <div class=products__svg_container>
+                        <svg class=products__basket><use href=icons.c5b0f01c.svg#cart /></svg>
                     </div>
 
                 </div>
 
             </li>
         </ul>
-
-
-                    <div class="products__pagination_container">
-
-        <div class="products__pagination_container">
-
-
-            <div class="products__pagination_box">
-                <svg class="products__pagination_svg">
-                <use href="/icons.2d679f6b.svg#double-left"></use>
-            </svg>
-            </div>
-            <div class="products__pagination_box">
-                <svg class="products__pagination_svg">
-                    <use href="/icons.2d679f6b.svg#left"></use>
-            </svg>
-            </div>
-
-            <ul class="products__pagination_list">
-                <li class="products__pagination_item">
-                    <p class="products__pagination_text">1</p>
-                </li>
-                <li class="products__pagination_item products__pagination_item_green">
-                    <p class="products__pagination_text products__pagination_text_white">2</p>
-                </li>
-                <li class="products__pagination_item products__deleting">
-                    <p class="products__pagination_text">3</p>
-                </li>
-                <li class="products__pagination_item products__deleting">
-                    <p class="products__pagination_text ">4</p>
-                </li>
-                <li class="products__pagination_item">
-                    <p class="products__pagination_text">...</p>
-                </li>
-            </ul>
-
-            <div class="products__pagination_box">
-                <svg class="products__pagination_svg">
-                <use href="/icons.2d679f6b.svg#right"></use>
-            </svg>
-            </div>
-            <div class="products__pagination_box">
-                <svg class="products__pagination_svg">
-                <use href="/icons.2d679f6b.svg#double-right"></use>
-            </svg>
-            </div>
-        </div>
     </div>
-</div></section>
-    <section class="popular">
-  <div class="container">
-    <h2 class="popular__title">Popular products</h2>
-    <ul class="popular__list" id="popular__list"></ul>
+</section>
+    <section id=pagination-section class=pagination>
+  <div class=container>
+    <div class=pagination__wrap>
+      <button id=double-prev class=pagination__box>
+        <svg width=24 height=24 class=pagination__svg><use href=icons.c5b0f01c.svg#double-left /></svg>
+      </button>
+      <button id=prev class=pagination__box>
+        <svg width=24 height=24 class=pagination__svg><use href=icons.c5b0f01c.svg#left /></svg>
+      </button>
+    </div>
+    <ul id=pagination-list class=pagination__list>
+      
+    </ul>
+    <div class=pagination__wrap>
+      <button id=next class=pagination__box>
+        <svg width=24 height=24 class=pagination__svg><use href=icons.c5b0f01c.svg#right /></svg>
+      </button>
+      <button id=double-next class=pagination__box>
+        <svg width=24 height=24 class=pagination__svg><use href=icons.c5b0f01c.svg#double-right /></svg>
+      </button>
+    </div>
   </div>
 </section>
 
-    
-    <section class="footer">
-    <div class="container">
-        <div class="footer__container">
-            <div class="footer__media">
-                <a href="#" class="footer__logo"> Food Boutique
-                    <!-- <svg class="footer__title_svg">
+    <section class=popular>
+  <div class=container>
+    <h2 class=popular__title>Popular products</h2>
+    <ul class=popular__list id=popular__list></ul>
+  </div>
+</section>
 
-                        <use href="./svg/icons.svg#organic"></use>
-                    </svg> -->
+    <section class=discount>
+  <div class="container discount__box">
+    <h2 class=discount__title>Discount products</h2>
+    <ul class=discount__list>
+      <li class=discount__item>
+        <svg class=discount__svg-discount><use href=icons.c5b0f01c.svg#discount /></svg>
+        
+        
+      </li>
+
+      <li class=discount__item>
+        <svg class=discount__svg-discount><use href=icons.c5b0f01c.svg#discount /></svg>
+        
+        
+      </li>
+    </ul>
+  </div>
+</section>
+
+    <section class=footer>
+    <div class=container>
+        <div class=footer__container>
+            <div class=footer__media>
+                <a href=# class=footer__logo> Food Boutique
+                    
                 </a>
-                <ul class="footer__list">
-                    <li class="footer__item">
-                        <svg class="footer__link">
-                            <use href="/icons.2d679f6b.svg#facebook"></use>
-                        </svg>
+                <ul class=footer__list>
+                    <li class=footer__item>
+                        <svg class=footer__link><use href=icons.c5b0f01c.svg#facebook /></svg>
                     </li>
-                    <li class="footer__item">
-                        <svg class="footer__link">
-                            <use href="/icons.2d679f6b.svg#instagram"></use>
-                        </svg>
+                    <li class=footer__item>
+                        <svg class=footer__link><use href=icons.c5b0f01c.svg#instagram /></svg>
                     </li>
-                    <li class="footer__item">
-                        <svg class="footer__link">
-                            <use href="/icons.2d679f6b.svg#youtube"></use>
-                        </svg>
+                    <li class=footer__item>
+                        <svg class=footer__link><use href=icons.c5b0f01c.svg#youtube /></svg>
                     </li>
 
 
                 </ul>
 
             </div>
-            <div class="footer__container_adaptive">
-                <div class="footer__text">
-                    <h3 class="footer__title">Discover the Variety of Flavors and Quality</h3>
-                    <p class="footer__info">An online store where you will find fresh, natural and delicious products
+            <div class=footer__container_adaptive>
+                <div class=footer__text>
+                    <h3 class=footer__title>Discover the Variety of Flavors and Quality</h3>
+                    <p class=footer__info>An online store where you will find fresh, natural and delicious products
                         for a
                         healthy life and unforgettable gastronomic adventures.</p>
                 </div>
-                <form class="footer__form">
-                    <h3 class="footer__subtitle">Subscribe and learn about new products!</h3>
+                <form id=subscribe-form class=footer__form>
+                    <h3 class=footer__subtitle>Subscribe and learn about new products!</h3>
                     <label>
-                        <input class="footer__input" type="text" placeholder="Email" id="input">
+                        <input required class=footer__input placeholder=Email id=input>
                     </label>
-                    <button type="submit" class="footer__bth">Send</button>
+                    <button class=footer__bth>Send</button>
                 </form>
             </div>
         </div>
-        <div class="footer__box">
-            <ul class="footer__box_list">
-                <li class="footer__box_item ">
-                    <p class="footer__subtext">Food Boutique. All rights reserved.</p>
+        <div class=footer__box>
+            <ul class=footer__box_list>
+                <li class=footer__box_item>
+                    <p class=footer__subtext>Food Boutique. All rights reserved.</p>
                 </li>
-                <li class="footer__box_item">
-                    <p class="footer__subtext">Privacy Policy / Terms of Service</p>
+                <li class=footer__box_item>
+                    <p class=footer__subtext>Privacy Policy / Terms of Service</p>
                 </li>
 
 
@@ -403,82 +346,74 @@
         </div>
     </div>
 </section>
-    <div id="product-backdrop" class="is-hidden backdrop">
-  <div data-productmodal="" class="product">
-    <button id="product-close" class="product__close">
-      <svg class="product__dagger" width="22" height="22">
-        <use href="/icons.2d679f6b.svg#close"></use>
-      </svg>
+    <div id=product-backdrop class="backdrop is-hidden">
+  <div data-productmodal class=product>
+    <button id=product-close class=product__close>
+      <svg width=22 height=22 class=product__dagger><use href=icons.c5b0f01c.svg#close /></svg>
     </button>
-    <div class="product__body">
-      <div class="product__wrapper">
-        <img id="product-img" src="#" alt="" class="product__img">
+    <div class=product__body>
+      <div class=product__wrapper>
+        <img id=product-img src=# alt class=product__img>
       </div>
-      <div class="product__text">
-        <h3 class="product__subtitle" id="product-name"></h3>
-        <ul class="product__points">
-          <li class="product__point">
+      <div class=product__text>
+        <h3 class=product__subtitle id=product-name></h3>
+        <ul class=product__points>
+          <li class=product__point>
             Category:
-            <span class="product__span" id="product-category"></span>
+            <span class=product__span id=product-category></span>
           </li>
-          <li class="product__point">
-            Size: <span class="product__span" id="product-size"></span>
+          <li class=product__point>
+            Size: <span class=product__span id=product-size></span>
           </li>
-          <li class="product__point">
+          <li class=product__point>
             Popularity:
-            <span class="product__span" id="product-popularity"></span>
+            <span class=product__span id=product-popularity></span>
           </li>
         </ul>
-        <p id="product-desc" class="product__desc"></p>
+        <p id=product-desc class=product__desc></p>
       </div>
     </div>
-    <div class="product__footer">
-      <p class="product__prise">$<span id="product-price"></span></p>
-      <button data-productaddmodal="true" id="product-add" class="product__cart"></button>
+    <div class=product__footer>
+      <p class=product__prise>$<span id=product-price></span></p>
+      <button data-productaddmodal=true id=product-add class=product__cart></button>
     </div>
   </div>
 </div>
  
-    <section class="thanks">
-    <div class="backdrop is-hidden">
-        <div class="modal-window" id="modalWindow">
-            <button class="modal-close">
-                <svg class="svg-close">
-                    <use href="/icons.2d679f6b.svg#close"></use>
-                </svg>
+    
+    <div data-thanks=backdrop id=thanks class="backdrop is-hidden">
+        <div class=modal-window id=modalWindow>
+            <button data-thanks=close class=modal-close>
+                <svg class=svg-close><use href=icons.c5b0f01c.svg#close /></svg>
             </button>
-            <div class="modal-box">
-                <h2 class="modal-title">Thanks for subscribing for <span class="green-title">new</span> products</h2>
-                <p class="modal-subtitle">We promise you organic and high-quality products that will meet your
+            <div class=modal-box>
+                <h2 class=modal-title>Thanks for subscribing for <span class=green-title>new</span> products</h2>
+                <p class=modal-subtitle>We promise you organic and high-quality products that will meet your
                     expectations. Please stay with us and we promise you many pleasant surprises.</p>
             </div>
-            <img class="modal-img" src="/modal-@1x.d7ef24c4.webp" alt="#">
+            <img class=modal-img src=modal-@1x.f3f390e3.webp alt=#>
         </div>
     </div>
-</section> 
-    <section class="email is-hidden">
-    <div class="email__backdrop email__is-hidden">
-        <div class="email__modal-window" id="modalWindow">
-            <button class="email__modal-close">
-                <svg class="email__svg-close">
-                    <use href="/icons.2d679f6b.svg#close"></use>
-                </svg>
+ 
+    
+    <div data-email=backdrop class="backdrop is-hidden">
+        <div class=modal-window id=modalWindow>
+            <button data-email=close class=modal-close>
+                <svg class=svg-close><use href=icons.c5b0f01c.svg#close /></svg>
             </button>
-                <div class="email__box-modal">
-                    <h2 class="email__title-modal">
-                        This <span class="email__title-green">email address</span>  has already been entered
+                <div class=box-modal>
+                    <h2 class=title-modal>
+                        This <span class=email__title-green>email address</span>  has already been entered
                     </h2>
-                    <p class="email__subtitle-modal">
+                    <p class=subtitle-modal>
                         You have already subscribed to our new products. Watch for offers at the mailing address.
                     </p>
                 </div>
         </div>
     </div>
-</section>
 
 
 
 
-    <script type="module" src="/async-masters-project.31b563d9.js"></script>
+    <script type=module src=async-masters-project.52fca9dd.js></script>
   
-</body></html>

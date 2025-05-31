@@ -1,105 +1,65 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoodBoutique Cart</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css" integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="/cart.afc1048f.css">
-  </head>
-  <body>
-    <header class="header">
-  <div class="header__box container">
-    <a href="#">
-      <svg class="header__logo-icon">
-        <use href="/icons.2d679f6b.svg#header-logo"></use>
-      </svg>
+<!DOCTYPE html><html lang=en><meta name=viewport content="width=device-width, initial-scale=1.0"><title>FoodBoutique Cart</title><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=cart.d630efcc.css><body>
+    <header class=header>
+  <div class="container header__box">
+    <a href=index.html>
+      <svg class=header__logo-icon><use href=icons.c5b0f01c.svg#header-logo /></svg>
     </a>
-    <div class="header__wrap">
-      <button type="button" class="header__home-btn">Home</button>
-      <button type="button" class="header__cart-btn">
-        <a href="#">
-          <svg class="header__cart-icon">
-            <use href="/icons.2d679f6b.svg#cart"></use>
-          </svg>
-        </a>
-      </button>
-      <p class="header__cart-info">
-        Cart (<span class="header__cart-quantity">3</span>)
-      </p>
+    <div class=header__wrap>
+      <a href=index.html class=header__home-btn>Home</a>
+      <a href=cart.html class=header__cart-btn>
+        <svg class=header__cart-icon><use href=icons.c5b0f01c.svg#cart /></svg>
+        
+      </a>
     </div>
   </div>
 </header>
 
-    <section class="cart">
-  <div class="container">
-    <div class="cart__begin">
-      <div class="cart__bg">
-        <svg class="cart__icon" width="18" height="18">
-          <use href="/icons.2d679f6b.svg#cart"></use>
-        </svg>
+    <section class=cart>
+  <div class=container>
+    <div class=cart__begin>
+      <div class=cart__bg>
+        <svg width=18 height=18 class=cart__icon><use href=icons.c5b0f01c.svg#cart /></svg>
       </div>
-      <h1 class="cart__title">Cart (<span id="cart-length" class="cart__span">3</span>)</h1>
+      <h1 class=cart__title>Cart (<span id=cart-length class=cart__span>3</span>)</h1>
     </div>
-    <div id="cart-body" class="cart__body">
-      <div class="cart__left">
-        <button id="cart-del" class="cart__del">
+    <div id=cart-body class=cart__body>
+      <div class=cart__left>
+        <button id=cart-del class=cart__del>
           Delete all
-          <svg class="cart__dagger" width="24" height="24">
-            <use href="/icons.2d679f6b.svg#close"></use>
-          </svg>
+          <svg width=24 height=24 class=cart__dagger><use href=icons.c5b0f01c.svg#close /></svg>
         </button>
-        <ul id="cart-list" class="cart__list">
-          <!-- <li class="cart__item">
-            <button class="cart__close">
-              <svg class="cart__dagger" width="20" height="20">
-                <use href="./svg/icons.svg#close"></use>
-              </svg>
-            </button>
-            <div class="cart__wrapper">
-              <img src="#" alt="" class="cart__img" />
-            </div>
-            <div class="cart__text">
-              <h3 class="cart__header">Avocado</h3>
-              <ul class="cart__infos">
-                <li class="cart__info">
-                  Category: <span class="cart__value">Fresh Produce</span>
-                </li>
-                <li class="cart__info">
-                  Size: <span class="cart__value">Each</span>
-                </li>
-              </ul>
-              <p class="cart__dollars">$<span class="cart__cost">1.99</span></p>
-            </div>
-          </li> -->
+        <ul id=cart-list class=cart__list>
+          
         </ul>
       </div>
-      <form class="cart__form">
-        <h2 class="cart__subtitle">Your Order</h2>
-        <div class="cart__prise">
-          <h3 class="cart__total">Total</h3>
-          <p class="cart__sum">
-            Sum: <span class="cart__num">$<span id="cart-price"></span></span>
+      <form class=cart__form>
+        <h2 class=cart__subtitle>Your Order</h2>
+        <div class=cart__prise>
+          <h3 class=cart__total>Total</h3>
+          <p class=cart__sum>
+            Sum: <span class=cart__num>$<span id=cart-price></span></span>
           </p>
         </div>
-        <div class="cart__footer">
-          <label class="cart__label">
-            <p class="cart__mail">Mail:</p>
-            <input type="email" placeholder="Enter your email" class="cart__input">
+        <div class=cart__footer>
+          <label class=cart__label>
+            <p class=cart__mail>Mail:</p>
+            <input type=email placeholder="Enter your email" class=cart__input>
           </label>
-          <button class="cart__sub">Checkout</button>
+          <button class=cart__sub>Checkout</button>
         </div>
       </form>
     </div>
-    <div id="cart-nobody" class="cart__nobody display-none">
+    <div id=cart-nobody class="cart__nobody display-none">
       <picture>
-        <source srcset="/basket@1x.86094b6d.webp, /basket@2x.9ec4aa3f.webp" media="(min-width: 1304px)">
-        <source srcset="/basket@1x.fa00bff7.webp, /basket@1x.fa00bff7.webp" media="(min-width: 768px)">
-        <source srcset="/basket@1x.550f0dad.webp, /basket@2x.feea811a.webp" media="(max-width: 767px)">
-        <img class="cart__noimg" width="132" height="114" src="/basket@1x.550f0dad.webp" alt="Basket">
+        <source srcset=basket@1x.60744721.webp,basket@2x.fe418d29.webp media="(min-width: 1304px)">
+        <source srcset=basket@1x.60744721.webp,basket@1x.60744721.webp media="(min-width: 768px)">
+        <source srcset=basket@1x.c50cb8c7.webp,basket@2x.580bf460.webp media="(max-width: 767px)">
+        <img class=cart__noimg width=132 height=114 src=basket@1x.c50cb8c7.webp alt=Basket>
       </picture>
-      <h3 class="cart__notitle">
-        Your basket is <span class="cart__nospan">empty...</span>
+      <h3 class=cart__notitle>
+        Your basket is <span class=cart__nospan>empty...</span>
       </h3>
-      <p class="cart__nodesc">
+      <p class=cart__nodesc>
         Go to the main page to select your favorite products and add them to the
         cart.
       </p>
@@ -107,60 +67,51 @@
   </div>
 </section>
 
-    <section class="footer">
-    <div class="container">
-        <div class="footer__container">
-            <div class="footer__media">
-                <a href="#" class="footer__logo"> Food Boutique
-                    <!-- <svg class="footer__title_svg">
-
-                        <use href="./svg/icons.svg#organic"></use>
-                    </svg> -->
+    <section class=footer>
+    <div class=container>
+        <div class=footer__container>
+            <div class=footer__media>
+                <a href=# class=footer__logo> Food Boutique
+                    
                 </a>
-                <ul class="footer__list">
-                    <li class="footer__item">
-                        <svg class="footer__link">
-                            <use href="/icons.2d679f6b.svg#facebook"></use>
-                        </svg>
+                <ul class=footer__list>
+                    <li class=footer__item>
+                        <svg class=footer__link><use href=icons.c5b0f01c.svg#facebook /></svg>
                     </li>
-                    <li class="footer__item">
-                        <svg class="footer__link">
-                            <use href="/icons.2d679f6b.svg#instagram"></use>
-                        </svg>
+                    <li class=footer__item>
+                        <svg class=footer__link><use href=icons.c5b0f01c.svg#instagram /></svg>
                     </li>
-                    <li class="footer__item">
-                        <svg class="footer__link">
-                            <use href="/icons.2d679f6b.svg#youtube"></use>
-                        </svg>
+                    <li class=footer__item>
+                        <svg class=footer__link><use href=icons.c5b0f01c.svg#youtube /></svg>
                     </li>
 
 
                 </ul>
 
             </div>
-            <div class="footer__container_adaptive">
-                <div class="footer__text">
-                    <h3 class="footer__title">Discover the Variety of Flavors and Quality</h3>
-                    <p class="footer__info">An online store where you will find fresh, natural and delicious products
+            <div class=footer__container_adaptive>
+                <div class=footer__text>
+                    <h3 class=footer__title>Discover the Variety of Flavors and Quality</h3>
+                    <p class=footer__info>An online store where you will find fresh, natural and delicious products
                         for a
                         healthy life and unforgettable gastronomic adventures.</p>
                 </div>
-                <form class="footer__form">
-                    <h3 class="footer__subtitle">Subscribe and learn about new products!</h3>
+                <form id=subscribe-form class=footer__form>
+                    <h3 class=footer__subtitle>Subscribe and learn about new products!</h3>
                     <label>
-                        <input class="footer__input" type="text" placeholder="Email" id="input">
+                        <input required class=footer__input placeholder=Email id=input>
                     </label>
-                    <button type="submit" class="footer__bth">Send</button>
+                    <button class=footer__bth>Send</button>
                 </form>
             </div>
         </div>
-        <div class="footer__box">
-            <ul class="footer__box_list">
-                <li class="footer__box_item ">
-                    <p class="footer__subtext">Food Boutique. All rights reserved.</p>
+        <div class=footer__box>
+            <ul class=footer__box_list>
+                <li class=footer__box_item>
+                    <p class=footer__subtext>Food Boutique. All rights reserved.</p>
                 </li>
-                <li class="footer__box_item">
-                    <p class="footer__subtext">Privacy Policy / Terms of Service</p>
+                <li class=footer__box_item>
+                    <p class=footer__subtext>Privacy Policy / Terms of Service</p>
                 </li>
 
 
@@ -168,44 +119,62 @@
         </div>
     </div>
 </section>
-    
-    <div id="product-backdrop" class="is-hidden backdrop">
-  <div data-productmodal="" class="product">
-    <button id="product-close" class="product__close">
-      <svg class="product__dagger" width="22" height="22">
-        <use href="/icons.2d679f6b.svg#close"></use>
-      </svg>
+    <div class="is-hidden order__modal">
+  <div class=order__overlay>
+    <button class=order__close-btn>
+      <svg class=order__close-icon style=fill:#000><use href=icons.c5b0f01c.svg#close /></svg>
     </button>
-    <div class="product__body">
-      <div class="product__wrapper">
-        <img id="product-img" src="#" alt="" class="product__img">
+    <div class=order__img>
+    <picture>
+      <source srcset="tomato@1x.5a662d87.webp,tomato@2x.0aa5492d.webp 2x" media="(min-width: 1304px)">
+      <source srcset="tomato@1x.5a662d87.webp,tomato@2x.0aa5492d.webp 2x" media="(min-width: 768px)">
+      <img srcset="Tomato@1x.5a662d87.webp,Tomato@2x.0aa5492d.webp 2x" alt=Tomatoes>
+    </picture>
+    <svg height=28 class=order__img--icon><use href=icons.c5b0f01c.svg#shadow /></svg>
+  </div>
+    <h2 class=order__title>Order success</h2>
+    <p class=order__description>
+      Thank you for shopping at Food Boutique. Your order has been received
+      and is now being freshly prepared just for you! Get ready to indulge
+      in nourishing goodness, delivered right to your doorstep. We're
+      thrilled to be part of your journey to better health and happiness.
+    </p>
+  </div>
+</div>
+    <div id=product-backdrop class="backdrop is-hidden">
+  <div data-productmodal class=product>
+    <button id=product-close class=product__close>
+      <svg width=22 height=22 class=product__dagger><use href=icons.c5b0f01c.svg#close /></svg>
+    </button>
+    <div class=product__body>
+      <div class=product__wrapper>
+        <img id=product-img src=# alt class=product__img>
       </div>
-      <div class="product__text">
-        <h3 class="product__subtitle" id="product-name"></h3>
-        <ul class="product__points">
-          <li class="product__point">
+      <div class=product__text>
+        <h3 class=product__subtitle id=product-name></h3>
+        <ul class=product__points>
+          <li class=product__point>
             Category:
-            <span class="product__span" id="product-category"></span>
+            <span class=product__span id=product-category></span>
           </li>
-          <li class="product__point">
-            Size: <span class="product__span" id="product-size"></span>
+          <li class=product__point>
+            Size: <span class=product__span id=product-size></span>
           </li>
-          <li class="product__point">
+          <li class=product__point>
             Popularity:
-            <span class="product__span" id="product-popularity"></span>
+            <span class=product__span id=product-popularity></span>
           </li>
         </ul>
-        <p id="product-desc" class="product__desc"></p>
+        <p id=product-desc class=product__desc></p>
       </div>
     </div>
-    <div class="product__footer">
-      <p class="product__prise">$<span id="product-price"></span></p>
-      <button data-productaddmodal="true" id="product-add" class="product__cart"></button>
+    <div class=product__footer>
+      <p class=product__prise>$<span id=product-price></span></p>
+      <button data-productaddmodal=true id=product-add class=product__cart></button>
     </div>
   </div>
 </div>
 
-    <script type="module" src="/cart.16893d70.js"></script>
+    <script type=module src=cart.a978caed.js></script>
   
 
-</body></html>
