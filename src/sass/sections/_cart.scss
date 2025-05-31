@@ -132,6 +132,8 @@
     &__close {
         outline: red dashed 1px;
         position: absolute;
+        width: 18px;
+        height: 18px;
         top: 30px;
         right: 7px;
         background-color: transparent;
@@ -140,6 +142,8 @@
 
         @media screen and (min-width: 768px) {
             top: 40px;
+            width: 20px;
+            height: 20px;
         }
     }
 
