@@ -1,4 +1,4 @@
-.modal-window {
+.modals-window {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -18,7 +18,7 @@
 
 }
 
-.backdrop:not(.is-hidden) .modal-window {
+.backdrop:not(.is-hidden) .modals-window {
     transform: translate(-50%, -50%);
     opacity: 1;
 }
