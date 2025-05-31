@@ -1,8 +1,8 @@
 import { getFilteredProducts } from "../fetchs/getFilteredProducts";
 
-let keyword = "";
-let category = "";
-let sort = "";
+export let keyword = "";
+export let category = "";
+export let sort = "";
 
 const makeMarkup = (keyword, category, id, sort) => {
   if (category.includes("&")) {
@@ -16,6 +16,7 @@ const makeMarkup = (keyword, category, id, sort) => {
     Choose other catogories or write the name of a product.
   </p>
 </div>`;
+    document.querySelector("#pagination-section").classList.add("display-none");
     return;
   }
   getFilteredProducts(keyword, category, id, sort).then((data) => {
@@ -32,6 +33,9 @@ const makeMarkup = (keyword, category, id, sort) => {
     to find the perfect product for you.
   </p>
 </div>`;
+      document
+        .querySelector("#pagination-section")
+        .classList.add("display-none");
       return;
     }
     document.querySelector("#products-list").innerHTML = data.results
@@ -72,6 +76,10 @@ const makeMarkup = (keyword, category, id, sort) => {
     `
       )
       .join("");
+
+    document
+      .querySelector("#pagination-section")
+      .classList.remove("display-none");
   });
 };
 
