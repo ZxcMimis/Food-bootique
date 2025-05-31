@@ -33,9 +33,7 @@ const makeMarkup = (page, category, keyword, sort) => {
                     .map((item) => item.id)
                     .includes(_id)
                     ? "✓"
-                    : ` <svg class="products__basket">
-                    <use href="./svg/icons.svg#cart"></use>
-                </svg>`
+                    : ""
                 }
             </div>
         </div>
