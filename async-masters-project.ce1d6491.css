@@ -881,6 +881,10 @@ body {
   line-height: 0;
 }
 
+.pagination__disable {
+  cursor: default;
+}
+
 .pagination__disable .pagination__svg {
   fill: #a3a3a34d;
 }

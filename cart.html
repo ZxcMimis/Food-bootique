@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang=en><meta name=viewport content="width=device-width, initial-scale=1.0"><title>FoodBoutique Cart</title><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=cart.2aa4b810.css><body>
+<!DOCTYPE html><html lang=en><meta name=viewport content="width=device-width, initial-scale=1.0"><title>FoodBoutique Cart</title><link rel=icon type=image/svg+xml href=favicon.84cb1019.svg><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg==" crossorigin=anonymous referrerpolicy=no-referrer><link rel=stylesheet href=cart.2aa4b810.css><body>
     <header class=header>
   <div class="container header__box">
     <a href=index.html>
@@ -127,9 +127,11 @@
       <svg class=order__close-icon style=fill:#000><use href=icons.c5b0f01c.svg#close /></svg>
     </button>
     <div class=order__img>
-      
-      <img srcset="Tomato@1x.5a662d87.webp,Tomato@2x.0aa5492d.webp 2x" alt=Tomatoes>
-      
+      <picture>
+        <source srcset=tomato@1x.5a662d87.webp media="(min-width: 1304px)">
+        <source srcset=tomato@1x.5a662d87.webp media="(min-width: 768px)">
+        <img srcset=Tomato@1x.5a662d87.webp alt=Tomatoes>
+      </picture>
       <svg height=28 class=order__img--icon><use href=icons.c5b0f01c.svg#shadow /></svg>
     </div>
     <h2 class=order__title>Order success</h2>
