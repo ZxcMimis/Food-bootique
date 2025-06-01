@@ -1,5 +1,7 @@
 import { getPopularProducts } from "../fetchs/getPopularProducts";
 
+import sprite from "url:../../svg/icons.svg";
+
 getPopularProducts().then((products) => {
   document.querySelector("#popular__list").innerHTML = products
     .map(
@@ -28,7 +30,10 @@ getPopularProducts().then((products) => {
             .map((item) => item.id)
             .includes(_id)
             ? "✓"
-            : ""
+            : `
+    <svg class="aa" width="12" height="12">
+      <use href="${sprite}#cart"></use>
+    </svg>`
         }
         </button>
       </li>`
