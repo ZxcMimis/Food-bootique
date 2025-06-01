@@ -1,8 +1,6 @@
 .products {
     flex: auto;
 
-    padding-bottom: 40px;
-
     @media screen and (min-width: 768px) {
         padding-bottom: 50px;
     }
@@ -11,10 +9,13 @@
         padding-bottom: 40px;
     }
 
+    @media screen and (min-width: 1304px) {
+        padding: 0;
+    }
 
     &__list {
         display: flex;
-        gap: 40px;
+        gap: 40px 20px;
         flex-wrap: wrap;
         flex-basis: calc((100% - 20px) / 3);
     }
