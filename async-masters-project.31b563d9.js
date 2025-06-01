@@ -1036,7 +1036,7 @@ var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
         <button data-productadd='true' class="popular__cart">
         ${JSON.parse(localStorage.getItem("cart")).map((item)=>item.id).includes(_id) ? "\u2713" : `
     <svg class="aa" width="12" height="12">
-      <use href="#cart"></use>
+      <use href='${0, _iconsSvgDefault.default}#cart'></use>
     </svg>`}
         </button>
       </li>`).join("");
