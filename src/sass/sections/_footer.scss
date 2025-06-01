@@ -9,9 +9,8 @@
 
     &__container {
         display: flex;
-        height: 386px;
-        justify-content: center;
-        gap: 100px;
+        height: 386px; 
+        gap: 150px;
     }
 
     &__media {
@@ -28,8 +27,8 @@
 
 
     &__title_svg {
-        width: 100%;
         height: 32px;
+        width: 197px;
         flex-shrink: 0;
         fill: #E8E8E2;
 
@@ -39,7 +38,7 @@
         display: flex;
         gap: 12px;
         margin-top: 20px;
-        margin-left: 26px;
+        width: 157px;
     }
 
 
@@ -149,6 +148,7 @@
         &__container {
             max-width: 100%;
             height: 583px;
+            gap: 0px;
             position: relative;
         }
 
@@ -173,6 +173,12 @@
             justify-content: flex-end;
 
         }
+
+        &__media{
+            padding-right: 78px;
+        }
+
+
 
 
     }
@@ -228,7 +234,13 @@
         &__box_list {
             display: block;
 
+
         }
+
+        &__subtext {
+            width: 205px;
+        }
+
 
         &__media {
             margin-top: 0;
@@ -244,6 +256,21 @@
             height: 50px;
             padding: 8px;
         }
+
+        &__logo {
+            width: 154px;
+            height: 28px;
+        }
+
+        &__title_svg {
+            width: 154px;
+            height: 28px;
+        }
+
+        &__list {
+            margin: 24px 0 0 0;
+        }
+
 
 
 
