@@ -42,8 +42,7 @@ var t=globalThis,e={},r={},a=t.parcelRequire6801;null==a&&((a=function(t){if(t i
             </li>
             <li class="popular__point">
               Size: <span class="popular__span">${c}</span>
-            </li>
-            <li class="popular__point">
+            </li>            <li class="popular__point">
               Popularity: <span class="popular__span">${o}</span>
             </li>
           </ul>
@@ -98,4 +97,4 @@ var t=globalThis,e={},r={},a=t.parcelRequire6801;null==a&&((a=function(t){if(t i
       </li>`;e>4&&(r+=`<li class="pagination__item">
         <p class="pagination__text">...</p>
       </li>`),document.querySelector("#pagination-list").innerHTML=r,t-2<1?document.querySelector("#double-prev").classList.add("pagination__disable"):document.querySelector("#double-prev").classList.remove("pagination__disable"),t-1<1?document.querySelector("#prev").classList.add("pagination__disable"):document.querySelector("#prev").classList.remove("pagination__disable"),t+2>e?document.querySelector("#double-next").classList.add("pagination__disable"):document.querySelector("#double-next").classList.remove("pagination__disable"),t+1>e?document.querySelector("#next").classList.add("pagination__disable"):document.querySelector("#next").classList.remove("pagination__disable")})};g(1,d,o,i),document.querySelector("#pagination-list").addEventListener("click",t=>{t.target.classList.contains("pagination__btn")&&Number.parseInt(t.target.parentElement.id)!==u&&(g(u=Number.parseInt(t.target.parentElement.id),d,o,i),p(u,d,o,i))}),document.querySelector("#next").addEventListener("click",t=>{t.currentTarget.classList.contains("pagination__disable")||(g(u+=1,d,o,i),p(u,d,o,i))}),document.querySelector("#double-next").addEventListener("click",t=>{t.currentTarget.classList.contains("pagination__disable")||(g(u+=2,d,o,i),p(u,d,o,i))}),document.querySelector("#prev").addEventListener("click",t=>{t.currentTarget.classList.contains("pagination__disable")||(g(u-=1,d,o,i),p(u,d,o,i))}),document.querySelector("#double-prev").addEventListener("click",t=>{t.currentTarget.classList.contains("pagination__disable")||(g(u-=2,d,o,i),p(u,d,o,i))}),document.querySelector("#filters-form").addEventListener("submit",t=>{g(u=1,d,o,i)}),document.querySelector("#filters-categories-list").addEventListener("click",t=>{g(u=1,d,o,i)}),document.querySelector("#filters-alphabet-list").addEventListener("click",t=>{g(u=1,d,o,i)}),a("7xXel"),a("1eDY5");
-//# sourceMappingURL=async-masters-project.271144b1.js.map
+//# sourceMappingURL=async-masters-project.d5c41a2c.js.map
