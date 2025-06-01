@@ -32,7 +32,7 @@ getPopularProducts().then((products) => {
             ? "✓"
             : `
     <svg class="aa" width="12" height="12">
-      <use href="${sprite}#cart"></use>
+      <use href="#cart"></use>
     </svg>`
         }
         </button>
