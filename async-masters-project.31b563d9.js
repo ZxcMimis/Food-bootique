@@ -676,6 +676,28 @@ var _productJs = require("./js/sections/product.js");
 var _subscribeJs = require("./js/sections/subscribe.js");
 
 },{"./js/sections/products.js":"7kVSa","./js/sections/discount.js":"2Dntu","./js/sections/pagination.js":"drJWK","./js/sections/subscribe.js":"4utt9","./js/sections/popular.js":"aJ9bM","./js/sections/product.js":"3SG3N","./js/sections/filters.js":"8U2Ig"}],"7kVSa":[function(require,module,exports,__globalThis) {
+// import { getProduct } from "../fetchs/getProduct";
+// const createProductsList = (products) =>
+//     products.map((product) =>
+//         `
+//     <li class="products__item">
+//                 <div class="products__container_img">
+//                     <img src="./img/destop/x1/avocado@1x.webp" alt="Carrots" class="products__img">
+//                 </div>
+//                 <h2 class="products__title">Cabbage</h2>
+//                 <p class="products__category">Category: <span>Fresh Produce</span></p>
+//                 <p class="products__size">Size: <span>per head</span></p>
+//                 <p class="products__popularity">Popularity: <span>0</span></p>
+//                 <div class="products__svg_price">
+//                     <p class="products__price">$1.99</p>
+//                     <div class="products__svg_container">
+//                         <svg class="products__basket">
+//                             <use href="./svg/icons.svg#cart"></use>
+//                         </svg>
+//                     </div>
+//                 </div>
+//             </li>
+//     `)
 
 },{}],"2Dntu":[function(require,module,exports,__globalThis) {
 var _getDiscountProducts = require("../fetchs/getDiscountProducts");
@@ -1014,7 +1036,7 @@ var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
         <button data-productadd='true' class="popular__cart">
         ${JSON.parse(localStorage.getItem("cart")).map((item)=>item.id).includes(_id) ? "\u2713" : `
     <svg class="aa" width="12" height="12">
-      <use href="${0, _iconsSvgDefault.default}#cart"></use>
+      <use href="#cart"></use>
     </svg>`}
         </button>
       </li>`).join("");
