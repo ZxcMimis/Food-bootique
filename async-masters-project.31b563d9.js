@@ -130,7 +130,7 @@
 
   // Only insert newRequire.load when it is actually used.
   // The code in this file is linted against ES5, so dynamic import is not allowed.
-  // INSERT_LOAD_HERE
+  function $parcel$resolve(url) {  url = importMap[url] || url;  return import.meta.resolve(distDir + url);}newRequire.resolve = $parcel$resolve;
 
   Object.defineProperty(newRequire, 'root', {
     get: function () {
@@ -678,6 +678,76 @@ var _subscribeJs = require("./js/sections/subscribe.js");
 },{"./js/sections/products.js":"7kVSa","./js/sections/discount.js":"2Dntu","./js/sections/pagination.js":"drJWK","./js/sections/subscribe.js":"4utt9","./js/sections/popular.js":"aJ9bM","./js/sections/product.js":"3SG3N","./js/sections/filters.js":"8U2Ig"}],"7kVSa":[function(require,module,exports,__globalThis) {
 
 },{}],"2Dntu":[function(require,module,exports,__globalThis) {
+var _getDiscountProducts = require("../fetchs/getDiscountProducts");
+(0, _getDiscountProducts.getDiscountProducts)().then((products)=>{
+    document.querySelector("").innerHTML = products.map(({ _id, name, img, price })=>`
+         <li id='${_id}' class="discount__item">
+        <svg class="discount__svg-discount">
+          <use href="./svg/icons.svg#discount"></use>
+        </svg>
+        <div class="discount__box-img">
+          <img
+            src="${img}"
+            alt="${name}"
+            class="discount__image"
+          />
+        </div>
+        <div class="discount__svg-price">
+          <h3 class="discount__item-title">${name}</h3>
+          <div class="discount__item-wrap">
+            <p class="discount__price">$${price}</p>
+            <div class="discount__svg-container">
+              <svg class="discount__basket">
+                <use href="./svg/icons.svg#cart"></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </li>
+      `).join("");
+});
+
+},{"../fetchs/getDiscountProducts":"gQs7K"}],"gQs7K":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getDiscountProducts", ()=>getDiscountProducts);
+const getDiscountProducts = async ()=>{
+    try {
+        return await fetch(`https://food-boutique.b.goit.study/api/products/discount`).then((response)=>response.json());
+    } catch (e) {
+        return e;
+    }
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jnFvT":[function(require,module,exports,__globalThis) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
 
 },{}],"drJWK":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -784,37 +854,7 @@ const getFilteredProducts = async (keyword, category, id, sort)=>{
     }
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jnFvT":[function(require,module,exports,__globalThis) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, '__esModule', {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"8U2Ig":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"8U2Ig":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "keyword", ()=>keyword);
@@ -948,7 +988,10 @@ function addEmail(email) {
 }
 
 },{}],"aJ9bM":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _getPopularProducts = require("../fetchs/getPopularProducts");
+var _iconsSvg = require("url:../../svg/icons.svg");
+var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 (0, _getPopularProducts.getPopularProducts)().then((products)=>{
     document.querySelector("#popular__list").innerHTML = products.map(({ _id, name, img, category, size, is10PercentOff, popularity })=>`<li id='${_id}' data-product='true' class="popular__item">
         <div class="popular__wrapper">
@@ -969,12 +1012,15 @@ var _getPopularProducts = require("../fetchs/getPopularProducts");
           </ul>
         </div>
         <button data-productadd='true' class="popular__cart">
-        ${JSON.parse(localStorage.getItem("cart")).map((item)=>item.id).includes(_id) ? "\u2713" : ""}
+        ${JSON.parse(localStorage.getItem("cart")).map((item)=>item.id).includes(_id) ? "\u2713" : `
+    <svg class="aa" width="12" height="12">
+      <use href="${0, _iconsSvgDefault.default}#cart"></use>
+    </svg>`}
         </button>
       </li>`).join("");
 });
 
-},{"../fetchs/getPopularProducts":"9oSnk"}],"9oSnk":[function(require,module,exports,__globalThis) {
+},{"../fetchs/getPopularProducts":"9oSnk","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","url:../../svg/icons.svg":"at29J"}],"9oSnk":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getPopularProducts", ()=>getPopularProducts);
@@ -986,7 +1032,10 @@ const getPopularProducts = async ()=>{
     }
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"3SG3N":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"at29J":[function(require,module,exports,__globalThis) {
+module.exports = module.bundle.resolve("icons.e4ad52dc.svg") + "?" + Date.now();
+
+},{}],"3SG3N":[function(require,module,exports,__globalThis) {
 var _getProduct = require("../fetchs/getProduct");
 if (!Object.keys(localStorage).includes("cart")) localStorage.setItem("cart", JSON.stringify([]));
 document.querySelector("body").addEventListener("click", async (e)=>{
@@ -1068,6 +1117,6 @@ const getProduct = async (id)=>{
     }
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequire6801", {})
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["5j6Kf","a0t4e"], "a0t4e", "parcelRequire6801", {}, "./", "/")
 
 //# sourceMappingURL=async-masters-project.31b563d9.js.map

@@ -231,6 +231,7 @@ body {
   padding-top: 18px;
   padding-bottom: 18px;
   display: flex;
+  position: relative;
 }
 
 @media screen and (width >= 768px) {
@@ -257,10 +258,20 @@ body {
   display: flex;
 }
 
-@media screen and (width >= 768px) {
-  .header__wrap {
-    padding-right: 30px;
-  }
+.header__wrap-wrap {
+  gap: 14px;
+  display: flex;
+}
+
+.header__wrap-svg {
+  fill: #e8e8e2;
+  background: #6d8434;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  display: flex;
 }
 
 .header__home-btn {
@@ -293,22 +304,16 @@ body {
 }
 
 .header__cart-btn {
-  fill: #e8e8e2;
   color: #010101;
-  background: #6d8434;
-  border-radius: 30px;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  width: 38px;
-  height: 38px;
   padding: 12px;
   display: flex;
 }
 
 @media screen and (width >= 768px) {
   .header__cart-btn {
-    margin-right: 14px;
     padding: 10px;
   }
 }
@@ -331,11 +336,10 @@ body {
 
 @media screen and (width >= 768px) {
   .header__cart-info {
+    align-items: center;
     font-size: 18px;
     font-weight: 500;
-    display: block;
-    position: absolute;
-    right: 115px;
+    display: flex;
   }
 }
 
@@ -887,8 +891,7 @@ body {
 }
 
 .footer__container {
-  justify-content: center;
-  gap: 100px;
+  gap: 150px;
   height: 386px;
   display: flex;
 }
@@ -900,14 +903,14 @@ body {
 .footer__title_svg {
   fill: #e8e8e2;
   flex-shrink: 0;
-  width: 100%;
+  width: 197px;
   height: 32px;
 }
 
 .footer__list {
   gap: 12px;
+  width: 157px;
   margin-top: 20px;
-  margin-left: 26px;
   display: flex;
 }
 
@@ -1007,6 +1010,7 @@ body {
   }
 
   .footer__container {
+    gap: 0;
     max-width: 100%;
     height: 583px;
     position: relative;
@@ -1030,6 +1034,10 @@ body {
     flex-direction: column;
     justify-content: flex-end;
     display: flex;
+  }
+
+  .footer__media {
+    padding-right: 78px;
   }
 }
 
@@ -1078,6 +1086,10 @@ body {
     display: block;
   }
 
+  .footer__subtext {
+    width: 205px;
+  }
+
   .footer__media {
     margin-top: 0;
   }
@@ -1091,6 +1103,19 @@ body {
     height: 50px;
     padding: 8px;
   }
+
+  .footer__logo, .footer__title_svg {
+    width: 154px;
+    height: 28px;
+  }
+
+  .footer__list {
+    margin: 24px 0 0;
+  }
+}
+
+button {
+  padding: 0;
 }
 
 .order__modal {
