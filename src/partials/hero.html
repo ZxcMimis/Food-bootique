@@ -11,7 +11,21 @@
       <svg class="hero__icon" width="100" height="100">
         <use href="./svg/icons.svg#organic"></use>
       </svg>
-      <img class="hero__image" src="./img/destop/x1/hero@1x.webp" alt="" />
+      <picture>
+        <source
+          srcset="./img/destop/x1/hero@1x.webp"
+          media="(min-width: 1304px)"
+        />
+        <source
+          srcset="./img/table/x1/hero@1x.webp"
+          media="(min-width: 768px)"
+        />
+        <source
+          srcset="./img/phone/x1/hero@1x.webp"
+          media="(max-width: 767px)"
+        />
+        <img class="hero__image" src="./img/destop/x1/hero@1x.webp" alt="" />
+      </picture>
     </div>
   </div>
 </section>
