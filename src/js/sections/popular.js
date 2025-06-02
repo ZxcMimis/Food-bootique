@@ -1,7 +1,5 @@
 import { getPopularProducts } from "../fetchs/getPopularProducts";
 
-import sprite from "url:../../svg/icons.svg";
-
 getPopularProducts().then((products) => {
   document.querySelector("#popular__list").innerHTML = products
     .map(
@@ -18,8 +16,7 @@ getPopularProducts().then((products) => {
             </li>
             <li class="popular__point">
               Size: <span class="popular__span">${size}</span>
-            </li>
-            <li class="popular__point">
+            </li>            <li class="popular__point">
               Popularity: <span class="popular__span">${popularity}</span>
             </li>
           </ul>
