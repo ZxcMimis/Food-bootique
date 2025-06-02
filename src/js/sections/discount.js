@@ -5,7 +5,7 @@ getDiscountProducts().then((products) => {
         markUp += `
              <li id='${products[index]._id}' class="discount__item">
             <svg class="discount__svg-discount">
-              <use href="./svg/icons.svg#discount"></use>
+              <use href="#discount"></use>
             </svg>
             <div class="discount__box-img">
               <img
