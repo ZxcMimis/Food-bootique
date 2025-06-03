@@ -24,6 +24,9 @@ const makesMarkup = () => {
           "beforeend",
           `<li id="${_id}" data-product="true" class="cart__item">
             <button data-productclose="true" class="cart__close">
+              <svg class="cart__dagger" width="20" height="20">
+                <use href="#close"></use>
+              </svg>
             </button>
             <div class="cart__wrapper">
               <img src="${img}" alt="${name}" class="cart__img" />
@@ -42,6 +45,9 @@ const makesMarkup = () => {
                 <p class="cart__dollars">$<span class="cart__cost">${price}</span></p>
                 <div data-cart='count' class="cart__count">
                   <button data-action='minus' class="cart__action">
+                    <svg class="cart__operation" width="14" height="14">
+                      <use href="#minus"></use>
+                    </svg>
                   </button>
                   <p data-action="count" class="cart__countnum">${
                     JSON.parse(localStorage.getItem("cart")).find(
@@ -49,6 +55,9 @@ const makesMarkup = () => {
                     ).count
                   }</p>
                   <button data-action='plus' class="cart__action">
+                    <svg class="cart__operation" width="14" height="14">
+                      <use href="#plus"></use>
+                    </svg>
                   </button>
                 </div>
               </div>  

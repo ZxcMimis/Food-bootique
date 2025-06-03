@@ -54,7 +54,9 @@ document.querySelector("body").addEventListener("click", async (e) => {
           .map((product) => product.id)
           .includes(_id)
           ? `Added ✓`
-          : `Add to`;
+          : `Add to <svg class="product__icon" width="18" height="18">
+            <use href="#cart"></use>
+          </svg>`;
       }
     );
   }
