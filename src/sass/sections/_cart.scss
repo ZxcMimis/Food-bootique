@@ -423,6 +423,11 @@
 
     &__operation {
         stroke: $dark-text-100;
+
+        @media screen and (min-width: 768px) {
+            width: 18px;
+            height: 18px;
+        }
     }
 
     &__countnum {
