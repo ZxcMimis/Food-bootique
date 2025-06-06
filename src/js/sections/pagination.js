@@ -18,10 +18,19 @@ const makeMarkup = (page, category, keyword, sort) => {
           popularity,
         }) =>
           `<li id="${_id}" data-product="true" class="products__item">
+        ${
+          is10PercentOff
+            ? `<div class="products__green">
+  <svg class="products__discount" width="54" height="54">
+    <use href="#discount"></use>
+  </svg>
+</div>`
+            : ""
+        }
                 <div class="products__container_img">
                     <img src="${img}" alt="${name}" class="products__img">
                 </div>
-                <h2 class="products__title">Avocado</h2>
+                <h2 class="products__title">${name}</h2>
                 <p class="products__category">Category: <span>${category}</span></p>
                 <p class="products__size">Size: <span>${size}</span></p>
                 <p class="products__popularity">Popularity: <span>${popularity}</span></p>
