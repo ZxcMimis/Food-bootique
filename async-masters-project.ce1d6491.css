@@ -668,20 +668,28 @@ body {
   line-height: 1.33;
 }
 
-.products {
-  flex: auto;
+.products__item {
+  position: relative;
 }
 
-@media screen and (width >= 768px) {
-  .products {
-    padding-bottom: 40px;
-  }
+.products__svg_btn {
+  color: #fafafa;
+  width: 34px;
+  height: 34px;
 }
 
-@media screen and (width >= 1304px) {
-  .products {
-    padding: 0;
-  }
+.products__green {
+  background-color: #6d8434;
+  border-radius: 50%;
+  width: max-content;
+  line-height: 0;
+  position: absolute;
+  top: -3px;
+  right: 10px;
+}
+
+.products__discount {
+  fill: #fafafa;
 }
 
 .products__list {

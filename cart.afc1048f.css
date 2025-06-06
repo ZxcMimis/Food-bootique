@@ -495,7 +495,6 @@ body {
 
 .cart__close {
   background-color: #0000;
-  outline: 1px dashed red;
   width: 18px;
   height: 18px;
   padding: 0;
@@ -811,6 +810,13 @@ body {
 
 .cart__operation {
   stroke: #010101;
+}
+
+@media screen and (width >= 768px) {
+  .cart__operation {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 .cart__countnum {

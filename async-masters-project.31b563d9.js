@@ -676,28 +676,70 @@ var _productJs = require("./js/sections/product.js");
 var _subscribeJs = require("./js/sections/subscribe.js");
 
 },{"./js/sections/products.js":"7kVSa","./js/sections/discount.js":"2Dntu","./js/sections/pagination.js":"drJWK","./js/sections/subscribe.js":"4utt9","./js/sections/popular.js":"aJ9bM","./js/sections/product.js":"3SG3N","./js/sections/filters.js":"8U2Ig"}],"7kVSa":[function(require,module,exports,__globalThis) {
-// import { getProduct } from "../fetchs/getProduct";
-// const createProductsList = (products) =>
-//     products.map((product) =>
-//         `
-//     <li class="products__item">
-//                 <div class="products__container_img">
-//                     <img src="./img/destop/x1/avocado@1x.webp" alt="Carrots" class="products__img">
-//                 </div>
-//                 <h2 class="products__title">Cabbage</h2>
-//                 <p class="products__category">Category: <span>Fresh Produce</span></p>
-//                 <p class="products__size">Size: <span>per head</span></p>
-//                 <p class="products__popularity">Popularity: <span>0</span></p>
-//                 <div class="products__svg_price">
-//                     <p class="products__price">$1.99</p>
-//                     <div class="products__svg_container">
-//                         <svg class="products__basket">
-//                             <use href="./svg/icons.svg#cart"></use>
-//                         </svg>
-//                     </div>
-//                 </div>
-//             </li>
-//     `)
+var _getFilteredProducts = require("../fetchs/getFilteredProducts");
+(0, _getFilteredProducts.getFilteredProducts)("", "", 1, "").then((data)=>{
+    document.querySelector("#products-list").innerHTML = data.results.map(({ _id, name, img, category, size, price, is10PercentOff, popularity })=>`
+    <li id="${_id}" data-product="true" class="products__item">
+        <div class="products__container_img">
+            <img src="${img}" alt="Carrots" class="products__img">
+        </div>
+        <h2 class="products__title">${name}</h2>
+        <p class="products__category">Category: <span>${category}</span></p>
+        <p class="products__size">Size: <span>${size}</span></p>
+        <p class="products__popularity">Popularity: <span>${popularity}</span></p>
+        <div class="products__svg_price">
+        <p class="products__price">$${price}</p>
+            <button class="products__svg_btn">
+                <svg class="products__basket">
+                    <use href="#cart"></use>
+                </svg>
+            </button>
+        </div>
+    </li>
+    `).join("");
+});
+
+},{"../fetchs/getFilteredProducts":"cf4nK"}],"cf4nK":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "getFilteredProducts", ()=>getFilteredProducts);
+const getFilteredProducts = async (keyword, category, id, sort)=>{
+    try {
+        return await fetch(`https://food-boutique.b.goit.study/api/products?keyword=${keyword}${sort}&category=${category}&page=${id}&limit=9`).then((response)=>response.json());
+    } catch (e) {
+        return e;
+    }
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jnFvT":[function(require,module,exports,__globalThis) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
 
 },{}],"2Dntu":[function(require,module,exports,__globalThis) {
 var _getDiscountProducts = require("../fetchs/getDiscountProducts");
@@ -743,37 +785,7 @@ const getDiscountProducts = async ()=>{
     }
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"jnFvT":[function(require,module,exports,__globalThis) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, '__esModule', {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"drJWK":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"drJWK":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "makePagination", ()=>makePagination);
@@ -783,20 +795,28 @@ let userPage = 1;
 const makeMarkup = (page, category, keyword, sort)=>{
     (0, _getFilteredProducts.getFilteredProducts)(keyword, category, page, sort).then((products)=>{
         document.querySelector("#products-list").innerHTML = products.results.map(({ _id, name, img, category, size, price, is10PercentOff, popularity })=>`<li id="${_id}" data-product="true" class="products__item">
-        <div class="products__container_img">
-            <img src="${img}" alt="Carrots" class="products__img">
-        </div>
-        <h2 class="products__title">${name}</h2>
-        <p class="products__category">Category: <span>${category}</span></p>
-        <p class="products__size">Size: <span>${size}</span></p>
-        <p class="products__popularity">Popularity: <span>${popularity}</span></p>
-        <div class="products__svg_price">
-            <p class="products__price">$${price}</p>
-            <div  data-productadd="true"  class="products__svg_container">
-                ${JSON.parse(localStorage.getItem("cart")).map((item)=>item.id).includes(_id) ? "\u2713" : ""}
-            </div>
-        </div>
-    </li>`).join("");
+        ${is10PercentOff ? `<div class="products__green">
+  <svg class="products__discount" width="54" height="54">
+    <use href="#discount"></use>
+  </svg>
+</div>` : ""}
+                <div class="products__container_img">
+                    <img src="${img}" alt="${name}" class="products__img">
+                </div>
+                <h2 class="products__title">${name}</h2>
+                <p class="products__category">Category: <span>${category}</span></p>
+                <p class="products__size">Size: <span>${size}</span></p>
+                <p class="products__popularity">Popularity: <span>${popularity}</span></p>
+                <div class="products__svg_price">
+                    <p class="products__price">$${price}</p>
+                    <button  data-productadd="true" class="products__svg_btn">
+                    ${JSON.parse(localStorage.getItem("cart")).map((item)=>item.id).includes(_id) ? "\u2713" : `
+                        <svg class="products__basket">
+                            <use href="#cart"></use>
+                        </svg>`}
+                    </button>
+                </div>
+            </li>`).join("");
     });
 };
 const makePagination = (page, category, keyword, sort)=>{
@@ -866,19 +886,7 @@ document.querySelector("#filters-alphabet-list").addEventListener("click", (e)=>
     makePagination(userPage, (0, _filters.category), (0, _filters.keyword), (0, _filters.sort));
 });
 
-},{"../fetchs/getFilteredProducts":"cf4nK","./filters":"8U2Ig","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"cf4nK":[function(require,module,exports,__globalThis) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "getFilteredProducts", ()=>getFilteredProducts);
-const getFilteredProducts = async (keyword, category, id, sort)=>{
-    try {
-        return await fetch(`https://food-boutique.b.goit.study/api/products?keyword=${keyword}${sort}&category=${category}&page=${id}&limit=9`).then((response)=>response.json());
-    } catch (e) {
-        return e;
-    }
-};
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"8U2Ig":[function(require,module,exports,__globalThis) {
+},{"../fetchs/getFilteredProducts":"cf4nK","./filters":"8U2Ig","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"8U2Ig":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "keyword", ()=>keyword);
@@ -916,23 +924,29 @@ const makeMarkup = (keyword, category, id, sort)=>{
             document.querySelector("#pagination-section").classList.add("display-none");
             return;
         }
-        document.querySelector("#products-list").innerHTML = data.results.map(({ _id, name, img, category, size, price, is10PercentOff, popularity })=>`
-    <li id="${_id}" data-product="true" class="products__item">
-        <div class="products__container_img">
-            <img src="${img}" alt="Carrots" class="products__img">
-        </div>
-        <h2 class="products__title">${name}</h2>
-        <p class="products__category">Category: <span>${category}</span></p>
-        <p class="products__size">Size: <span>${size}</span></p>
-        <p class="products__popularity">Popularity: <span>${popularity}</span></p>
-        <div class="products__svg_price">
-            <p class="products__price">$${price}</p>
-            <div  data-productadd="true"  class="products__svg_container">
-                ${JSON.parse(localStorage.getItem("cart")).map((item)=>item.id).includes(_id) ? "\u2713" : ""}
-            </div>
-        </div>
-    </li>
-    `).join("");
+        document.querySelector("#products-list").innerHTML = data.results.map(({ _id, name, img, category, size, price, is10PercentOff, popularity })=>`<li id="${_id}" data-product="true" class="products__item">
+        ${is10PercentOff ? `<div class="products__green">
+  <svg class="products__discount" width="60" height="60">
+    <use href="#discount"></use>
+  </svg>
+</div>` : ""}
+                <div class="products__container_img">
+                    <img src="${img}" alt="${name}" class="products__img">
+                </div>
+                <h2 class="products__title">${name}</h2>
+                <p class="products__category">Category: <span>${category}</span></p>
+                <p class="products__size">Size: <span>${size}</span></p>
+                <p class="products__popularity">Popularity: <span>${popularity}</span></p>
+                <div class="products__svg_price">
+                    <p class="products__price">$${price}</p>
+                    <button  data-productadd="true" class="products__svg_btn">
+                    ${JSON.parse(localStorage.getItem("cart")).map((item)=>item.id).includes(_id) ? "\u2713" : `
+                        <svg class="products__basket">
+                            <use href="#cart"></use>
+                        </svg>`}
+                    </button>
+                </div>
+            </li>`).join("");
         document.querySelector("#pagination-section").classList.remove("display-none");
     });
 };
@@ -1033,7 +1047,7 @@ var _getPopularProducts = require("../fetchs/getPopularProducts");
         </div>
         <button data-productadd='true' class="popular__cart">
         ${JSON.parse(localStorage.getItem("cart")).map((item)=>item.id).includes(_id) ? "\u2713" : `
-    <svg class="aa" width="12" height="12">
+    <svg class="popular__icon" width="12" height="12">
       <use href="#cart"></use>
     </svg>`}
         </button>
@@ -1073,7 +1087,9 @@ document.querySelector("body").addEventListener("click", async (e)=>{
             document.querySelector("#product-popularity").textContent = popularity;
             document.querySelector("#product-price").textContent = price;
             document.querySelector("#product-desc").textContent = desc;
-            document.querySelector("#product-add").innerHTML = JSON.parse(localStorage.getItem("cart")).map((product)=>product.id).includes(_id) ? `Added \u{2713}` : `Add to`;
+            document.querySelector("#product-add").innerHTML = JSON.parse(localStorage.getItem("cart")).map((product)=>product.id).includes(_id) ? `Added \u{2713}` : `Add to <svg class="product__icon" width="18" height="18">
+            <use href="#cart"></use>
+          </svg>`;
         });
     }
 });
