@@ -99,6 +99,15 @@
         color: $accent-color-100;
         font-size: 12px;
         font-weight: 400;
+
+        &:hover {
+            background-color: $accent-color-100;
+            color: $main-bg-100;
+        }
+    }
+
+    &__cart:hover &__icon {
+        fill: $main-bg-100;
     }
 
     &__icon {

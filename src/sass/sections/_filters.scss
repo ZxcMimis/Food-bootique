@@ -48,6 +48,11 @@
         font-weight: 400;
         line-height: 1.29;
 
+        &:hover,
+        &:focus {
+            border: 1px solid $accent-color-100;
+        }
+
         &::placeholder {
             color: $dark-text-100;
             font-family: "Neue Montreal";
@@ -102,6 +107,11 @@
         border: 1px solid rgba(1, 1, 1, 0.30);
         background-color: transparent;
         align-items: center;
+
+        &:hover,
+        &:focus {
+            border: 1px solid $accent-color-100;
+        }
 
         @media screen and (min-width:768px) {
             font-size: 18px;

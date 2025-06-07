@@ -89,10 +89,18 @@
         margin: 0 0 40px auto;
         padding: 0;
 
+        &:hover {
+            color: $accent-color-100;
+        }
+
         @media screen and (min-width: 768px) {
             font-size: 16px;
             line-height: 1.25;
         }
+    }
+
+    &__del:hover>&__dagger {
+        fill: $accent-color-100;
     }
 
     &__dagger {
@@ -144,6 +152,10 @@
             width: 20px;
             height: 20px;
         }
+    }
+
+    &__close:hover>&__dagger {
+        fill: $accent-color-100;
     }
 
     &__item:first-child &__close {
@@ -355,6 +367,10 @@
             }
         }
 
+        &:hover {
+            border: 1px solid $accent-color-100;
+        }
+
         width: 100%;
         background-color: transparent;
 
@@ -383,6 +399,10 @@
         font-weight: 500;
         line-height: 1.29;
 
+        &:hover {
+            background-color: $dark-accent-color;
+        }
+
         @media screen and (min-width: 768px) {
             width: 215px;
             font-size: 20px;
@@ -408,6 +428,10 @@
         border: 1px solid $dark-text-10;
         cursor: default;
 
+        &:hover {
+            border: 1px solid $accent-color-100;
+        }
+
         @media screen and (min-width: 768px) {
             padding: 5px 16.5px;
             gap: 10px;
@@ -418,6 +442,10 @@
         padding: 0;
         line-height: 0;
         background-color: transparent;
+    }
+
+    &__action:hover &__operation {
+        stroke: $accent-color-100;
     }
 
     &__operation {
