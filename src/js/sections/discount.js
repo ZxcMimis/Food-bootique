@@ -3,7 +3,7 @@ getDiscountProducts().then((products) => {
     let markUp = "";
     for (let index = 0; index < 2; index+= 1) {
         markUp += `
-             <li id='${products[index]._id}' class="discount__item">
+             <li id='${products[index]._id}' class="discount__item" data-product="true">
             <svg class="discount__svg-discount">
               <use href="#discount"></use>
             </svg>
@@ -18,11 +18,18 @@ getDiscountProducts().then((products) => {
               <h3 class="discount__item-title">${products[index].name}</h3>
               <div class="discount__item-wrap">
                 <p class="discount__price">$${products[index].price}</p>
-                <div class="discount__svg-container">
-                  <svg class="discount__basket">
-                    <use href="#cart"></use>
-                  </svg>
-                </div>
+                <button data-productadd="true" class="discount__svg-container">
+                    ${
+                      JSON.parse(localStorage.getItem("cart"))
+                        .map((item) => item.id)
+                        .includes(products[index]._id)
+                        ? "✓"
+                        : `
+                        <svg class="discount__basket">
+                        <use href="#cart"></use>
+                        </svg>`
+                    }
+                    </button>
               </div>
             </div>
           </li>
