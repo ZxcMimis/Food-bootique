@@ -45,6 +45,10 @@
 
     }
 
+    &__svg_btn:hover{
+        background-color: #586F1F;
+    }
+
 
     &__container_img {
         width: 255px;
@@ -155,9 +159,6 @@
             display: flex;
         }
 
-        &__last_item {
-            display: none;
-        }
 
         &__item {
             width: 336px;
@@ -169,6 +170,12 @@
             width: 296px;
             height: 178px;
         }
+
+        &__item:last-child{
+            display: none;
+        }
+
+
 
     }
 }
