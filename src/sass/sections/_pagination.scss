@@ -33,22 +33,30 @@
         background: $light-color-100;
         line-height: 0;
 
+        &:hover {
+            background-color: $accent-color-100;
+        }
 
         @media screen and (min-width: 768px) {}
     }
 
     &__disable {
         cursor: default;
+        background: $light-color-100 !important;
     }
 
     &__disable &__svg {
-        fill: $pagination-30;
+        fill: $pagination-30 !important;
     }
 
     &__svg {
         fill: $pagination-100;
 
         @media screen and (min-width: 768px) {}
+    }
+
+    &__box:hover &__svg {
+        fill: $light-color-100;
     }
 
     &__text {
@@ -79,14 +87,16 @@
         background-color: transparent;
         color: $pagination-100;
 
-
-        @media screen and (min-width: 768px) {}
+        &:hover {
+            background-color: $light-color-100;
+            color: $accent-color-100;
+        }
     }
 
     &__accent &__btn {
         border-radius: 60px;
-        background: #6D8434;
-        color: #FAFAFA;
+        background: #6D8434 !important;
+        color: #FAFAFA !important;
 
         @media screen and (min-width: 768px) {}
     }
