@@ -457,11 +457,19 @@ body {
   display: flex;
 }
 
+.cart__del:hover {
+  color: #6d8434;
+}
+
 @media screen and (width >= 768px) {
   .cart__del {
     font-size: 16px;
     line-height: 1.25;
   }
+}
+
+.cart__del:hover > .cart__dagger {
+  fill: #6d8434;
 }
 
 .cart__dagger {
@@ -519,6 +527,10 @@ body {
     height: 20px;
     top: 40px;
   }
+}
+
+.cart__close:hover > .cart__dagger {
+  fill: #6d8434;
 }
 
 .cart__item:first-child .cart__close {
@@ -757,7 +769,13 @@ body {
     font-size: 18px;
     line-height: 1.33;
   }
+}
 
+.cart__input:hover {
+  border: 1px solid #6d8434;
+}
+
+@media screen and (width >= 768px) {
   .cart__input {
     padding: 15px 20px 15px 63px;
     font-size: 18px;
@@ -773,6 +791,10 @@ body {
   font-size: 14px;
   font-weight: 500;
   line-height: 1.29;
+}
+
+.cart__sub:hover {
+  background-color: #586f1f;
 }
 
 @media screen and (width >= 768px) {
@@ -804,6 +826,10 @@ body {
   display: flex;
 }
 
+.cart__count:hover {
+  border: 1px solid #6d8434;
+}
+
 @media screen and (width >= 768px) {
   .cart__count {
     gap: 10px;
@@ -815,6 +841,10 @@ body {
   background-color: #0000;
   padding: 0;
   line-height: 0;
+}
+
+.cart__action:hover .cart__operation {
+  stroke: #6d8434;
 }
 
 .cart__operation {
@@ -927,15 +957,19 @@ body {
   display: flex;
 }
 
+.footer__link:hover {
+  background: #e8e8e233;
+}
+
 .footer__link {
   fill: #fff;
   border: 1px solid #e8e8e24d;
   border-radius: 10px;
   justify-content: center;
   align-items: center;
-  width: 28px;
-  height: 28px;
-  padding: 3px;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
   display: flex;
 }
 
@@ -969,8 +1003,7 @@ body {
 }
 
 .footer__input {
-  font-family: Neue Montreal;
-  font-weight: 700px;
+  color: #e8e8e2;
   background-color: #0000;
   border: 1px solid #e8e8e2;
   border-radius: 30px;
@@ -978,12 +1011,21 @@ body {
   gap: 10px;
   margin-bottom: 20px;
   padding: 12px 140px 12px 18px;
+  font-family: Neue Montreal;
   display: flex;
+}
+
+.footer__input::placeholder {
+  color: #e8e8e299;
 }
 
 .footer__box_list {
   justify-content: space-between;
   display: flex;
+}
+
+.footer__box {
+  padding-bottom: 20px;
 }
 
 .footer__bth {
@@ -1000,6 +1042,10 @@ body {
   font-weight: 500;
   line-height: 24px;
   display: flex;
+}
+
+.footer__bth:hover {
+  color: #6d8434;
 }
 
 .footer__subtext {

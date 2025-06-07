@@ -515,6 +515,10 @@ body {
   line-height: 1.29;
 }
 
+.filters__input:hover, .filters__input:focus {
+  border: 1px solid #6d8434;
+}
+
 .filters__input::placeholder {
   color: #010101;
   font-family: Neue Montreal;
@@ -567,6 +571,10 @@ body {
   font-weight: 400;
   line-height: 1.29;
   display: flex;
+}
+
+.filters__btn:hover, .filters__btn:focus {
+  border: 1px solid #6d8434;
 }
 
 @media screen and (width >= 768px) {
@@ -745,6 +753,10 @@ body {
   height: 18px;
 }
 
+.products__svg_btn:hover {
+  background-color: #586f1f;
+}
+
 .products__container_img {
   background: #e8e8e2;
   border-radius: 10px;
@@ -843,10 +855,6 @@ body {
     display: flex;
   }
 
-  .products__last_item {
-    display: none;
-  }
-
   .products__item {
     width: 336px;
     height: 360px;
@@ -855,6 +863,10 @@ body {
   .products__container_img {
     width: 296px;
     height: 178px;
+  }
+
+  .products__item:last-child {
+    display: none;
   }
 }
 
@@ -911,16 +923,25 @@ body {
   line-height: 0;
 }
 
+.pagination__box:hover {
+  background-color: #6d8434;
+}
+
 .pagination__disable {
   cursor: default;
+  background: #fafafa !important;
 }
 
 .pagination__disable .pagination__svg {
-  fill: #a3a3a34d;
+  fill: #a3a3a34d !important;
 }
 
 .pagination__svg {
   fill: #a3a3a3;
+}
+
+.pagination__box:hover .pagination__svg {
+  fill: #fafafa;
 }
 
 .pagination__text {
@@ -948,10 +969,15 @@ body {
   display: flex;
 }
 
+.pagination__btn:hover {
+  color: #6d8434;
+  background-color: #fafafa;
+}
+
 .pagination__accent .pagination__btn {
-  color: #fafafa;
-  background: #6d8434;
   border-radius: 60px;
+  color: #fafafa !important;
+  background: #6d8434 !important;
 }
 
 .popular__title {
@@ -1059,6 +1085,15 @@ body {
   position: absolute;
   top: 12px;
   right: 12px;
+}
+
+.popular__cart:hover {
+  color: #e8e8e2;
+  background-color: #6d8434;
+}
+
+.popular__cart:hover .popular__icon {
+  fill: #e8e8e2;
 }
 
 .popular__icon {
@@ -1237,15 +1272,19 @@ body {
   display: flex;
 }
 
+.footer__link:hover {
+  background: #e8e8e233;
+}
+
 .footer__link {
   fill: #fff;
   border: 1px solid #e8e8e24d;
   border-radius: 10px;
   justify-content: center;
   align-items: center;
-  width: 28px;
-  height: 28px;
-  padding: 3px;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
   display: flex;
 }
 
@@ -1279,8 +1318,7 @@ body {
 }
 
 .footer__input {
-  font-family: Neue Montreal;
-  font-weight: 700px;
+  color: #e8e8e2;
   background-color: #0000;
   border: 1px solid #e8e8e2;
   border-radius: 30px;
@@ -1288,12 +1326,21 @@ body {
   gap: 10px;
   margin-bottom: 20px;
   padding: 12px 140px 12px 18px;
+  font-family: Neue Montreal;
   display: flex;
+}
+
+.footer__input::placeholder {
+  color: #e8e8e299;
 }
 
 .footer__box_list {
   justify-content: space-between;
   display: flex;
+}
+
+.footer__box {
+  padding-bottom: 20px;
 }
 
 .footer__bth {
@@ -1310,6 +1357,10 @@ body {
   font-weight: 500;
   line-height: 24px;
   display: flex;
+}
+
+.footer__bth:hover {
+  color: #6d8434;
 }
 
 .footer__subtext {
