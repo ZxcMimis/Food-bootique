@@ -1,7 +1,5 @@
 import { getFilteredProducts } from "../fetchs/getFilteredProducts";
 
-
-
 const productsListContainer = document.querySelector("#products-list");
 
 getFilteredProducts("", "", 1, "").then((data) => {
@@ -19,15 +17,14 @@ getFilteredProducts("", "", 1, "").then((data) => {
             }) => `
             <li id="${_id}" data-product="true" class="products__item">
 
-${
-          is10PercentOff
-            ? `<div class="products__green">
+${is10PercentOff
+                    ? `<div class="products__green">
   <svg class="products__discount" width="60" height="60">
     <use href="#discount"></use>
   </svg>
 </div>`
-            : ""
-        }
+                    : ""
+                }
 
             <div class= "products__container_img" >
                     <img src="${img}" alt="${name}" class="products__img">
