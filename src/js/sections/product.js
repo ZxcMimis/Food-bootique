@@ -4,6 +4,9 @@ if (!Object.keys(localStorage).includes("cart")) {
   localStorage.setItem("cart", JSON.stringify([]));
 }
 
+document.querySelector("#header-cart").textContent = JSON.parse(
+  localStorage.getItem("cart")
+).length;
 document.querySelector("body").addEventListener("click", async (e) => {
   if (
     e.target.dataset.productadd === "true" ||
@@ -99,6 +102,9 @@ document.querySelector("body").addEventListener("click", async (e) => {
     });
     target.textContent = "✓";
     localStorage.setItem("cart", JSON.stringify(array));
+    document.querySelector("#header-cart").textContent = JSON.parse(
+      localStorage.getItem("cart")
+    ).length;
   }
 });
 
@@ -127,6 +133,9 @@ document
       });
       target.textContent = "Added ✓";
       localStorage.setItem("cart", JSON.stringify(array));
+      document.querySelector("#header-cart").textContent = JSON.parse(
+        localStorage.getItem("cart")
+      ).length;
       document
         .getElementById(`${e.target.closest("[data-productmodal]").id}`)
         .querySelector(`[data-productadd='true']`).textContent = "✓";

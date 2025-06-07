@@ -5,6 +5,9 @@ if (!Object.keys(localStorage).includes("cart")) {
 }
 
 const makesMarkup = () => {
+  document.querySelector("#header-cart").textContent = JSON.parse(
+    localStorage.getItem("cart")
+  ).length;
   document.querySelector("#cart-length").textContent = JSON.parse(
     localStorage.getItem("cart")
   ).length;
