@@ -746,9 +746,11 @@ document.querySelector("#filters-form").addEventListener("submit", (e)=>{
 });
 document.querySelector("#filters-categories").addEventListener("click", (e)=>{
     e.currentTarget.nextElementSibling.classList.toggle("is-hidden");
+    e.currentTarget.querySelector("svg").classList.toggle("filters__rotated");
 });
 document.querySelector("#filters-categories-list").addEventListener("click", (e)=>{
     e.currentTarget.querySelector(".filters__item--checked").classList.remove("filters__item--checked");
+    e.currentTarget.closest("ul").previousElementSibling.children[1].classList.toggle("filters__rotated");
     e.target.classList.add("filters__item--checked");
     e.currentTarget.classList.add("is-hidden");
     document.querySelector("#filters-categories-text").textContent = e.target.textContent;
@@ -758,9 +760,11 @@ document.querySelector("#filters-categories-list").addEventListener("click", (e)
 });
 document.querySelector("#filters-alphabet").addEventListener("click", (e)=>{
     e.currentTarget.nextElementSibling.classList.toggle("is-hidden");
+    e.currentTarget.querySelector("svg").classList.toggle("filters__rotated");
 });
 document.querySelector("#filters-alphabet-list").addEventListener("click", (e)=>{
     e.currentTarget.querySelector(".filters__item--checked").classList.remove("filters__item--checked");
+    e.currentTarget.closest("ul").previousElementSibling.children[1].classList.toggle("filters__rotated");
     e.target.classList.add("filters__item--checked");
     e.currentTarget.classList.add("is-hidden");
     document.querySelector("#filters-alphabet-text").textContent = e.target.textContent;
