@@ -1310,6 +1310,10 @@ button {
   }
 }
 
+.product__close:hover .product__dagger {
+  fill: #6d8434;
+}
+
 .product__dagger {
   fill: #010101;
 }
@@ -1442,6 +1446,10 @@ button {
   font-weight: 500;
   line-height: 1.29;
   display: flex;
+}
+
+.product__cart:hover {
+  background-color: #586f1f;
 }
 
 @media screen and (width >= 768px) {
