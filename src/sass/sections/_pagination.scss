@@ -1,22 +1,12 @@
 .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
 
     @media screen and (min-width: 768px) {
-        padding-bottom: 100px;
+        gap: 32px;
     }
 
-    @media screen and (min-width: 1304px) {
-        padding-bottom: 61px;
-    }
-
-    & .container {
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-
-        @media screen and (min-width: 768px) {
-            gap: 32px;
-        }
-    }
 
     &__list {
         display: flex;
@@ -46,9 +36,10 @@
 
         @media screen and (min-width: 768px) {}
     }
-         &__disable{
-            cursor: default;
-         }
+
+    &__disable {
+        cursor: default;
+    }
 
     &__disable &__svg {
         fill: $pagination-30;
