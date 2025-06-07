@@ -933,15 +933,16 @@ body {
 }
 
 .pagination__disable .pagination__svg {
-  fill: #a3a3a34d !important;
+  stroke: #a3a3a34d !important;
 }
 
 .pagination__svg {
-  fill: #a3a3a3;
+  stroke: #a3a3a3;
+  fill: none;
 }
 
 .pagination__box:hover .pagination__svg {
-  fill: #fafafa;
+  stroke: #fafafa;
 }
 
 .pagination__text {
