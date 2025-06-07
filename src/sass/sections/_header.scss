@@ -41,6 +41,14 @@
     background: $accent-color-100;
     fill: $main-bg-100;
     border-radius: 30px;
+
+    &:hover {
+      background-color: $dark-accent-color;
+    }
+
+    &:focus {
+      background-color: $dark-accent-color;
+    }
   }
 }
 
@@ -68,6 +76,10 @@
   @media screen and (min-width: 1304px) {
     margin-right: 24px;
   }
+}
+
+.header__home-btn:hover {
+  background-color: $dark-accent-color;
 }
 
 .header__cart-btn {

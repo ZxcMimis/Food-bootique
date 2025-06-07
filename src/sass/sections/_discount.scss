@@ -128,3 +128,11 @@
     }
   }
 }
+
+.discount__svg-container:hover {
+  background-color: $dark-accent-color;
+}
+
+.discount__svg-container:focus {
+  background-color: $dark-accent-color;
+}
