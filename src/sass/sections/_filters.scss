@@ -211,4 +211,28 @@
         font-weight: 400;
         line-height: 1.33;
     }
+
+    &__item {
+        position: relative;
+    }
+
+    &__svg_btn {
+        width: 34px;
+        height: 34px;
+        color: $light-color-100;
+    }
+
+    &__green {
+        width: max-content;
+        line-height: 0;
+        background-color: $accent-color-100;
+        border-radius: 50%;
+        position: absolute;
+        top: -3px;
+        right: 10px;
+    }
+
+    &__discount {
+        fill: $light-color-100;
+    }
 }

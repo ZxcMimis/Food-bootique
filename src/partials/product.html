@@ -2,7 +2,7 @@
   <div data-productmodal class="product">
     <button id="product-close" class="product__close">
       <svg class="product__dagger" width="22" height="22">
-        <use href="./svg/icons.svg#close"></use>
+        <use href="#close"></use>
       </svg>
     </button>
     <div class="product__body">
@@ -29,7 +29,11 @@
     </div>
     <div class="product__footer">
       <p class="product__prise">$<span id="product-price"></span></p>
-      <button data-productaddmodal="true" id="product-add" class="product__cart"></button>
+      <button
+        data-productaddmodal="true"
+        id="product-add"
+        class="product__cart"
+      ></button>
     </div>
   </div>
 </div>

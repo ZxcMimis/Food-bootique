@@ -16,8 +16,7 @@ getPopularProducts().then((products) => {
             </li>
             <li class="popular__point">
               Size: <span class="popular__span">${size}</span>
-            </li>
-            <li class="popular__point">
+            </li>            <li class="popular__point">
               Popularity: <span class="popular__span">${popularity}</span>
             </li>
           </ul>
@@ -28,7 +27,10 @@ getPopularProducts().then((products) => {
             .map((item) => item.id)
             .includes(_id)
             ? "✓"
-            : ""
+            : `
+    <svg class="popular__icon" width="12" height="12">
+      <use href="#cart"></use>
+    </svg>`
         }
         </button>
       </li>`
