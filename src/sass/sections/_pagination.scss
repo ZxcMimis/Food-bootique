@@ -46,17 +46,18 @@
     }
 
     &__disable &__svg {
-        fill: $pagination-30 !important;
+        stroke: $pagination-30 !important;
     }
 
     &__svg {
-        fill: $pagination-100;
+        stroke: $pagination-100;
+        fill: none;
 
         @media screen and (min-width: 768px) {}
     }
 
     &__box:hover &__svg {
-        fill: $light-color-100;
+        stroke: $light-color-100;
     }
 
     &__text {
