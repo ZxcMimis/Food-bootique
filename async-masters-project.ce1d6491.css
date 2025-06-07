@@ -347,9 +347,8 @@ body {
   text-align: center;
   color: #010101;
   letter-spacing: -.88px;
-  width: 335px;
-  margin-top: 56px;
-  margin-left: 55px;
+  max-width: 335px;
+  margin: 56px auto 0;
   font-size: 44px;
   font-weight: 500;
 }
@@ -357,18 +356,16 @@ body {
 @media screen and (width >= 768px) {
   .hero__title {
     letter-spacing: -1.6px;
-    width: 658px;
+    max-width: 658px;
     margin-top: 100px;
-    margin-left: 25px;
     font-size: 80px;
   }
 }
 
 @media screen and (width >= 1304px) {
   .hero__title {
-    width: 1042px;
+    max-width: 1042px;
     margin-top: 60px;
-    margin-left: 99px;
   }
 }
 
@@ -379,17 +376,15 @@ body {
 .hero__text {
   color: #010101cc;
   text-align: center;
-  width: 292px;
-  margin-top: 16px;
-  margin-bottom: 20px;
-  margin-left: 75px;
+  max-width: 292px;
+  margin: 16px auto 20px;
   font-size: 14px;
   font-weight: 400;
 }
 
 @media screen and (width >= 768px) {
   .hero__text {
-    width: 492px;
+    max-width: 492px;
     margin-top: 20px;
     margin-left: 106px;
     font-size: 18px;
@@ -402,54 +397,57 @@ body {
   }
 }
 
-.hero__image {
-  object-fit: cover;
-  border-radius: 40px;
-  width: 100%;
-  height: 480px;
-  margin-top: 32px;
-}
-
-@media screen and (width >= 768px) {
-  .hero__image {
-    height: 580px;
-    margin-top: 40px;
-  }
-}
-
-@media screen and (width >= 1304px) {
-  .hero__image {
-    height: 350px;
-  }
-}
-
 .hero__icon {
   fill: #010101;
   background-color: #fdc152;
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
+  padding: 5px;
+  line-height: 0;
   position: absolute;
   top: -7px;
-  left: 275px;
+  right: 8px;
 }
 
 @media screen and (width >= 768px) {
   .hero__icon {
     top: -30px;
-    left: 595px;
+    right: 10px;
   }
 }
 
 @media screen and (width >= 1304px) {
   .hero__icon {
     top: -50px;
-    left: 1120px;
+    right: 20px;
   }
 }
 
 .hero__wrap {
+  object-fit: cover;
+  background-image: url("hero@1x.fddf9ab4.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 40px;
+  width: 100%;
+  height: 480px;
+  margin-top: 32px;
   position: relative;
+}
+
+@media screen and (width >= 768px) {
+  .hero__wrap {
+    height: 580px;
+    margin-top: 40px;
+  }
+}
+
+@media screen and (width >= 1304px) {
+  .hero__wrap {
+    height: 350px;
+  }
 }
 
 .filters {
