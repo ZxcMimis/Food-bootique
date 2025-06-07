@@ -94,6 +94,10 @@
         }
     }
 
+    &__rotated {
+        transform: rotate(180deg);
+    }
+
     &__btn {
         width: 100%;
         display: flex;
