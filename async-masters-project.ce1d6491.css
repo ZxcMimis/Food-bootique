@@ -403,15 +403,23 @@ body {
 }
 
 .hero__image {
+  object-fit: cover;
   border-radius: 40px;
+  width: 100%;
+  height: 480px;
   margin-top: 32px;
-  margin-left: 50px;
 }
 
 @media screen and (width >= 768px) {
   .hero__image {
+    height: 580px;
     margin-top: 40px;
-    margin-left: 0;
+  }
+}
+
+@media screen and (width >= 1304px) {
+  .hero__image {
+    height: 350px;
   }
 }
 
