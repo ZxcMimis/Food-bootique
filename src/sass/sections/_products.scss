@@ -156,6 +156,7 @@
         &__list {
             gap: 32px;
             display: flex;
+            justify-content: center;
         }
 
 
@@ -165,12 +166,11 @@
 
         }
 
-
-
         &__container_img {
             width: 296px;
             height: 178px;
         }
+
 
         &__item:last-child {
             display: none;
@@ -183,6 +183,8 @@
 
 @media screen and (max-width: 480px) {
     .products {
+
+
 
         &__item {
             width: 100%;
