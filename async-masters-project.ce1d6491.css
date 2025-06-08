@@ -282,6 +282,10 @@ body {
   display: flex;
 }
 
+.header__wrap-svg:hover, .header__wrap-svg:focus {
+  background-color: #586f1f;
+}
+
 .header__home-btn {
   color: #e8e8e2;
   background: #6d8434;
@@ -309,6 +313,10 @@ body {
   .header__home-btn {
     margin-right: 24px;
   }
+}
+
+.header__home-btn:hover {
+  background-color: #586f1f;
 }
 
 .header__cart-btn {
@@ -848,12 +856,9 @@ body {
   line-height: 24px;
 }
 
-@media screen and (width <= 768px) {
-  .products {
-    max-width: 100%;
-  }
-
+@media screen and (width <= 1300px) {
   .products__list {
+    justify-content: center;
     gap: 32px;
     display: flex;
   }
@@ -873,7 +878,17 @@ body {
   }
 }
 
-@media screen and (width <= 480px) {
+@media screen and (width <= 767px) {
+  .products__item {
+    width: 100%;
+    height: 356px;
+  }
+
+  .products__container_img {
+    width: 100%;
+    height: 178px;
+  }
+
   .products__deleting {
     display: none !important;
   }
@@ -1132,7 +1147,7 @@ body {
   border-radius: 20px;
   flex-shrink: 0;
   gap: 20px;
-  width: 335px;
+  width: 100%;
   height: 232px;
   margin-bottom: 20px;
   padding: 15px;
@@ -1180,17 +1195,11 @@ body {
   border-radius: 10px;
   justify-content: center;
   align-items: center;
-  width: 304px;
+  width: 100%;
   height: 150px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
-}
-
-@media screen and (width >= 1304px) {
-  .discount__box-img {
-    width: 243px;
-  }
 }
 
 .discount__image {
@@ -1212,6 +1221,7 @@ body {
 }
 
 .discount__svg-container {
+  color: #fff;
   background: #6d8434;
   border-radius: 30px;
   justify-content: center;
@@ -1221,6 +1231,10 @@ body {
   height: 34px;
   padding: 8px;
   display: flex;
+}
+
+.discount__svg-container:hover, .discount__svg-container:focus {
+  background-color: #586f1f;
 }
 
 .discount__basket {

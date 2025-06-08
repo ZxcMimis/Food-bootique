@@ -282,6 +282,10 @@ body {
   display: flex;
 }
 
+.header__wrap-svg:hover, .header__wrap-svg:focus {
+  background-color: #586f1f;
+}
+
 .header__home-btn {
   color: #e8e8e2;
   background: #6d8434;
@@ -309,6 +313,10 @@ body {
   .header__home-btn {
     margin-right: 24px;
   }
+}
+
+.header__home-btn:hover {
+  background-color: #586f1f;
 }
 
 .header__cart-btn {
