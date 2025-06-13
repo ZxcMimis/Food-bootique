@@ -27,6 +27,12 @@
         padding: 20px;
     }
 
+    &__item:hover {
+
+        box-shadow: 15px 15px 15px 15px gray;
+        transform: scale(1.03);
+    }
+
     // &__item:nth-child(3),
     // &__item:nth-child(6),
     // &__item:nth-child(9)  {
