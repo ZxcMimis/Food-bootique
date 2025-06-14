@@ -22,7 +22,7 @@
 
   &__item {
     gap: 20px;
-    width: 335px;
+    width: 100%;
     height: 232px;
     flex-shrink: 0;
     border-radius: 20px;
@@ -63,7 +63,7 @@
   }
 
   &__box-img {
-    width: 304px;
+    width: 100%;
     height: 150px;
     display: flex;
     justify-content: center;
@@ -72,10 +72,6 @@
     background: #e8e8e2;
     margin-left: auto;
     margin-right: auto;
-
-    @media screen and (min-width: 1304px) {
-      width: 243px;
-    }
   }
 
   &__image {
@@ -104,6 +100,15 @@
     background: #6d8434;
     width: 34px;
     height: 34px;
+    color: white;
+
+    &:hover {
+      background-color: $dark-accent-color;
+    }
+    
+    &:focus {
+      background-color: $dark-accent-color;
+    }
   }
 
   &__basket {
