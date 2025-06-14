@@ -1,4 +1,17 @@
 .hero {
+
+  &__box {
+    padding-top: 56px;
+
+    @media screen and (min-width: 768px) {
+      padding-top: 100px;
+    }
+
+    @media screen and (min-width: 1304px) {
+      padding-top: 60px;
+    }
+  }
+
   &__title {
     text-align: center;
     color: $dark-text-100;
@@ -7,18 +20,15 @@
     margin: 0 auto;
     font-size: 44px;
     letter-spacing: -0.88px;
-    margin-top: 56px;
 
     @media screen and (min-width: 768px) {
       max-width: 658px;
       font-size: 80px;
       letter-spacing: -1.6px;
-      margin-top: 100px;
     }
 
     @media screen and (min-width: 1304px) {
       max-width: 1042px;
-      margin-top: 60px;
     }
   }
 
