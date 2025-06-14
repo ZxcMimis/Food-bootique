@@ -942,9 +942,12 @@ body {
 
 .footer__container {
   gap: 150px;
-  margin-bottom: 128px;
-  padding-top: 40px;
+  height: 386px;
   display: flex;
+}
+
+.footer__media, .footer__text, .footer__form {
+  margin-top: 40px;
 }
 
 .footer__title_svg {
@@ -1070,7 +1073,7 @@ body {
   .footer__container {
     gap: 0;
     max-width: 100%;
-    margin-bottom: 120px;
+    height: 583px;
     position: relative;
   }
 
@@ -1095,7 +1098,7 @@ body {
   }
 
   .footer__media {
-    margin-right: 78px;
+    padding-right: 78px;
   }
 }
 
@@ -1114,12 +1117,14 @@ body {
 
   .footer__text {
     width: 335px;
-    margin-top: 40px;
+    margin: 0;
+    padding-top: 40px;
   }
 
   .footer__box {
     align-items: start;
-    margin-top: 80px;
+    margin: 0;
+    padding-top: 80px;
     display: flex;
   }
 
