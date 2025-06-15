@@ -26,7 +26,7 @@
     height: 232px;
     flex-shrink: 0;
     border-radius: 20px;
-    background: #fafafa;
+    background: $light-color-100;
     padding: 15px;
     margin-bottom: 20px;
     position: relative;
@@ -97,15 +97,15 @@
     align-items: center;
     gap: 10px;
     border-radius: 30px;
-    background: #6d8434;
+    background: $accent-color-100;
     width: 34px;
     height: 34px;
-    color: white;
+    color: $light-color-100;
 
     &:hover {
       background-color: $dark-accent-color;
     }
-    
+
     &:focus {
       background-color: $dark-accent-color;
     }
@@ -114,7 +114,7 @@
   &__basket {
     width: 18px;
     height: 18px;
-    fill: #fafafa;
+    fill: $light-color-100;
   }
 
   &__svg-discount {
@@ -124,8 +124,23 @@
     fill: $light-color-100;
     border-radius: 50%;
     position: absolute;
-    left: 265px;
+    left: 215px;
     top: 3px;
+
+    @media screen and (min-width: 400px) {
+      left: 320px;
+      top: 3px;
+    }
+
+    @media screen and (min-width: 480px) {
+      left: 355px;
+      top: 3px;
+    }
+
+    @media screen and (min-width: 768px) {
+      left: 265px;
+    top: 3px;
+    }
 
     @media screen and (min-width: 1304px) {
       left: 205px;
