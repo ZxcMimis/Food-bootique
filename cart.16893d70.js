@@ -909,7 +909,9 @@ document.querySelector("body").addEventListener("click", async (e)=>{
             document.querySelector("#product-popularity").textContent = popularity;
             document.querySelector("#product-price").textContent = price;
             document.querySelector("#product-desc").textContent = desc;
-            document.querySelector("#product-add").innerHTML = JSON.parse(localStorage.getItem("cart")).map((product)=>product.id).includes(_id) ? `Added \u{2713}` : `Add to <svg class="product__icon" width="18" height="18">
+            document.querySelector("#product-add").innerHTML = JSON.parse(localStorage.getItem("cart")).map((product)=>product.id).includes(_id) ? `Remove from <svg class="product__icon" width="18" height="18">
+            <use href="#cart"></use>
+          </svg>` : `Add to <svg class="product__icon" width="18" height="18">
             <use href="#cart"></use>
           </svg>`;
         });
@@ -962,7 +964,9 @@ document.querySelector(`[data-productmodal]`).addEventListener("click", async (e
             id: e.target.closest("[data-productmodal]").id,
             count: 1
         });
-        target.textContent = "Added \u2713";
+        target.innerHTML = `Remove from <svg class="product__icon" width="18" height="18">
+            <use href="#cart"></use>
+          </svg>`;
         localStorage.setItem("cart", JSON.stringify(array));
         document.querySelector("#header-cart").textContent = JSON.parse(localStorage.getItem("cart")).length;
         document.getElementById(`${e.target.closest("[data-productmodal]").id}`).querySelector(`[data-productadd='true']`).textContent = "\u2713";
