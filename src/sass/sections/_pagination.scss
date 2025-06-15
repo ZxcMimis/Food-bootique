@@ -1,7 +1,15 @@
 .pagination {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 8px;
+    width: 280px;
+    margin: 0 auto;
+
+    @media screen and (min-width: 455px) {
+        width: 100%;
+        margin: 0;
+    }
 
     @media screen and (min-width: 768px) {
         gap: 32px;
@@ -9,8 +17,13 @@
 
 
     &__list {
+        order: -1;
         display: flex;
         gap: 4px;
+
+        @media screen and (min-width: 455px) {
+            order: 0;
+        }
 
         @media screen and (min-width: 768px) {
             gap: 8px;

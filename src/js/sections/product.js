@@ -56,7 +56,9 @@ document.querySelector("body").addEventListener("click", async (e) => {
         )
           .map((product) => product.id)
           .includes(_id)
-          ? `Added ✓`
+          ? `Remove from <svg class="product__icon" width="18" height="18">
+            <use href="#cart"></use>
+          </svg>`
           : `Add to <svg class="product__icon" width="18" height="18">
             <use href="#cart"></use>
           </svg>`;
@@ -144,7 +146,9 @@ document
         id: e.target.closest("[data-productmodal]").id,
         count: 1,
       });
-      target.textContent = "Added ✓";
+      target.innerHTML = `Remove from <svg class="product__icon" width="18" height="18">
+            <use href="#cart"></use>
+          </svg>`;
       localStorage.setItem("cart", JSON.stringify(array));
       document.querySelector("#header-cart").textContent = JSON.parse(
         localStorage.getItem("cart")
