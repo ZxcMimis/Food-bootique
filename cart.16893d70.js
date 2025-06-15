@@ -909,15 +909,13 @@ document.querySelector("body").addEventListener("click", async (e)=>{
             document.querySelector("#product-popularity").textContent = popularity;
             document.querySelector("#product-price").textContent = price;
             document.querySelector("#product-desc").textContent = desc;
-            document.querySelector("#product-add").innerHTML = JSON.parse(localStorage.getItem("cart")).map((product)=>product.id).includes(_id) ? `Remove from <svg class="product__icon" width="18" height="18">
-            <use href="#cart"></use>
-          </svg>` : `Add to <svg class="product__icon" width="18" height="18">
+            document.querySelector("#product-add").innerHTML = JSON.parse(localStorage.getItem("cart")).map((product)=>product.id).includes(_id) ? `Added \u{2713}` : `Add to <svg class="product__icon" width="18" height="18">
             <use href="#cart"></use>
           </svg>`;
         });
     }
 });
-function closeModal() {
+document.querySelector("#product-close").addEventListener("click", async ()=>{
     document.querySelector("#product-backdrop").classList.add("is-hidden");
     document.querySelector(`[data-productmodal]`).id = "";
     document.querySelector("body").classList.remove("no-scroll");
@@ -929,13 +927,6 @@ function closeModal() {
     document.querySelector("#product-popularity").textContent = "";
     document.querySelector("#product-price").textContent = "";
     document.querySelector("#product-desc").textContent = "";
-}
-document.querySelector("#product-close").addEventListener("click", closeModal);
-document.querySelector("#product-backdrop").addEventListener("click", (e)=>{
-    if (e.currentTarget === e.target) closeModal();
-});
-window.addEventListener("keydown", (e)=>{
-    if (e.code === "Escape") closeModal();
 });
 document.querySelector("body").addEventListener("click", async (e)=>{
     if (e.target.dataset.productadd === "true" || e.target.closest("[data-productadd]")) {
@@ -964,9 +955,7 @@ document.querySelector(`[data-productmodal]`).addEventListener("click", async (e
             id: e.target.closest("[data-productmodal]").id,
             count: 1
         });
-        target.innerHTML = `Remove from <svg class="product__icon" width="18" height="18">
-            <use href="#cart"></use>
-          </svg>`;
+        target.textContent = "Added \u2713";
         localStorage.setItem("cart", JSON.stringify(array));
         document.querySelector("#header-cart").textContent = JSON.parse(localStorage.getItem("cart")).length;
         document.getElementById(`${e.target.closest("[data-productmodal]").id}`).querySelector(`[data-productadd='true']`).textContent = "\u2713";
