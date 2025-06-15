@@ -124,26 +124,14 @@
     fill: $light-color-100;
     border-radius: 50%;
     position: absolute;
-    left: 215px;
+    right: 10px;
     top: 3px;
-
-    @media screen and (min-width: 400px) {
-      left: 320px;
-      top: 3px;
-    }
 
     @media screen and (min-width: 480px) {
-      left: 355px;
       top: 3px;
     }
-
-    @media screen and (min-width: 768px) {
-      left: 265px;
-    top: 3px;
-    }
-
+    
     @media screen and (min-width: 1304px) {
-      left: 205px;
       top: -3px;
     }
   }
