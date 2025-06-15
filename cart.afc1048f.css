@@ -1078,7 +1078,7 @@ body {
   align-items: center;
   gap: 8px;
   width: 336px;
-  padding: 12px;
+  padding: 12px 149px;
   font-family: Neue Montreal;
   font-size: 16px;
   font-weight: 500;
@@ -1212,7 +1212,12 @@ body {
     margin-top: 40px;
   }
 
-  .footer__bth, .footer__input {
+  .footer__bth {
+    width: 100%;
+    padding: 12px 149px;
+  }
+
+  .footer__input {
     width: 100%;
   }
 }
@@ -1229,6 +1234,7 @@ body {
 
   .footer__bth {
     width: 100%;
+    padding: 12px 140px;
   }
 
   .footer__input {
