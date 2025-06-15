@@ -82,6 +82,7 @@
 
 
     &__input {
+
         box-sizing: border-box;
         display: flex;
         padding: 12px 140px 12px 18px;
@@ -115,14 +116,14 @@
 
     &__bth {
         display: flex;
-        width: 336px;
-        padding: 12px 149px;
+        width: 336px;        
+        padding: 12px;
         justify-content: center;
         align-items: center;
         gap: 8px;
         border-radius: 30px;
         background: #E8E8E2;
-
+        
         color: #010101;
         font-family: "Neue Montreal";
         font-size: 16px;
@@ -301,7 +302,6 @@
         }
 
         &__bth {
-            padding: 12px 149px;
             width: 100%;
 
         }
@@ -333,14 +333,13 @@
         }
 
         &__bth {
-            padding: 12px 140px;
             width: 100%;
 
         }
 
         &__input {
             width: 100%;
-                    padding: 12px 0 12px 18px;
+            padding: 12px 0 12px 18px;
         }
     }
 }
