@@ -294,16 +294,16 @@ body {
   align-items: center;
   gap: 10px;
   margin-right: 4px;
-  padding: 10px 15px;
+  padding: 10px 20px;
   font-size: 14px;
   font-weight: 500;
-  display: flex;
+  display: none;
 }
 
 @media screen and (width >= 480px) {
   .header__home-btn {
     margin-right: 6px;
-    padding: 10px 20px;
+    display: flex;
   }
 }
 
@@ -1302,34 +1302,18 @@ body {
   height: 60px;
   position: absolute;
   top: 3px;
-  left: 215px;
-}
-
-@media screen and (width >= 400px) {
-  .discount__svg-discount {
-    top: 3px;
-    left: 320px;
-  }
+  right: 10px;
 }
 
 @media screen and (width >= 480px) {
   .discount__svg-discount {
     top: 3px;
-    left: 355px;
-  }
-}
-
-@media screen and (width >= 768px) {
-  .discount__svg-discount {
-    top: 3px;
-    left: 265px;
   }
 }
 
 @media screen and (width >= 1304px) {
   .discount__svg-discount {
     top: -3px;
-    left: 205px;
   }
 }
 
@@ -1439,7 +1423,7 @@ body {
   align-items: center;
   gap: 8px;
   width: 336px;
-  padding: 12px 149px;
+  padding: 12px;
   font-family: Neue Montreal;
   font-size: 16px;
   font-weight: 500;
@@ -1573,12 +1557,7 @@ body {
     margin-top: 40px;
   }
 
-  .footer__bth {
-    width: 100%;
-    padding: 12px 149px;
-  }
-
-  .footer__input {
+  .footer__bth, .footer__input {
     width: 100%;
   }
 }
@@ -1595,7 +1574,6 @@ body {
 
   .footer__bth {
     width: 100%;
-    padding: 12px 140px;
   }
 
   .footer__input {
