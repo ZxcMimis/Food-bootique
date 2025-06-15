@@ -143,23 +143,22 @@
 
 @media screen and (max-width: 360px) {
     .modals-window {
-        width: 320px;
+        width: calc(100% - 40px);
         top: 50%;
-        left: 45%;
+        left: 50%;
     }
 
-        .modal-box {
-        display: inline-flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
+    .modal-box {
         height: 150px;
-        width: 320px;
-        position: absolute;
-        top: 90px;
+        width: 100%;
         left: 0;
         bottom: 100px;
-        margin-bottom: 22px;
+    }
+
+    .modal-img {
+        width: 335px;
+        height: 144px;
+        flex-shrink: 0;
     }
 
 

@@ -129,3 +129,17 @@
 
        }
 
+       @media screen and (max-width: 360px) {
+    .modal-window {
+        width: calc(100% - 40px);
+    }
+
+    .box-modal{
+        width: 100%;
+    }
+
+
+
+
+}
+
