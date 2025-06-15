@@ -53,7 +53,7 @@
 }
 
 .header__home-btn {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -61,14 +61,14 @@
   background: $accent-color-100;
   color: $main-bg-100;
 
-  padding: 10px 15px;
   font-size: 14px;
   font-weight: 500;
+  padding: 10px 20px;
   margin-right: 4px;
 
   @media screen and (min-width: 480px) {
+    display: flex;
     margin-right: 6px;
-    padding: 10px 20px;
   }
 
   @media screen and (min-width: 768px) {
