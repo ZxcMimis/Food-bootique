@@ -498,6 +498,23 @@ body {
   }
 }
 
+.cart__list::-webkit-scrollbar {
+  width: 9px;
+}
+
+.cart__list::-webkit-scrollbar-track {
+  background-color: #0000;
+}
+
+.cart__list::-webkit-scrollbar-thumb {
+  background: #010101cc;
+}
+
+.cart__list::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  background: #010101e6;
+}
+
 .cart__item {
   border-top: 1px solid #0101011a;
   gap: 20px;
