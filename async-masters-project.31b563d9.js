@@ -1061,7 +1061,7 @@ document.querySelector("body").addEventListener("click", async (e)=>{
         });
     }
 });
-function closeModal() {
+document.querySelector("#product-close").addEventListener("click", async ()=>{
     document.querySelector("#product-backdrop").classList.add("is-hidden");
     document.querySelector(`[data-productmodal]`).id = "";
     document.querySelector("body").classList.remove("no-scroll");
@@ -1073,13 +1073,6 @@ function closeModal() {
     document.querySelector("#product-popularity").textContent = "";
     document.querySelector("#product-price").textContent = "";
     document.querySelector("#product-desc").textContent = "";
-}
-document.querySelector("#product-close").addEventListener("click", closeModal);
-document.querySelector("#product-backdrop").addEventListener("click", (e)=>{
-    if (e.currentTarget === e.target) closeModal();
-});
-window.addEventListener("keydown", (e)=>{
-    if (e.code === "Escape") closeModal();
 });
 document.querySelector("body").addEventListener("click", async (e)=>{
     if (e.target.dataset.productadd === "true" || e.target.closest("[data-productadd]")) {
