@@ -772,6 +772,16 @@ document.querySelector("#filters-alphabet-list").addEventListener("click", (e)=>
     else sort = e.target.id;
     makeMarkup(keyword, category, 1, sort);
 });
+document.querySelector("body").addEventListener("click", (e)=>{
+    if (!e.target.closest("#filters-categories") && !document.querySelector("#filters-categories-list").classList.contains("is-hidden")) {
+        document.querySelector("#filters-categories-list").classList.add("is-hidden");
+        document.querySelector("#filters-categories").querySelector("svg").classList.remove("filters__rotated");
+    }
+    if (!e.target.closest("#filters-alphabet") && !document.querySelector("#filters-alphabet-list").classList.contains("is-hidden")) {
+        document.querySelector("#filters-alphabet-list").classList.add("is-hidden");
+        document.querySelector("#filters-alphabet").querySelector("svg").classList.remove("filters__rotated");
+    }
+});
 
 },{"../fetchs/getFilteredProducts":"cf4nK","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"cf4nK":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
