@@ -62,6 +62,13 @@ document.querySelector("body").addEventListener("click", async (e) => {
           : `Add to <svg class="product__icon" width="18" height="18">
             <use href="#cart"></use>
           </svg>`;
+        if (
+          JSON.parse(localStorage.getItem("cart"))
+            .map((product) => product.id)
+            .includes(_id)
+        ) {
+          document.querySelector("#product-add").classList.add("remove");
+        }
       }
     );
   }
@@ -135,26 +142,54 @@ document
           ? e.target
           : e.target.closest("[data-productaddmodal]");
       const array = [...JSON.parse(localStorage.getItem("cart"))];
-      if (
-        array
-          .map((item) => item.id)
-          .includes(e.target.closest("[data-productmodal]").id)
-      ) {
-        return;
-      }
-      array.push({
-        id: e.target.closest("[data-productmodal]").id,
-        count: 1,
-      });
-      target.innerHTML = `Remove from <svg class="product__icon" width="18" height="18">
+      if (target.classList.contains("remove")) {
+        target.classList.remove("remove");
+        array.splice(
+          array.indexOf(
+            array.find(
+              (item) =>
+                item.id === document.querySelector("[data-productmodal]").id
+            )
+          ),
+          1
+        );
+        localStorage.setItem("cart", JSON.stringify(array));
+        document.querySelector("#header-cart").textContent = JSON.parse(
+          localStorage.getItem("cart")
+        ).length;
+        document
+          .getElementById(`${e.target.closest("[data-productmodal]").id}`)
+          .querySelector(
+            `[data-productadd='true']`
+          ).innerHTML = `<svg class="product__icon" width="18" height="18">
+          <use href="#cart"></use>
+        </svg>`;
+        target.innerHTML = `Add to <svg class="product__icon" width="18" height="18">
+        <use href="#cart"></use>
+      </svg>`;
+      } else {
+        if (
+          array
+            .map((item) => item.id)
+            .includes(e.target.closest("[data-productmodal]").id)
+        ) {
+          return;
+        }
+        target.classList.add("remove");
+        array.push({
+          id: e.target.closest("[data-productmodal]").id,
+          count: 1,
+        });
+        target.innerHTML = `Remove from <svg class="product__icon" width="18" height="18">
             <use href="#cart"></use>
           </svg>`;
-      localStorage.setItem("cart", JSON.stringify(array));
-      document.querySelector("#header-cart").textContent = JSON.parse(
-        localStorage.getItem("cart")
-      ).length;
-      document
-        .getElementById(`${e.target.closest("[data-productmodal]").id}`)
-        .querySelector(`[data-productadd='true']`).textContent = "✓";
+        localStorage.setItem("cart", JSON.stringify(array));
+        document.querySelector("#header-cart").textContent = JSON.parse(
+          localStorage.getItem("cart")
+        ).length;
+        document
+          .getElementById(`${e.target.closest("[data-productmodal]").id}`)
+          .querySelector(`[data-productadd='true']`).innerHTML = "✓";
+      }
     }
   });
