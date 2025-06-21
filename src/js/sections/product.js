@@ -85,6 +85,8 @@ function closeModal() {
   document.querySelector("#product-popularity").textContent = "";
   document.querySelector("#product-price").textContent = "";
   document.querySelector("#product-desc").textContent = "";
+  document.querySelector("#product-add").classList.remove("remove");
+  document.querySelector("#product-add").innerHTML = "";
 }
 
 document.querySelector("#product-close").addEventListener("click", closeModal);
