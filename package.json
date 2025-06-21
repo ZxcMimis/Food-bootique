@@ -4,11 +4,10 @@
   "description": "",
   "homepage": "https://elen-purple.github.io/async-masters-project/",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx parcel src/index.html",
+    "start": "npx parcel src/index.html --no-cache",
     "build": "parcel build src/index.html --no-cache --public-url ./",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build"
   },
   "keywords": [],
   "author": "",
